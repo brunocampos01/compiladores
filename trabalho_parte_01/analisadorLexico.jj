@@ -1,0 +1,8 @@
+options {
+  // O desempenho de um compilador estático é superior
+  STATIC = false;
+}
+
+PARSER_BEGIN(langX)
+
+PARSER_END(langX)
