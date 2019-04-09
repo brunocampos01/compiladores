@@ -2,7 +2,9 @@
 
 ### Pre-requirements
 - Javacc<br/>
-`sudo apt install javacc`
+```
+sudo apt install javacc
+```
 
 ### Generate parser 
 ```
