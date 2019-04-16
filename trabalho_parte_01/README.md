@@ -1,6 +1,8 @@
 # Lexer parser
 
 ### Pre-requirements
+- Git
+- Java 1.8
 - Javacc<br/>
 ```
 sudo apt install javacc
@@ -15,7 +17,6 @@ javacc langX++.jj
 ```
 javac parser/langX.java
 ```
-
 
 ### Testes
 ```

@@ -71,3 +71,6 @@ resources/*
 hs_err_pid*
 
 .idea/*
+Compilers*
+papiros/*
+vscode*
