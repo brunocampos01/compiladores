@@ -90,7 +90,7 @@ class bintree{
     return 0;
   }
 
-  // Extensões adionadas
+  // Extensões adicionadas
   // BYTE, AND, PUBLIC, FINAL, PRIVATE
   public final byte idade(byte i){
     private byte idade;
@@ -111,10 +111,11 @@ class bintree{
   }
 
   // LONG, NOT
-  protected compara(long a){
+  protected int compara(long a){
     if(!a){
-      return 0;
+      return 1;
     }
+    return 0;
   }
 
   // XOR, FLOAT
@@ -127,6 +128,5 @@ class bintree{
 
     print "a= "+a;
     print "b= "+b;
-
   }
 }

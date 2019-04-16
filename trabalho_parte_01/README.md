@@ -1,7 +1,6 @@
 # Lexer parser
 
 ### Pre-requirements
-- Git
 - Java 1.8
 - Javacc<br/>
 ```
