@@ -12,14 +12,14 @@ sudo apt install javacc
 javacc langX++.jj
 ```
 
-###  Gerar .class 
+###  Generate .class 
 ```
 javac parser/langX.java
 ```
 
-### Testes
+### Tests
 ```
- java parser.langX -short exemplos/bintree-erro-lexico.x
  java parser.langX -short exemplos/bintree.x
+ java parser.langX -short exemplos/bintree-erro-lexico.x
 
 ```
