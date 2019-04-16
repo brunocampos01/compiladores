@@ -20,6 +20,6 @@ javac parser/langX.java
 ### Testes
 ```
  java parser.langX -short exemplos/bintree-erro-lexico.x
-  java parser.langX -short exemplos/bintree.x
+ java parser.langX -short exemplos/bintree.x
 
 ```
