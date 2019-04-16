@@ -1,5 +1,4 @@
-# compiladores
-Repositório para a matéria introdução à compiladores.
+# Compilador
 
 
 ## Analisador léxico (lexer) 
