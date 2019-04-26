@@ -1,10 +1,10 @@
 /*************************************************************************
 Arquivo a ser processado pelo programa JavaCC.
-Cont�m:
-       - descri��o do analisador l�xico para a linguagem X++ 
+Contem:
+       - descricao do analisador lexico para a linguagem X+++
 
-Autor: Marcio Delamaro
-Este programa � parte do livro "Constru��o de compiladores usando ferra..."
+Autor: Bruno Campos, Fabiano Oliveira, Lais Perazzolo, Thary Correa
+
 ************************************************************************/
 options {
   STATIC = false;
@@ -21,8 +21,8 @@ final static String Version = "X++ Compiler - Version 1.0 - 2004";
 boolean Menosshort = false; // sa�da resumida = falso
 
 
-// Define o m�todo "main" da classe langX.  
-  public  static void main(String args[]) throws ParseException 
+// Define o m�todo "main" da classe langX.
+  public  static void main(String args[]) throws ParseException
   {
     String filename = ""; // nome do arquivo a ser analisado
     langX parser;     // analisador l�xico/sint�tico
@@ -43,22 +43,22 @@ boolean Menosshort = false; // sa�da resumida = falso
     }
 
     if (args[i].equals("-"))
-    {       // l� da entrada padr�o      
+    {       // l� da entrada padr�o
         System.out.println("Reading from standard input . . .");
         parser = new langX(System.in);
      }
-     else 
+     else
     {       // l� do arquivo
-        filename = args[args.length-1];  
+        filename = args[args.length-1];
         System.out.println("Reading from file " + filename + " . . .");
         try {
             parser = new langX(new java.io.FileInputStream(filename));
-        } 
+        }
     catch (java.io.FileNotFoundException e) {
                System.out.println("File " + filename + " not found.");
         return;
         }
-    } 
+    }
     parser.Menosshort = ms;
     parser.program();   // chama o m�todo que faz a an�lise
     if ( parser.token_source.foundLexError() != 0 ) // verifica se houve erro l�xico
@@ -95,7 +95,7 @@ public int foundLexError()
 }
 
 
-/* Espa�os a serem desprezados no in�cio de cada token */
+/* Espacos a serem desprezados no inicio de cada token */
 
 SKIP :
 {
@@ -133,7 +133,7 @@ SKIP :
 
 TOKEN :
 {
-  < BREAK: "break" > 
+  < BREAK: "break" >
 | < CLASS: "class" >
 | < CONSTRUCTOR: "constructor" >
 | < ELSE: "else" >
@@ -147,7 +147,7 @@ TOKEN :
 | < RETURN: "return" >
 | < STRING: "string" >
 | < SUPER: "super" >
-| < BYTE: "byte" > 
+| < BYTE: "byte" >
 | < SHORT: "short" >
 | < LONG: "long" >
 | < FLOAT: "float" >
@@ -161,12 +161,26 @@ TOKEN :
 
 TOKEN :
 {
-  < int_constant:(  // n�meros decimais, octais, hexadecimais ou bin�rios
-                  (["0"-"9"] (["0"-"9"])* ) | 
+  < int_constant:(  // numeros decimais, octais, hexadecimais ou binarios
+                  (["0"-"9"] (["0"-"9"])* ) |
                   (["0"-"7"] (["0"-"7"])* ["o", "O"] ) |
                   (["0"-"9"] (["0"-"7","A"-"F","a"-"f"])* ["h", "H"] ) |
                   (["0"-"1"] (["0"-"1"])* ["b", "B"])
                  ) >
+|
+   < long_constant:(  // numeros long
+                    (["0"-"9"] (["0"-"9"])*"F")
+                    ) >
+
+|
+   < short_constant:(  // numeros short
+                     (["0"-"9"] (["0"-"9"])* )
+                    ) >
+
+|
+   < float_constant:(  // numeros com ponto flutuante
+                     (["0"-"9"])+ "." (["0"-"9"])*
+                    ) >
 |
   < string_constant:    // constante string como "abcd bcda"
       "\""( ~["\"","\n","\r"])* "\"" >
@@ -185,7 +199,7 @@ TOKEN :
   < #DIGIT:["0"-"9"] >
 }
 
-/* S�mbolos especiais */
+/* Simbolos especiais */
 
 TOKEN :
 {
@@ -222,10 +236,10 @@ TOKEN :
 | < NOT: "!" >
 }
 
-/* Trata os erros l�xicos */
+/* Trata os erros lexicos */
 SPECIAL_TOKEN :
 {
-<INVALID_LEXICAL: 
+<INVALID_LEXICAL:
 (~ ["a"-"z", "A"-"Z",
   "0"-"9",
   "\"",
@@ -254,15 +268,15 @@ SPECIAL_TOKEN :
   "\f"
 ])+>
    {
-    System.err.println("Line " + input_stream.getEndLine() + 
+    System.err.println("Line " + input_stream.getEndLine() +
                            " - Invalid string found: " + image);
     countLexError++;
    }
 |
-   <INVALID_CONST: 
+   <INVALID_CONST:
    "\"" (~ ["\n","\r","\""])* ["\n","\r"]>
    {
-    System.err.println("Line " + input_stream.getEndLine() + 
+    System.err.println("Line " + input_stream.getEndLine() +
                            " - String constant has a \\n: " + image);
     countLexError++;
    }
@@ -282,15 +296,15 @@ Token t;
         st = st.specialToken;
         do {
            if ( Menosshort )
-          System.out.println(st.image + "  " + 
+          System.out.println(st.image + "  " +
                                  im(st.kind) + " " +
                                  st.kind);
            else
-              System.out.println("Line: " + st.beginLine + 
-                                 " Column: " + st.beginColumn + 
+              System.out.println("Line: " + st.beginLine +
+                                 " Column: " + st.beginColumn +
                                  " " + st.image +
                                  "  " + im(st.kind) + "  "+t.kind);
-          st = st.next;       
+          st = st.next;
         } while (st != t.next);
-    } while (t.kind != langXConstants.EOF);  
+    } while (t.kind != langXConstants.EOF);
 }
