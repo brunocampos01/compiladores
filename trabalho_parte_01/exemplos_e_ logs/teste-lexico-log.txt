@@ -1,6 +1,6 @@
-C:\Users\Fabiano\Desktop\compiladores\trabalho_parte_01>java parser.langX -short ../trabalho_parte_01/exemplos/teste-lexico.x
+C:\Users\Fabiano\Desktop\compiladores\trabalho_parte_01>java parser.langX -short "exemplos_e_ logs\teste-lexico.x"
 X++ Compiler - Version 1.0 - 2004
-Reading from file ../trabalho_parte_01/exemplos/teste-lexico.x . . .
+Reading from file exemplos_e_ logs\teste-lexico.x . . .
 class  class 13
 teste  <IDENT> 37
 {  { 42

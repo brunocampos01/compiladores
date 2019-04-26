@@ -1,47 +1,145 @@
-/***********************************************
-Esse programa implementa uma série de testes léxicos da linguagem X+++
-*************************************************/
-
-class teste {
-
-// Extensões adicionadas
-  // BYTE, AND, PUBLIC, FINAL, PRIVATE
-  public #final b?te idade(byte i){
-    private byte idade;
-
-    if(idade > 0 && idade <= 127){
-      idade = i;
-      return idade;
-    }
-  }
-
-  // SHORT, OR, PROTECTED
-  protected imprimeIteracao(short i){
-    for(i = 0; i < 100; i++) {
-      if(i > 10 || i < 50){
-        print i;
-      }
-    }
-  }
-
-  // LONG, NOT
-  protected int compara(long a){
-    if(!?a){
-      return 1;
-    }
-    return 0;
-  }
-
-  // XOR, FLOAT
-  protected testaXor(){
-    float a = 1L;
-    float b = 2L;
-
-    a = a ^ b;
-    b = b ^ a;
-
-    print "a= "+a;
-    print "b= "+b;
-  }
-
-}
+C:\Users\Fabiano\Desktop\compiladores\trabalho_parte_01>java parser.langX -short "exemplos_e_ logs\teste-com-erro-lexico.x"
+X++ Compiler - Version 1.0 - 2004
+Reading from file exemplos_e_ logs\teste-com-erro-lexico.x . . .
+class  class 13
+teste  <IDENT> 37
+{  { 42
+public  public 31
+Line 9 - Invalid string found: #
+#  <INVALID_LEXICAL> 65
+b  <IDENT> 37
+Line 9 - Invalid string found: ?
+?  <INVALID_LEXICAL> 65
+idade  <IDENT> 37
+(  ( 40
+byte  byte 26
+i  <IDENT> 37
+)  ) 41
+{  { 42
+private  private 32
+byte  byte 26
+idade  <IDENT> 37
+;  ; 46
+if  if 18
+(  ( 40
+idade  <IDENT> 37
+>  > 50
+0  <int_constant> 34
+&&  && 61
+idade  <IDENT> 37
+<=  <= 53
+127  <int_constant> 34
+)  ) 41
+{  { 42
+idade  <IDENT> 37
+=  = 49
+i  <IDENT> 37
+;  ; 46
+return  return 23
+idade  <IDENT> 37
+;  ; 46
+}  } 43
+}  } 43
+protected  protected 33
+imprimeIteracao  <IDENT> 37
+(  ( 40
+short  short 27
+i  <IDENT> 37
+)  ) 41
+{  { 42
+for  for 17
+(  ( 40
+i  <IDENT> 37
+=  = 49
+0  <int_constant> 34
+;  ; 46
+i  <IDENT> 37
+<  < 51
+100  <int_constant> 34
+;  ; 46
+i  <IDENT> 37
++  + 56
++  + 56
+)  ) 41
+{  { 42
+if  if 18
+(  ( 40
+i  <IDENT> 37
+>  > 50
+10  <int_constant> 34
+||  || 62
+i  <IDENT> 37
+<  < 51
+50  <int_constant> 34
+)  ) 41
+{  { 42
+print  print 21
+i  <IDENT> 37
+;  ; 46
+}  } 43
+}  } 43
+}  } 43
+protected  protected 33
+int  int 19
+compara  <IDENT> 37
+(  ( 40
+long  long 28
+a  <IDENT> 37
+)  ) 41
+{  { 42
+if  if 18
+(  ( 40
+!  ! 64
+Line 29 - Invalid string found: ?
+?  <INVALID_LEXICAL> 65
+)  ) 41
+{  { 42
+return  return 23
+1  <int_constant> 34
+;  ; 46
+}  } 43
+return  return 23
+0  <int_constant> 34
+;  ; 46
+}  } 43
+protected  protected 33
+testaXor  <IDENT> 37
+(  ( 40
+)  ) 41
+{  { 42
+float  float 29
+a  <IDENT> 37
+=  = 49
+1  <int_constant> 34
+;  ; 46
+float  float 29
+b  <IDENT> 37
+=  = 49
+2  <int_constant> 34
+;  ; 46
+a  <IDENT> 37
+=  = 49
+a  <IDENT> 37
+^  ^ 63
+b  <IDENT> 37
+;  ; 46
+b  <IDENT> 37
+=  = 49
+b  <IDENT> 37
+^  ^ 63
+a  <IDENT> 37
+;  ; 46
+print  print 21
+"a= "  <string_constant> 35
++  + 56
+a  <IDENT> 37
+;  ; 46
+print  print 21
+"b= "  <string_constant> 35
++  + 56
+b  <IDENT> 37
+;  ; 46
+}  } 43
+}  } 43
+  <EOF> 0
+3 Lexical Errors found
