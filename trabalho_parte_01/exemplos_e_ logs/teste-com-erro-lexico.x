@@ -34,8 +34,8 @@ class teste {
 
   // XOR, FLOAT
   protected testaXor(){
-    float a = 1;
-    float b = 2;
+    float a = 1L;
+    float b = 2L;
 
     a = a ^ b;
     b = b ^ a;
