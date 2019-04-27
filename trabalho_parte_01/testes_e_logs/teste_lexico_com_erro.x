@@ -1,5 +1,5 @@
 /*****************
-Esse programa implementa uma série de algoritmos de testes léxicos da linguagem X+++
+Esse programa implementa uma série de algoritmos COM ERROS de testes léxicos da linguagem X+++
 *****************/
 
 class teste {
