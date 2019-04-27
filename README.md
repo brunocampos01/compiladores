@@ -2,9 +2,9 @@
 
 ## Trabalho
 Criação de um compilador
-- (Analisador Léxico)[]
-- (Analisador Sinático)[]
-- (Analisador Semântico)[]
+- [Analisador Léxico]()
+- [Analisador Sinático]()
+- [Analisador Semântico]()
 
 
 ## Analisador léxico (lexer) 
@@ -15,7 +15,7 @@ Criação de um compilador
 Imagem
 
 
-### Funcionamento do analisar léxico:  
+### Funcionamento do analisar léxico
 
 1. isolar cada um de seus argumentos na forma de uma lista ligada   
 2. avaliar os argumentos na forma normal (BNF, veremos depois)   
