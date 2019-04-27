@@ -1,22 +1,22 @@
 # Relatório Analisador Léxico X+++
 
-### Equipe
-14104255 - Bruno Aurélio Rôzza de Moura Campos
-14101370 - Fabiano Pereira de Oliveira
-14101383 - Laís Ferrigo Perazzolo
-14101398 - Thary Correia
+## Equipe
+14104255 - Bruno Aurélio Rôzza de Moura Campos<br/>
+14101370 - Fabiano Pereira de Oliveira<br/>
+14101383 - Laís Ferrigo Perazzolo<br/>
+14101398 - Thary Correia<br/>
 
-### Papeís no Desenvolvimento
+## Papeís no Desenvolvimento
 
-Houve 3 encontros com **todos** os membros para o desenvolvimento da primeira parte do trabalho.
+Houve 3 encontros com **todos** os membros participando do desenvolvimento da primeira parte do trabalho.
 
-### Especificação léxica da linguagem utilizada como arquivo de entrada da ferramenta javacc
+## Especificação léxica da linguagem utilizada como arquivo de entrada da ferramenta javacc
 
 Foi utilizado a referência do livro "Como Construir um Compilador ", no Capı́tulo 3, Delamaro (2004) para obter a especificação léxica da linguagem. Em seguida, foi implementado as seguintes extensões:
 
-• Operadores lógicos AND, OR, XOR e NOT;
-• Novos tipos de variáveis e literais: BYTE, SHORT, LONG e FLOAT, além dos já existentes;
-• Qualificadores de identificadores: FINAL, PUBLIC, PRIVATE e PROTECTED, como usado em Java.
+• Operadores lógicos AND, OR, XOR e NOT;<br/>
+• Novos tipos de variáveis e literais: BYTE, SHORT, LONG e FLOAT, além dos já existentes;<br/>
+• Qualificadores de identificadores: FINAL, PUBLIC, PRIVATE e PROTECTED, como usado em Java.<br/>
 
 ```
 /*************************************************************************
