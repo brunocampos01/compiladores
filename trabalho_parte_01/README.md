@@ -19,7 +19,7 @@ javac parser/langX.java
 
 ### Tests
 ```
- java parser.langX -short exemplos/bintree.x
- java parser.langX -short exemplos/bintree-erro-lexico.x
+ java parser.langX -short testes_e_logs/teste-lexico.x
+ java parser.langX -short testes_e_logs/teste-com-erro-lexico.x
 
 ```

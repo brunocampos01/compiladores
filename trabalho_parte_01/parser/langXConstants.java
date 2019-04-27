@@ -59,9 +59,9 @@ public interface langXConstants {
   /** RegularExpression Id. */
   int long_constant = 35;
   /** RegularExpression Id. */
-  int float_constant = 36;
+  int short_constant = 36;
   /** RegularExpression Id. */
-  int short_constant = 37;
+  int float_constant = 37;
   /** RegularExpression Id. */
   int string_constant = 38;
   /** RegularExpression Id. */
@@ -172,8 +172,8 @@ public interface langXConstants {
     "\"protected\"",
     "<int_constant>",
     "<long_constant>",
-    "<float_constant>",
     "<short_constant>",
+    "<float_constant>",
     "<string_constant>",
     "\"null\"",
     "<IDENT>",

@@ -1,11 +1,11 @@
 /*************************************************************************
 Arquivo a ser processado pelo programa JavaCC.
 Contem:
-       - descricao do analisador lexico para a linguagem X+++
+       - descri??o do analisador l?xico para a linguagem X+++
 
 Autor: Bruno Campos, Fabiano Oliveira, Lais Perazzolo, Thary Correa
-
 ************************************************************************/
+
 options {
   STATIC = false;
 }
@@ -18,19 +18,19 @@ import java.io.*;
 
 public class langX {
 final static String Version = "X++ Compiler - Version 1.0 - 2004";
-boolean Menosshort = false; // sa�da resumida = falso
+boolean Menosshort = false; // sa?da resumida = falso
 
 
-// Define o m�todo "main" da classe langX.
+// Define o m?todo "main" da classe langX.
   public  static void main(String args[]) throws ParseException
   {
     String filename = ""; // nome do arquivo a ser analisado
-    langX parser;     // analisador l�xico/sint�tico
+    langX parser;     // analisador l?xico/sint?tico
     int i;
     boolean ms = false;
 
     System.out.println(Version);
-    // l� os par�metros passados para o compilador
+    // l? os par?metros passados para o compilador
     for (i = 0; i < args.length - 1; i++)
     {
     if ( args[i].toLowerCase().equals("-short") )
@@ -43,12 +43,12 @@ boolean Menosshort = false; // sa�da resumida = falso
     }
 
     if (args[i].equals("-"))
-    {       // l� da entrada padr�o
+    {       // l? da entrada padr?o
         System.out.println("Reading from standard input . . .");
         parser = new langX(System.in);
      }
      else
-    {       // l� do arquivo
+    {       // l? do arquivo
         filename = args[args.length-1];
         System.out.println("Reading from file " + filename + " . . .");
         try {
@@ -60,8 +60,8 @@ boolean Menosshort = false; // sa�da resumida = falso
         }
     }
     parser.Menosshort = ms;
-    parser.program();   // chama o m�todo que faz a an�lise
-    if ( parser.token_source.foundLexError() != 0 ) // verifica se houve erro l�xico
+    parser.program();   // chama o m?todo que faz a an?lise
+    if ( parser.token_source.foundLexError() != 0 ) // verifica se houve erro l?xico
         System.out.println(parser.token_source.foundLexError() + " Lexical Errors found");
     else
         System.out.println("Program successfully analyzed.");
@@ -182,7 +182,7 @@ TOKEN :
                      (["0"-"9"])+ "." (["0"-"9"])*
                     ) >
 |
-  < string_constant:    // constante string como "abcd bcda"
+   < string_constant:    // constante string como "abcd bcda"
       "\""( ~["\"","\n","\r"])* "\"" >
 |
   < null_constant: "null" > // constante null
