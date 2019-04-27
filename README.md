@@ -2,7 +2,7 @@
 
 ## Trabalho
 Criação de um compilador
-- [Analisador Léxico]()
+- [Analisador Léxico](https://github.com/brunocampos01/compiladores/tree/master/trabalho_parte_01)
 - [Analisador Sinático]()
 - [Analisador Semântico]()
 
