@@ -1,5 +1,11 @@
 # Compilador
 
+## Trabalho
+Criação de um compilador
+- (Analisador Léxico)[]
+- (Analisador Sinático)[]
+- (Analisador Semântico)[]
+
 
 ## Analisador léxico (lexer) 
 
@@ -17,14 +23,3 @@ Imagem
 4. criar um ‘node’ para cada tipo apropriado   
 5. preencher o campo do node com o resultado   
 6. retornar o node 
-Imagem
-
-## Analisador sintático (Parser)  
-- Analisa tokens e constroi uma arvore sintática  
-- A análise sintática determina se uma cadeia de tokens (simbolos), já analisados pelo analisador léxico, pode ser gerado por uma gramatica.  
-Imagem
-
-Existem geradores de analisadores sintáticos :
-- Yacc  
-- Lex ou Flex  
-- Bison
