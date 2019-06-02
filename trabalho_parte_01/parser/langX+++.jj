@@ -3,7 +3,7 @@ Arquivo a ser processado pelo programa JavaCC.
 Contem:
        - descri??o do analisador l?xico para a linguagem X+++
 
-Autor: Bruno Campos, Fabiano Oliveira, Lais Perazzolo, Thary Correa
+Autores: Bruno Campos, Fabiano Oliveira, Lais Perazzolo, Thary Correa
 ************************************************************************/
 
 options {

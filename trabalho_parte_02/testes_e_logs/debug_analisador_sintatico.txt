@@ -1,0 +1,54 @@
+X++ Compiler - Version 1.0 - 2004
+Reading from file testes_e_logs/debugAS.x . . .
+Call:   program
+  Call:   classlist
+    Call:   classdecl
+      Consumed token: <"class" at line 1 column 1>
+      Consumed token: <<IDENT>: "A" at line 1 column 7>
+      Call:   classbody
+        Consumed token: <"{" at line 1 column 9>
+        Call:   vardecl(LOOKING AHEAD...)
+          Visited token: <"int" at line 2 column 1>; Expected token: <"int">
+          Visited token: <<IDENT>: "a" at line 2 column 5>; Expected token: <<IDENT>>
+          Visited token: <"," at line 2 column 6>; Expected token: <"[">
+          Visited token: <"," at line 2 column 6>; Expected token: <",">
+          Call:   vardecl
+            Consumed token: <"int" at line 2 column 1>
+            Consumed token: <<IDENT>: "a" at line 2 column 5>
+            Consumed token: <"," at line 2 column 6>
+            Consumed token: <<IDENT>: "b" at line 2 column 8>
+          Return: vardecl
+          Consumed token: <";" at line 2 column 9>
+          Call:   vardecl(LOOKING AHEAD...)
+            Visited token: <"int" at line 4 column 1>; Expected token: <"int">
+            Visited token: <<IDENT>: "m" at line 4 column 5>; Expected token: <<IDENT>>
+            Visited token: <"(" at line 4 column 6>; Expected token: <"[">
+            Visited token: <"(" at line 4 column 6>; Expected token: <",">
+          Return: vardecl(LOOKAHEAD SUCCEEDED)
+          Visited token: <"(" at line 4 column 6>; Expected token: <";">
+          Call:   methoddecl
+            Consumed token: <"int" at line 4 column 1>
+            Consumed token: <<IDENT>: "m" at line 4 column 5>
+            Call:   methodbody
+              Consumed token: <"(" at line 4 column 6>
+              Call:   paramlist
+              Return: paramlist
+              Consumed token: <")" at line 4 column 7>
+              Call:   statement
+                Call:   vardecl(LOOKING AHEAD...)
+                  Visited token: <";" at line 5 column 3>; Expected token: <"int">
+                  Visited token: <";" at line 5 column 3>; Expected token: <"string">
+                  Visited token: <";" at line 5 column 3>; Expected token: <<IDENT>>
+                Return: vardecl(LOOKAHEAD FAILED)
+                Consumed token: <";" at line 5 column 3>
+              Return: statement
+            Return: methodbody
+          Return: methoddecl
+          Consumed token: <"}" at line 6 column 1>
+        Return: classbody
+      Return: classdecl
+    Return: classlist
+    Consumed token: <<EOF> at line 6 column 2>
+  Return: program
+0 Lexical Errors found
+0 Syntactic Errors found
