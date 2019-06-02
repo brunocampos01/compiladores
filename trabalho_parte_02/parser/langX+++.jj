@@ -447,10 +447,8 @@ void ifstat():
 }
 {
     <IF> <LPAREN> expression() <RPAREN> statement()
-    [ <ELSE> statement()]
+    [<ELSE> statement()]
 }
-
-
 
 void forstat():
 {
@@ -490,7 +488,6 @@ void alocexpression() :
           )
 }
 
-
 void expression() :
 {
 }
@@ -524,8 +521,6 @@ void factor():
 {
 }
 {
-
-
     (
        <int_constant> |
        <string_constant> |
@@ -534,9 +529,30 @@ void factor():
        <LPAREN> expression() <RPAREN>)
 }
 
+
 void arglist():
 {
 }
 {
     [expression() (<COMMA> expression())*]
+}
+
+// PARTE 02
+// – Expressões lógicas com estes operadores (AND, OR, XOR e NOT);
+// – Uso de expressoes lógicas nos contextos adequados;
+
+
+void LogicalStat(): {}
+{
+    alocexpression() (comparison() (logicalOp() comparison())*)*
+}
+
+void logicalOp(): {}
+{
+    <AND> | <OR> | <XOR> | <NOT>
+}
+
+void comparison(): {}
+{
+    numexpr() (expression() numexpr())?
 }
