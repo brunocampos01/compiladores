@@ -1,12 +1,12 @@
 /*************************************************************************
 Arquivo a ser processado pelo programa JavaCC.
-Contém:
-       - descrição do analisador léxico para a linguagem X++ 
-       - descrição do analisador sintático para a linguagem X++
-       - recuperação de erros sintáticos
+Cont?m:
+       - descri??o do analisador l?xico para a linguagem X++ 
+       - descri??o do analisador sint?tico para a linguagem X++
+       - recupera??o de erros sint?ticos
 
 Autor: Marcio Delamaro
-Este programa é parte do livro "Construção de compiladores usando ferra..."
+Este programa ? parte do livro "Constru??o de compiladores usando ferra..."
 ************************************************************************/
 options {
   STATIC = false;
@@ -17,29 +17,29 @@ PARSER_BEGIN(langX)
 package parser;
 
 import java.io.*;
-import recovery.*;   // importa as classes de recuperação de erros do AS
+import recovery.*;   // importa as classes de recupera??o de erros do AS
  
 
 public class langX {
 final static String Version = "X++ Compiler - Version 1.0 - 2004";
-int contParseError = 0;           // contador de erros sintáticos
-boolean debug_recovery;   // controla verbose de recuperação de erros
+int contParseError = 0;           // contador de erros sint?ticos
+boolean debug_recovery;   // controla verbose de recupera??o de erros
 Token lastError = null;
 
 
-// Define o método "main" da classe langX.  
+// Define o m?todo "main" da classe langX.  
   public  static void main(String args[]) throws ParseException 
   {
   boolean debug_as = false;
   boolean debug_recovery = false;
 
     String filename = ""; // nome do arquivo a ser analisado
-    langX parser;     // analisador léxico/sintático
+    langX parser;     // analisador l?xico/sint?tico
     int i;
     boolean ms = false;
 
     System.out.println(Version);
-    // lê os parâmetros passados para o compilador
+    // l? os par?metros passados para o compilador
     for (i = 0; i < args.length - 1; i++)
     {
         if (args[i].equals("-debug_AS") )
@@ -56,12 +56,12 @@ Token lastError = null;
     }
 
     if (args[i].equals("-"))
-    {       // lê da entrada padrão      
+    {       // l? da entrada padr?o      
         System.out.println("Reading from standard input . . .");
         parser = new langX(System.in); // cria AS
      }
      else 
-    {       // lê do arquivo
+    {       // l? do arquivo
         filename = args[args.length-1];  
         System.out.println("Reading from file " + filename + " . . .");
         try {  // cria AS
@@ -76,7 +76,7 @@ Token lastError = null;
     parser.debug_recovery = debug_recovery;
     if (! debug_as) parser.disable_tracing(); // desab. verbose do AS
     try {
-        parser.program();   // chama o método que faz a análise
+        parser.program();   // chama o m?todo que faz a an?lise
     }
     catch (ParseEOFException e)
     {
@@ -103,9 +103,9 @@ String s;
 }
 
 
-boolean eof;    // variável que indica se EOF foi alcançado
-// o método abaixo consome tokens até alcançar um que pertença ao conjunto
-// de sincronização
+boolean eof;    // vari?vel que indica se EOF foi alcan?ado
+// o m?todo abaixo consome tokens at? alcan?ar um que perten?a ao conjunto
+// de sincroniza??o
 
 void consumeUntil(RecoverySet g,
                  ParseException e,
@@ -114,17 +114,17 @@ void consumeUntil(RecoverySet g,
 {
 Token tok;
 
-   if ( debug_recovery) // informação sobre a recuperação
+   if ( debug_recovery) // informa??o sobre a recupera??o
    {
        System.out.println();
        System.out.println("*** " + met + " ***");
        System.out.println("     Syncronizing Set: " + g);
    }
 
-   if (g == null) throw e; // se o conjunto é null, propaga a exceção
+   if (g == null) throw e; // se o conjunto ? null, propaga a exce??o
 
    tok = getToken(1); // pega token corrente
-   while ( ! eof )  // se não chegou ao fim do arquivo
+   while ( ! eof )  // se n?o chegou ao fim do arquivo
    {
         if ( g.contains(tok.kind ) ) //achou um token no conjunto
         {
@@ -135,7 +135,7 @@ Token tok;
         }
         if (debug_recovery)
              System.out.println("     Ignoring token: " + im(tok.kind));
-        getNextToken();     // pega próximo token       
+        getNextToken();     // pega pr?ximo token       
         tok = getToken(1);
         if (tok.kind == EOF && ! g.contains(EOF) ) // fim da entrada?   
             eof = true;
@@ -144,7 +144,7 @@ Token tok;
    {
         System.out.println(e.getMessage());
         lastError = tok;
-        contParseError++;  // incrementa número de erros
+        contParseError++;  // incrementa n?mero de erros
    }
    if ( eof ) throw new ParseEOFException("EOF found prematurely.");
 }
@@ -223,7 +223,7 @@ TOKEN :
 
 TOKEN :
 {
-  < int_constant:(  // números decimais, octais, hexadecimais ou binários
+  < int_constant:(  // n?meros decimais, octais, hexadecimais ou bin?rios
                   (["0"-"9"] (["0"-"9"])* ) | 
                   (["0"-"7"] (["0"-"7"])* ["o", "O"] ) |
                   (["0"-"9"] (["0"-"7","A"-"F","a"-"f"])* ["h", "H"] ) |
@@ -280,7 +280,7 @@ TOKEN :
 | < REM: "%" >
 }
 
-/* Trata os erros léxicos */
+/* Trata os erros l?xicos */
 SPECIAL_TOKEN :
 {
 <INVALID_LEXICAL: 
@@ -663,6 +663,8 @@ catch (ParseException e)
 }
 
 
+
+
 void numexpr() throws ParseEOFException :
 {
 }
@@ -688,10 +690,10 @@ void unaryexpr() throws ParseEOFException :
 void factor() throws ParseEOFException :
 {
 }
-{    
-    ( 
-       <int_constant> | 
-       <string_constant> | 
+{
+    (
+       <int_constant> |
+       <string_constant> |
        <null_constant> |
        lvalue(null) |
        <LPAREN> expression(null) <RPAREN>

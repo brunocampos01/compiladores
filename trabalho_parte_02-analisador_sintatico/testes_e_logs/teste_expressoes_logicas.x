@@ -9,17 +9,23 @@
 
 class TesteExpressoesLogicas {
 
-    float semFinal ;
+    byte outMethodByte ;
+    short outMethodShort ;
+    long outMethodLong ;
+    float outMethodFloat ;
+
+    float withoutFinal ;
+    final float withFinal ;
     float a, b ;
-    float variavelInicializada = 1.0 ;
+    float startedVariable = 1.0 ;
+    string literal = "dez garantido" ;
 
+    public byte variablePublic ;
+    protected short variableProtected ;
+    private long variablePrivate ;
+    final private float variablePrivateAndFinal ;
 
-    final byte outMethodByte ;
-    final short outMethodShort ;
-    final long outMethodLong ;
-    final float outMethodFloat ;
-
-    // OR, PUBLIC
+    // OR
     public imprimeIteracao(byte i) {
         if((i > 10) || (i < 50)) {
             print i ;
@@ -27,7 +33,7 @@ class TesteExpressoesLogicas {
         return i ;
       }
 
-    // AND, PUBLIC
+    // AND
     public imprimeIteracao() {
         if((a > 10) && (b < 50)) {
             print i ;
@@ -35,7 +41,7 @@ class TesteExpressoesLogicas {
         return i ;
       }
 
-    // NOT, PROTECTED
+    // NOT
     protected compara(long a) {
         if( !(a) ){
           return 1 ;
@@ -43,7 +49,7 @@ class TesteExpressoesLogicas {
         return 0 ;
       }
 
-    // XOR, PRIVATE
+    // XOR
     private testaXor() {
         a = a ^ b ;
         b = b ^ a ;
