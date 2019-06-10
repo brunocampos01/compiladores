@@ -6,11 +6,20 @@ Contém:
 
 Autores: Bruno Campos, Fabiano Oliveira, Lais Perazzolo, Thary Correa
 ************************************************************************/
+
+/******************
+SECTION 1 - OPTIONS
+*******************/
 options {
   STATIC = false;
+  OUTPUT_DIRECTORY = "parser";
   DEBUG_LOOKAHEAD = true;
 }
 
+
+/***************************
+SECTION 2 - PARSER USER CODE
+****************************/
 PARSER_BEGIN(langX)
 package parser;
 
@@ -18,7 +27,7 @@ import java.io.*;
 
 
 public class langX {
-final static String Version = "X++ Compiler - Version 1.0 - 2004";
+final static String Version = "X+++ Compiler - Version 1.0";
 int contParseError = 0;           // contador de erros sintáticos
 
 
@@ -96,56 +105,49 @@ String s;
 
 PARSER_END(langX)
 
-TOKEN_MGR_DECLS :
-{
-int countLexError = 0;
 
-public int foundLexError()
-{
-   return countLexError;
-}
+/****************************
+SECTION 3 - TOKEN: Lexer
+*****************************/
+TOKEN_MGR_DECLS : {
+    int countLexError = 0;
 
+    public int foundLexError() {
+        return countLexError;
+    }
 }
 
 
 /* Espacos a serem desprezados no inicio de cada token */
-
-SKIP :
-{
-  " "
-| "\t"
-| "\n"
-| "\r"
-| "\f"
+SKIP : {
+      " "
+    | "\t"
+    | "\n"
+    | "\r"
+    | "\f"
 }
 
-SKIP :
-{
-  "/*" : multilinecomment
+SKIP : {
+    "/*" : multilinecomment
 }
 
-SKIP :
-{
-  "//" : singlelinecomment
+SKIP : {
+    "//" : singlelinecomment
 }
 
-<multilinecomment> SKIP:
-{
-   "*/" : DEFAULT
-|  <~[]>
+<multilinecomment> SKIP: {
+       "*/" : DEFAULT
+    |  <~[]>
 }
 
-<singlelinecomment> SKIP:
-{
-   <["\n","\r"]> : DEFAULT
-|   <~[]>
+<singlelinecomment> SKIP: {
+    <["\n","\r"]> : DEFAULT
+    |   <~[]>
 }
 
 
 /* Palavras reservadas */
-
-TOKEN :
-{
+TOKEN : {
       < BREAK: "break" >
     | < CLASS: "class" >
     | < CONSTRUCTOR: "constructor" >
@@ -171,67 +173,57 @@ TOKEN :
 }
 
 /* constantes */
-
-TOKEN :
-{
-  < int_constant:(  // numeros decimais, octais, hexadecimais ou binarios
-                  (["0"-"9"] (["0"-"9"])* ) |
-                  (["0"-"7"] (["0"-"7"])* ["o", "O"] ) |
-                  (["0"-"9"] (["0"-"7","A"-"F","a"-"f"])* ["h", "H"] ) |
-                  (["0"-"1"] (["0"-"1"])* ["b", "B"])
-                 )
-  >
-| < long_constant:(  // numeros long
-                    (["0"-"9"] (["0"-"9"])*"F")
-                  )
-  >
-| < short_constant:(  // numeros short
-                     (["0"-"9"] (["0"-"9"])* )
-                   )
-  >
-| < float_constant:(   // numeros com ponto flutuante
-                     (["0"-"9"])+ "." (["0"-"9"])*
-                   )
-  >
-| < string_constant:   // constante string como "abcd bcda"
-                     "\""( ~["\"","\n","\r"])* "\""
-  >
-| < null_constant:  // constante null
-                  "null"
-  >
+TOKEN : {
+      < int_constant:(  // numeros decimais, octais, hexadecimais ou binarios
+                      (["0"-"9"] (["0"-"9"])* ) |
+                      (["0"-"7"] (["0"-"7"])* ["o", "O"] ) |
+                      (["0"-"9"] (["0"-"7","A"-"F","a"-"f"])* ["h", "H"] ) |
+                      (["0"-"1"] (["0"-"1"])* ["b", "B"])
+                     )
+      >
+    | < long_constant:(  // numeros long
+                        (["0"-"9"] (["0"-"9"])*"F")
+                      )
+      >
+    | < short_constant:(  // numeros short
+                         (["0"-"9"] (["0"-"9"])* )
+                       )
+      >
+    | < float_constant:(   // numeros com ponto flutuante
+                         (["0"-"9"])+ "." (["0"-"9"])*
+                       )
+      >
+    | < string_constant:   // constante string como "abcd bcda"
+                         "\""( ~["\"","\n","\r"])* "\""
+      >
+    | < null_constant:  // constante null
+                      "null"
+      >
 }
 
 /* Identificadores */
-
-TOKEN :
-{
-  < IDENT: <LETTER> (<LETTER>|<DIGIT>)* >
-|
-  < #LETTER:["A"-"Z","a"-"z"] >
-|
-  < #DIGIT:["0"-"9"] >
+TOKEN : {
+      < IDENT: <LETTER> ( <LETTER> | <DIGIT> )* >
+    | < #LETTER:["A"-"Z","a"-"z"] >
+    | < #DIGIT:["0"-"9"] >
 }
 
 /* Simbolos especiais */
-
-TOKEN :
-{
-  < LPAREN: "(" >
-| < RPAREN: ")" >
-| < LBRACE: "{" >
-| < RBRACE: "}" >
-| < LBRACKET: "[" >
-| < RBRACKET: "]" >
-| < SEMICOLON: ";" >
-| < COMMA: "," >
-| < DOT: "." >
+TOKEN : {
+      < LPAREN: "(" >
+    | < RPAREN: ")" >
+    | < LBRACE: "{" >
+    | < RBRACE: "}" >
+    | < LBRACKET: "[" >
+    | < RBRACKET: "]" >
+    | < SEMICOLON: ";" >
+    | < COMMA: "," >
+    | < DOT: "." >
 }
 
 /* Operadores */
-
-TOKEN :
-{
-      < ASSIGN: "=" >
+TOKEN : {
+     < ASSIGN: "=" >
     | < GT: ">" >
     | < LT: "<" >
     | < EQ: "==" >
@@ -274,6 +266,9 @@ SPECIAL_TOKEN :
   "*",
   "/",
   "%",
+  "&",
+  "|",
+  "^",
   " ",
   "\t",
   "\n",
@@ -296,34 +291,25 @@ SPECIAL_TOKEN :
 
 }
 
-// parser
 
-void program() :
-{
-}
-{
+/****************************
+SECTION 4 -  Rules of Parser
+*****************************/
+void program() : {} {
     [ classlist() ] <EOF>
 }
 
-void classlist():
-{
-}
-{
+void classlist(): {} {
    classdecl() [ classlist() ]
 }
 
 
-void classdecl():
-{
-}
-{
+void classdecl():{} {
    <CLASS>  <IDENT> [ <EXTENDS> <IDENT> ] classbody()
 }
 
-void classbody():
-{
-}
-{
+
+void classbody(): {} {
    <LBRACE>
       [classlist()]
       (LOOKAHEAD(3) vardecl() <SEMICOLON>)*
@@ -333,156 +319,107 @@ void classbody():
 }
 
 
-void vardecl():
-{
-}
-{
-   (<INT> |  <STRING> | <IDENT> )
-   <IDENT> ( <LBRACKET> <RBRACKET>)*
-  (<COMMA> <IDENT> ( <LBRACKET> <RBRACKET>)* )*
+void vardecl(): {} { [<FINAL>]
+   (<INT> |  <STRING> | <BYTE> | <SHORT> | <LONG> | <FLOAT>
+   | <PUBLIC> | <PRIVATE> | <PROTECTED>
+   | <IDENT> )
+   <IDENT>
+   ( <LBRACKET> <RBRACKET>)*
+   (<COMMA> <IDENT> ( <LBRACKET> <RBRACKET>)* )*
+   [<ASSIGN> factor()]
 }
 
-void constructdecl():
-{
-}
-{
+
+void constructdecl(): {} {
     <CONSTRUCTOR> methodbody()
-
 }
 
 
-void methoddecl():
-{
-}
-{
-   (<INT> |  <STRING> | <IDENT> ) (<LBRACKET> <RBRACKET>)*
+void methoddecl(): {} {
+   (<INT> |  <STRING> | <BYTE> | <SHORT> | <LONG> | <FLOAT>
+                        | <FINAL> | <PUBLIC> | <PRIVATE> | <PROTECTED>
+                        | <IDENT> )
+                        (<LBRACKET> <RBRACKET>)*
    <IDENT> methodbody()
 }
 
-void methodbody():
-{
-}
-{
+
+void methodbody(): {} {
     <LPAREN> paramlist() <RPAREN> statement()
 }
 
-void paramlist():
-{
-}
-{
+
+void paramlist(): {} {
    [
-    (<INT> |  <STRING> | <IDENT>) <IDENT> (<LBRACKET> <RBRACKET>)*
+    (<INT> | <STRING> | <BYTE> | <SHORT> | <LONG> | <FLOAT>
+                         | <FINAL> | <PUBLIC> | <PRIVATE> | <PROTECTED>
+                         | <IDENT> )
+    <IDENT>
+    (<LBRACKET> <RBRACKET>)*
     (<COMMA> (<INT> |  <STRING> | <IDENT>) <IDENT> (<LBRACKET> <RBRACKET>)* )*
    ]
 }
 
-void statement():
-{
-}
-{
+
+void statement(): {} {
     LOOKAHEAD(2)
-    vardecl() <SEMICOLON>
-|
-    atribstat() <SEMICOLON>
-|
-    printstat() <SEMICOLON>
-|
-    readstat() <SEMICOLON>
-|
-    returnstat() <SEMICOLON>
-|
-    superstat() <SEMICOLON>
-|
-    ifstat()
-|
-    forstat()
-|
-    <LBRACE> statlist() <RBRACE>
-|
-    <BREAK> <SEMICOLON>
-|
-    <SEMICOLON>
+     <NOT> vardecl() <SEMICOLON>
+    | atribstat() <SEMICOLON>
+    | printstat() <SEMICOLON>
+    | readstat() <SEMICOLON>
+    | returnstat() <SEMICOLON>
+    | superstat() <SEMICOLON>
+    | ifstat()
+    | forstat()
+    | <LBRACE> statlist() <RBRACE>
+    | <BREAK> <SEMICOLON>
+    | <SEMICOLON>
 }
 
-
-void atribstat():
-{
-}
-{
+void atribstat(): {} {
     lvalue() <ASSIGN> ( alocexpression() | expression())
 }
 
-void printstat():
-{
-}
-{
+void printstat(): {} {
     <PRINT> expression()
 }
 
-void readstat():
-{
-}
-{
+void readstat(): {} {
     <READ> lvalue()
 }
 
-
-void returnstat():
-{
-}
-{
+void returnstat(): {} {
     <RETURN> [expression()]
 }
 
-
-void superstat():
-{
-}
-{
+void superstat(): {} {
     <SUPER> <LPAREN> arglist() <RPAREN>
 }
 
-void ifstat():
-{
-}
-{
+void ifstat(): {} {
     <IF> <LPAREN> expression() <RPAREN> statement()
     [ <ELSE> statement()]
 }
 
-
-
-void forstat():
-{
-}
-{
+void forstat(): {} {
     <FOR> <LPAREN> [atribstat()] <SEMICOLON>
                    [expression()] <SEMICOLON>
                    [atribstat()] <RPAREN>
                     statement()
 }
 
-void  statlist() :
-{
-}
-{
+void  statlist() : {} {
    statement() [statlist()]
 }
 
-void lvalue() :
-{
-}
-{
+void lvalue() : {} {
    <IDENT> (
            <LBRACKET> expression() <RBRACKET> |
            <DOT> <IDENT> [<LPAREN> arglist() <RPAREN>]
          )*
 }
 
-void alocexpression() :
-{
-}
-{
+void alocexpression() : {} {
     <NEW> (
              LOOKAHEAD(2) <IDENT> <LPAREN> arglist() <RPAREN> |
              ( <INT> | <STRING> | <IDENT> )
@@ -491,52 +428,41 @@ void alocexpression() :
 }
 
 
-void expression() :
-{
-}
-{
-    numexpr() [( <LT> | <GT> | <LE> | <GE> | <EQ> | <NEQ>) numexpr()]
-}
-
-void numexpr():
-{
-}
-{
-    term() ((<PLUS> | <MINUS>) term())*
-}
-
-void term():
-{
-}
-{
-    unaryexpr() ((<STAR> | <SLASH>| <REM>) unaryexpr())*
-}
-
-void unaryexpr() :
-{
-}
-{
-   [(<PLUS> | <MINUS>)] factor()
+void expression() : {} {
+    numexpr() [(  <LT>
+                | <GT>
+                | <LE>
+                | <GE>
+                | <EQ>
+                | <NEQ>) numexpr()]
 }
 
 
-void factor():
-{
+void numexpr(): {} {
+    logicalOp() ((<PLUS> | <MINUS> | <STAR> | <SLASH> | <REM> ) logicalOp())*
 }
-{
+
+void logicalOp(): {} {
+    unaryexpr() (( <OR> | <AND> | <XOR> ) unaryexpr())*
+}
+
+void unaryexpr(): {} {
+   [(<PLUS> | <MINUS> | <NOT>)] factor()
+}
 
 
+void factor(): {} {
     (
        <int_constant> |
        <string_constant> |
+       <long_constant> |
+       <short_constant> |
+       <float_constant> |
        <null_constant> |
        lvalue() |
        <LPAREN> expression() <RPAREN>)
 }
 
-void arglist():
-{
-}
-{
+void arglist(): {} {
     [expression() (<COMMA> expression())*]
 }

@@ -17,7 +17,7 @@ sudo apt install javacc
 
 - Generate parser 
 ```bash
-javacc langX++.jj
+javacc langX+++.jj
 ```
 
 - Generate .class 
@@ -28,6 +28,7 @@ javac parser/langX.java
 - Testes
 ```bash
 java parser.langX testes_e_logs/bintree-erro-sintatico.x
+java parser.langX testes_e_logs/teste_expressoes_logicas.x 
 ```
 
 - Debug Analisador Sintático
