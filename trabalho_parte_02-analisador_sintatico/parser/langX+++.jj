@@ -373,12 +373,12 @@ void classbody(RecoverySet g) throws ParseEOFException :
     }
     {
         try {
-           <LBRACE>
-              [classlist(f5)]
-              (LOOKAHEAD(3) vardecl(f2) <SEMICOLON>)*
-              (constructdecl(f4))*
-              (methoddecl(f3))*
-           <RBRACE>
+            <LBRACE>
+                [classlist(f5)]
+                (LOOKAHEAD(3) vardecl(f2) <SEMICOLON>)*
+                (constructdecl(f4))*
+                (methoddecl(f3))*
+            <RBRACE>
         } catch (ParseException e) {
            consumeUntil(g, e, "classbody");
         }
@@ -416,6 +416,7 @@ void vardecl(RecoverySet g) throws ParseEOFException : {} {
     }
 }
 
+
 void constructdecl(RecoverySet g) throws ParseEOFException : {} {
     try {
         <CONSTRUCTOR> methodbody(g)
@@ -430,12 +431,11 @@ void methoddecl(RecoverySet g) throws ParseEOFException : {} {
     try {
         (typeOperation() | accessOperation() | <IDENT>)
         (<LBRACKET> <RBRACKET>)*
-        <IDENT> methodbody()
+        <IDENT> methodbody(g)
     } catch (ParseException e) {
        consumeUntil(g, e, "methoddecl");
     }
 }
-
 
 void methodbody(RecoverySet g) throws ParseEOFException :
     {
@@ -465,43 +465,30 @@ void paramlist(RecoverySet g) throws ParseEOFException : {} {
 }
 
 void statement(RecoverySet g) throws ParseEOFException :
-{
-RecoverySet f1 = new RecoverySet(SEMICOLON).union(g).remove(IDENT);
-RecoverySet f2 = new RecoverySet(RBRACE).union(g).remove(IDENT);
-}
-{
-try {
-    LOOKAHEAD(<IDENT> <IDENT>)
-    vardecl(f1) <SEMICOLON>
-|
-    LOOKAHEAD(1)
-    atribstat(f1) <SEMICOLON>
-|
-    vardecl(f1) <SEMICOLON>
-|
-    printstat(f1) <SEMICOLON>
-|
-    readstat(f1) <SEMICOLON>
-|
-    returnstat(f1) <SEMICOLON>
-|
-    superstat(f1) <SEMICOLON>
-|
-    ifstat(g)
-|
-    forstat(g)
-|
-    <LBRACE> statlist(f2) <RBRACE>
-|
-    <BREAK> <SEMICOLON>
-|
-    <SEMICOLON>
-}
-catch (ParseException e)
-{
-   consumeUntil(g, e, "statement");
-}
-}
+    {
+        RecoverySet f1 = new RecoverySet(SEMICOLON).union(g).remove(IDENT);
+        RecoverySet f2 = new RecoverySet(RBRACE).union(g).remove(IDENT);
+    }
+    {
+        try {
+            LOOKAHEAD(<IDENT> <IDENT>)
+            vardecl(f1) <SEMICOLON>
+            | LOOKAHEAD(1)
+                atribstat(f1) <SEMICOLON>
+            | vardecl(f1) <SEMICOLON>
+            | printstat(f1) <SEMICOLON>
+            | readstat(f1) <SEMICOLON>
+            | returnstat(f1) <SEMICOLON>
+            | superstat(f1) <SEMICOLON>
+            | ifstat(g)
+            | forstat(g)
+            | <LBRACE> statlist(f2) <RBRACE>
+            | <BREAK> <SEMICOLON>
+            | <SEMICOLON>
+        } catch (ParseException e) {
+           consumeUntil(g, e, "statement");
+        }
+    }
 
 
 void atribstat(RecoverySet g) throws ParseEOFException :
@@ -623,6 +610,8 @@ void expression(RecoverySet g) throws ParseEOFException : {} {
     }
 }
 
+
+//
 // Trabalho - parte 02
 // Add token STAR, SLASH, REM
 void numexpr() throws ParseEOFException : {} {
@@ -649,8 +638,8 @@ void factor() throws ParseEOFException : {} {
         | <short_constant>
         | <float_constant>
         | <null_constant>
-        | lvalue()
-        | <LPAREN> expression() <RPAREN>
+        | lvalue(null)
+        | <LPAREN> expression(null) <RPAREN>
     )
 }
 

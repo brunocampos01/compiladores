@@ -479,7 +479,7 @@ SECTION 4 -  Rules of Parser
           jj_consume_token(RBRACKET);
         }
         jj_consume_token(IDENT);
-        methodbody();
+        methodbody(g);
       } catch (ParseException e) {
        consumeUntil(g, e, "methoddecl");
       }
@@ -608,8 +608,8 @@ SECTION 4 -  Rules of Parser
   final public void statement(RecoverySet g) throws ParseException, ParseEOFException {
     trace_call("statement");
     try {
-RecoverySet f1 = new RecoverySet(SEMICOLON).union(g).remove(IDENT);
-RecoverySet f2 = new RecoverySet(RBRACE).union(g).remove(IDENT);
+        RecoverySet f1 = new RecoverySet(SEMICOLON).union(g).remove(IDENT);
+        RecoverySet f2 = new RecoverySet(RBRACE).union(g).remove(IDENT);
       try {
         if (jj_2_2(2147483647)) {
           vardecl(f1);
@@ -674,7 +674,7 @@ RecoverySet f2 = new RecoverySet(RBRACE).union(g).remove(IDENT);
           }
         }
       } catch (ParseException e) {
-   consumeUntil(g, e, "statement");
+           consumeUntil(g, e, "statement");
       }
     } finally {
       trace_return("statement");
@@ -1070,6 +1070,7 @@ RecoverySet f2 = new RecoverySet(RBRACE).union(g).remove(IDENT);
     }
   }
 
+//
 // Trabalho - parte 02
 // Add token STAR, SLASH, REM
   final public void numexpr() throws ParseException, ParseEOFException {
@@ -1216,11 +1217,11 @@ RecoverySet f2 = new RecoverySet(RBRACE).union(g).remove(IDENT);
         jj_consume_token(null_constant);
         break;
       case IDENT:
-        lvalue();
+        lvalue(null);
         break;
       case LPAREN:
         jj_consume_token(LPAREN);
-        expression();
+        expression(null);
         jj_consume_token(RPAREN);
         break;
       default:
@@ -1319,6 +1320,18 @@ RecoverySet f2 = new RecoverySet(RBRACE).union(g).remove(IDENT);
     { if (!jj_rescan) trace_return("vardecl(LOOKAHEAD SUCCEEDED)"); return false; }
   }
 
+  private boolean jj_3_3() {
+    if (jj_scan_token(IDENT)) return true;
+    if (jj_scan_token(LPAREN)) return true;
+    return false;
+  }
+
+  private boolean jj_3_2() {
+    if (jj_scan_token(IDENT)) return true;
+    if (jj_scan_token(IDENT)) return true;
+    return false;
+  }
+
   private boolean jj_3R_23() {
     if (!jj_rescan) trace_call("typeOperation(LOOKING AHEAD...)");
     Token xsp;
@@ -1347,12 +1360,6 @@ RecoverySet f2 = new RecoverySet(RBRACE).union(g).remove(IDENT);
     return false;
   }
 
-  private boolean jj_3_3() {
-    if (jj_scan_token(IDENT)) return true;
-    if (jj_scan_token(LPAREN)) return true;
-    return false;
-  }
-
   private boolean jj_3R_20() {
     if (jj_scan_token(COMMA)) return true;
     return false;
@@ -1376,9 +1383,9 @@ RecoverySet f2 = new RecoverySet(RBRACE).union(g).remove(IDENT);
     return false;
   }
 
-  private boolean jj_3_2() {
-    if (jj_scan_token(IDENT)) return true;
-    if (jj_scan_token(IDENT)) return true;
+  private boolean jj_3_1() {
+    if (jj_3R_16()) return true;
+    if (jj_scan_token(SEMICOLON)) return true;
     return false;
   }
 
@@ -1388,12 +1395,6 @@ RecoverySet f2 = new RecoverySet(RBRACE).union(g).remove(IDENT);
     xsp = jj_scanpos;
     if (jj_3R_22()) jj_scanpos = xsp;
     { if (!jj_rescan) trace_return("accessOperation(LOOKAHEAD SUCCEEDED)"); return false; }
-  }
-
-  private boolean jj_3_1() {
-    if (jj_3R_16()) return true;
-    if (jj_scan_token(SEMICOLON)) return true;
-    return false;
   }
 
   private boolean jj_3R_18() {
