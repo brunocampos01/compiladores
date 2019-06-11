@@ -1,0 +1,4 @@
+X+++ Compiler - Version 1.0
+Reading from file testes_e_logs/teste_expressoes_logicas.x . . .
+0 Lexical Errors found
+0 Syntactic Errors found

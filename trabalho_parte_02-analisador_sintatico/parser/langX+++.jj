@@ -611,7 +611,6 @@ void expression(RecoverySet g) throws ParseEOFException : {} {
 }
 
 
-//
 // Trabalho - parte 02
 // Add token STAR, SLASH, REM
 void numexpr() throws ParseEOFException : {} {
@@ -630,6 +629,8 @@ void unaryexpr() throws ParseEOFException : {} {
    [(<PLUS> | <MINUS> | <NOT>)] factor()
 }
 
+
+// Trabalho - parte 02
 void factor() throws ParseEOFException : {} {
     (
         <int_constant>
