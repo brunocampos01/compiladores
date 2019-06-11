@@ -10,16 +10,17 @@
 Houve 3 encontros com **todos** os membros participando do desenvolvimento da primeira parte do trabalho.
 
 
-## alterações que foram realizadas sobre o projeto sugerido nos capítulos 4 e 5 de Delamaro (2004)
-
+## Alterações que foram realizadas sobre o projeto sugerido nos capítulos 4 e 5 de Delamaro (2004)
 
 - Adicionado configuração de saída na geração dos arquivos
-```
+
+```java
 OUTPUT_DIRECTORY = "parser";
 ```
 
 - Criação do método `accessOperation()` com os tipos de acesso
-```bash
+
+```java
 void accessOperation(): {} {
     // Os qualificadores de acesso devem ser opcionais
    [<PUBLIC> | <PRIVATE> | <PROTECTED>]
@@ -27,7 +28,8 @@ void accessOperation(): {} {
 ```
 
 - Criação do método `typeOperation()` que define a tipagem primitíva
-```
+
+```java
 void typeOperation(): {} {
     // Tipos de variáveis e literais
    <INT> | <STRING> | <BYTE> | <SHORT> | <LONG> | <FLOAT>
@@ -38,7 +40,8 @@ void typeOperation(): {} {
     - Adicionado token opcional `[<FINAL>]`
     - adicionado `typeOperation()` e `accessOperation()`
     - Adicionado atribuição de valor à uma variável `[<ASSIGN> factor()]`
-```
+
+```java
 void vardecl(RecoverySet g) throws ParseEOFException : {} {
     try{
         [<FINAL>]   // variavel pode ser ou não FINAL
@@ -55,7 +58,8 @@ void vardecl(RecoverySet g) throws ParseEOFException : {} {
 
 - Alterado método `methoddecl()`
     - Adicionado `typeOperation()` e `accessOperation()`
-```
+
+```java
 void methoddecl(RecoverySet g) throws ParseEOFException : {} {
     try {
         (typeOperation() | accessOperation() | <IDENT>)
@@ -69,7 +73,8 @@ void methoddecl(RecoverySet g) throws ParseEOFException : {} {
 
 - Alterado método `paramlist()`
     - Adicionado `typeOperation()` e `accessOperation()`
-```
+
+```java
 void paramlist(RecoverySet g) throws ParseEOFException : {} {
     try {
         [
@@ -86,14 +91,16 @@ void paramlist(RecoverySet g) throws ParseEOFException : {} {
 
 - Alterado método `numexpr()`
     - Adicionado tokens  `<STAR> | <SLASH> | <REM>` 
-```
+
+```java
 void numexpr() throws ParseEOFException : {} {
     logicalOp() ((<PLUS> | <MINUS> | <STAR> | <SLASH> | <REM> ) logicalOp())*
 }
 ```
 
 - Criado método `logicalOp()`
-```
+
+```java
 void logicalOp() throws ParseEOFException : {} {
     unaryexpr() (( <OR> | <AND> | <XOR> ) unaryexpr())*
 }
@@ -101,7 +108,8 @@ void logicalOp() throws ParseEOFException : {} {
 
 - Alterado método `unaryexpr()`
     - Adicionado token `NOT`
-```
+
+```java
 void unaryexpr() throws ParseEOFException : {} {
    [(<PLUS> | <MINUS> | <NOT>)] factor()
 }
@@ -109,7 +117,8 @@ void unaryexpr() throws ParseEOFException : {} {
 
 - Alterado método `vardecl()`
     - Adicionado `<long_constant>`, `<short_constant>` e `<float_constant>`
-```
+
+```java
 void factor() throws ParseEOFException : {} {
     (
         <int_constant>
@@ -142,7 +151,7 @@ javac parser/langX.java
 - Testes
 ```bash
 java parser.langX testes_e_logs/teste_com_erro_classbody.x
-java parser.langX testes_e_logs/teste_expressoes_logicas.x 
+java parser.langX testes_e_logs/teste_expressoes_logicas.x
 ```
 
 - Debug Analisador Sintático
