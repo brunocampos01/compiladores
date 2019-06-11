@@ -1,25 +1,36 @@
-# Compilador
+# Compiladores
 
 ## Trabalho
-Criação de um compilador
-- [Analisador Léxico](https://github.com/brunocampos01/compiladores/tree/master/trabalho_parte_01)
-- [Analisador Sinático]()
+Desenvolvimento de um compilador
+- [Analisador Léxico](https://github.com/brunocampos01/compiladores/tree/master/trabalho_parte_01-analisador_lexico)
+- [Analisador Sinático](https://github.com/brunocampos01/compiladores/tree/master/trabalho_parte_02-analisador_sintatico)
 - [Analisador Semântico]()
 
+### Requirements
+- Java 1.8
+- Javacc
 
-## Analisador léxico (lexer) 
+```bash
+sudo apt install javacc
+```
 
-- É a primeira etapa de um compilador.  
-- Ele é responsável por verificar todos os argumentos de entrada e depois classificar cada primitiva (simbolo) em token (símbolos ) léxicos.  
-- Em seguida, esses símbolos seram manipulados por um parser (leitor de saída)  
-Imagem
+### Generate Parser 
+```
+javacc parser/langX++.jj
+```
 
+###  Generate Class File 
+```
+javac parser/langX.java
+```
 
-### Funcionamento do analisar léxico
+### Tests
+```
+ java parser.langX -short testes_e_logs/teste-lexico.x
+ java parser.langX -short testes_e_logs/teste-com-erro-lexico.x
+```
 
-1. isolar cada um de seus argumentos na forma de uma lista ligada   
-2. avaliar os argumentos na forma normal (BNF, veremos depois)   
-3. verificar se os argumentos são do tipo correto  
-4. criar um ‘node’ para cada tipo apropriado   
-5. preencher o campo do node com o resultado   
-6. retornar o node 
+### Debug - Syntactic Analyzer
+```bash
+java parser.langX -debug_AS testes_e_logs/debugAS.x
+```

@@ -1,4 +1,4 @@
-# Relatório Analisador Sintatico X+++
+# Relatório Analisador Sintático X+++
 
 ## Equipe
 14104255 - Bruno Aurélio Rôzza de Moura Campos<br/>
@@ -7,13 +7,18 @@
 14101398 - Thary Correia<br/>
 
 ## Papeis no Desenvolvimento
-
 Houve 3 encontros com **todos** os membros participando do desenvolvimento da primeira parte do trabalho.
 
 
-##  Alteracoes que foram realizadas conforme sugerido nos capitulos 4 e 5 de Delamaro
+## alterações que foram realizadas sobre o projeto sugerido nos capítulos 4 e 5 de Delamaro (2004)
 
-- Criado método `accessOperation()` com os tipos de acesso
+
+- Adicionado configuração de saída na geração dos arquivos
+```
+OUTPUT_DIRECTORY = "parser";
+```
+
+- Criação do método `accessOperation()` com os tipos de acesso
 ```bash
 void accessOperation(): {} {
     // Os qualificadores de acesso devem ser opcionais
@@ -21,7 +26,7 @@ void accessOperation(): {} {
 }
 ```
 
-- Criado método `typeOperation()` com a tipagem
+- Criação do método `typeOperation()` que define a tipagem primitíva
 ```
 void typeOperation(): {} {
     // Tipos de variáveis e literais
@@ -29,11 +34,11 @@ void typeOperation(): {} {
 }
 ```
 
-- Alterado método `vardecl()` com a tipagem
+- Alterado método `vardecl()`
+    - Adicionado token opcional `[<FINAL>]`
+    - adicionado `typeOperation()` e `accessOperation()`
+    - Adicionado atribuição de valor à uma variável `[<ASSIGN> factor()]`
 ```
-// Add token FINAL
-// Add métodos de acesso e tipagem
-// Add atribuição de valores a variáveis
 void vardecl(RecoverySet g) throws ParseEOFException : {} {
     try{
         [<FINAL>]   // variavel pode ser ou não FINAL
@@ -48,10 +53,9 @@ void vardecl(RecoverySet g) throws ParseEOFException : {} {
 }
 ```
 
-
-- Alterado método `methoddecl()`, adicionado metodos acesso e tipagem
+- Alterado método `methoddecl()`
+    - Adicionado `typeOperation()` e `accessOperation()`
 ```
-// Add métodos de acesso e tipagem
 void methoddecl(RecoverySet g) throws ParseEOFException : {} {
     try {
         (typeOperation() | accessOperation() | <IDENT>)
@@ -63,9 +67,9 @@ void methoddecl(RecoverySet g) throws ParseEOFException : {} {
 }
 ```
 
-- Alterado método `paramlist()`, adicionado metodos acesso e tipagem
+- Alterado método `paramlist()`
+    - Adicionado `typeOperation()` e `accessOperation()`
 ```
-// Add métodos de acesso e tipagem
 void paramlist(RecoverySet g) throws ParseEOFException : {} {
     try {
         [
@@ -80,9 +84,9 @@ void paramlist(RecoverySet g) throws ParseEOFException : {} {
 }
 ```
 
-- Alterado método `numexpr()`, adicionado tokens  `<STAR> | <SLASH> | <REM>` 
+- Alterado método `numexpr()`
+    - Adicionado tokens  `<STAR> | <SLASH> | <REM>` 
 ```
-// Add token STAR, SLASH, REM
 void numexpr() throws ParseEOFException : {} {
     logicalOp() ((<PLUS> | <MINUS> | <STAR> | <SLASH> | <REM> ) logicalOp())*
 }
@@ -90,21 +94,21 @@ void numexpr() throws ParseEOFException : {} {
 
 - Criado método `logicalOp()`
 ```
-// Criado novo método
 void logicalOp() throws ParseEOFException : {} {
     unaryexpr() (( <OR> | <AND> | <XOR> ) unaryexpr())*
 }
 ```
 
-- Alterado método `unaryexpr()`, adicionado token `NOT`
+- Alterado método `unaryexpr()`
+    - Adicionado token `NOT`
 ```
-// Add token NOT
 void unaryexpr() throws ParseEOFException : {} {
    [(<PLUS> | <MINUS> | <NOT>)] factor()
 }
 ```
 
-- Alterado método `vardecl()`, adicionado `long_constant, short_constant e float_constant`
+- Alterado método `vardecl()`
+    - Adicionado `<long_constant>`, `<short_constant>` e `<float_constant>`
 ```
 void factor() throws ParseEOFException : {} {
     (
@@ -121,17 +125,16 @@ void factor() throws ParseEOFException : {} {
 ```
 
 #### Comandos utilizados
-
 ```bash
 sudo apt install javacc
 ```
 
-- Generate parser 
+- Geração do parser 
 ```bash
 javacc parser/langX+++.jj
 ```
 
-- Generate .class 
+- Geração dos arquivos `.class` 
 ```bash
 javac parser/langX.java
 ```
@@ -147,8 +150,7 @@ java parser.langX testes_e_logs/teste_expressoes_logicas.x
 java parser.langX -debug_AS testes_e_logs/debugAS.x
 ```
 
-
 #### Notas
-
+- Todo o arquivo foi identando com 4 espaços
 - Todo o trabalho foi versionado usando a ferramenta git
 - Encoding dos arquivos: US-ASCII
