@@ -160,6 +160,6 @@ java parser.langX -debug_AS testes_e_logs/debugAS.x
 ```
 
 #### Notas
-- Todo o arquivo foi identando com 4 espaços
-- Todo o trabalho foi versionado usando a ferramenta git
+- O arquivo `langX+++.jj` foi identado com 4 espaços,
+- Todo o trabalho foi versionado usando a ferramenta git,
 - Encoding dos arquivos: US-ASCII

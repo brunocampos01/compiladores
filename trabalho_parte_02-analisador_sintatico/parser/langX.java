@@ -1070,7 +1070,6 @@ SECTION 4 -  Rules of Parser
     }
   }
 
-//
 // Trabalho - parte 02
 // Add token STAR, SLASH, REM
   final public void numexpr() throws ParseException, ParseEOFException {
@@ -1194,6 +1193,7 @@ SECTION 4 -  Rules of Parser
     }
   }
 
+// Trabalho - parte 02
   final public void factor() throws ParseException, ParseEOFException {
     trace_call("factor");
     try {

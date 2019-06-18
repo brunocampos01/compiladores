@@ -2,8 +2,6 @@ package recovery;
 
 import parser.*;
 
-import java.util.*;
-
 
 public class First { //implementa os conjuntos first p/ alguns n.terminais
 

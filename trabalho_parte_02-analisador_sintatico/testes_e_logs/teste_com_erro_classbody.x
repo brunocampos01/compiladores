@@ -14,10 +14,10 @@ outMethodByte ;
 
 
 /***********************************************
-Esse programa implementa uma ?rvore de busca bin?ria
+Esse programa implementa uma árvore de busca binária
 *************************************************/
 
-class bintree { /* n? da ?rvore bin?ria */
+class bintree { /* na da árvore binária */
 
 
 class data { // define um classe aninhada do tipo data (dia, mes ano)
@@ -31,7 +31,7 @@ constructor()  // construtor 1, sem par?metros
 }
 
 constructor(int d, int m, int a) // construtor 2 - dia m?s e ano como
-{                // par?metros
+{                // parâmetros
    dia = d
    mes = m;
    ano = a;
