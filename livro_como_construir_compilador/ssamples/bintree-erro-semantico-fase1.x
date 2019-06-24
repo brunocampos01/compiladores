@@ -1,8 +1,8 @@
 /***********************************************
-Esse programa implementa uma árvore de busca binária
+Esse programa implementa uma ?rvore de busca bin?ria
 *************************************************/
 
-class bintree { /* nó da árvore binária */
+class bintree { /* n? da ?rvore bin?ria */
 
 
 class data { // define um classe aninhada do tipo data (dia, mes ano)
@@ -26,15 +26,15 @@ int dia, mes, ano;
 
 
 
-constructor()  // construtor 1, sem parâmetros
+constructor()  // construtor 1, sem par?metros
 {
    ano = 1900; // inicializa em 1/1/1900
    mes = 1;
    dia = 1;
 }
 
-constructor(int d, int m, int a) // construtor 2 - dia mês e ano como
-{                // parâmetros 
+constructor(int d, int m, int a) // construtor 2 - dia m?s e ano como
+{                // par?metros 
    dia = d;
    mes = m;
    ano = a;
@@ -55,10 +55,10 @@ int compara(data x) // compara duas datas
 } // final classe data
 
 
-// variáveis da classe bintree
+// vari?veis da classe bintree
 
-data key;       // chave de comparação
-bintree left,right; // referência para os filhos
+data key;       // chave de compara??o
+bintree left,right; // refer?ncia para os filhos
 
 constructor(data x)
 {
@@ -67,7 +67,7 @@ constructor(data x)
    right = null;
 }
 
-int insert(data k) // adiciona um elemento na árvore
+int insert(data k) // adiciona um elemento na ?rvore
 {
 int x;
 
@@ -90,7 +90,7 @@ int x;
 }
 
 
-int treeprint(int x) // imprime a árvore
+int treeprint(int x) // imprime a ?rvore
 {
 int i;
 
@@ -101,7 +101,7 @@ int i;
    print key.dia+ "/" + key.mes + "/" + key.ano + "\n";
   // if (right != null)
     //  i = right.treeprinnt(x+4);
-// ERRO: treeprinnt não existe
+// ERRO: treeprinnt n?o existe
 }
 
 
@@ -113,7 +113,7 @@ data w;
 
    read d; read m; read a;
    w = new data(n, m[0], a);
-// ERRO: m não é array
+// ERRO: m n?o ? array
    t = new bintree(w);
    for (i = 0; i < 10; i = i + 1)
    {

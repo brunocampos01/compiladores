@@ -3,6 +3,7 @@ Arquivo a ser processado pelo programa JavaCC.
 Contém:
        - descrição do analisador léxico para a linguagem X+++
        - descrição do analisador sintático para a linguagem X+++
+       - recuperação de erros sintáticos
 
 Autores: Bruno Campos, Fabiano Oliveira, Lais Perazzolo, Thary Correa
 ************************************************************************/
@@ -387,14 +388,14 @@ void classbody(RecoverySet g) throws ParseEOFException :
 
 // parte 02 trabalho
 // Criado método com os tipos de acesso
-void accessOperation(): {} {
+void accessOperation(RecoverySet g) throws ParseEOFException : {} {
     // Os qualificadores de acesso devem ser opcionais
    [<PUBLIC> | <PRIVATE> | <PROTECTED>]
 }
 
 // parte 02 trabalho
 // Criado método com a tipagem
-void typeOperation(): {} {
+void typeOperation(RecoverySet g) throws ParseEOFException : {} {
     // Tipos de variáveis e literais
    <INT> | <STRING> | <BYTE> | <SHORT> | <LONG> | <FLOAT>
 }
