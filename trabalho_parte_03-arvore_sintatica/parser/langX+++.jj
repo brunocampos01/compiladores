@@ -5,7 +5,7 @@ Contém:
        - descrição do analisador sintático para a linguagem X+++
        - recuperação de erros sintáticos
        - construção da árvore sintática
-       - impressção da árvore sintática
+       - impressão da árvore sintática
 
 Autores: Bruno Campos, Fabiano Oliveira, Lais Perazzolo, Thary Correa
 ************************************************************************/
@@ -61,7 +61,7 @@ PARSER_BEGIN(langX)
                     print_tree = true;
                 else {
                     System.out.println("Usage is: java langX [-debug_AS] " +
-                     "[-debug_recovery]  [-print_tree] inputfile");
+                     "[-debug_recovery]  [-print_tree] inputfile");  //PARTE 03
                     System.exit(0);
                 }
             }
@@ -448,10 +448,15 @@ ClassBodyNode classbody(RecoverySet g) throws ParseEOFException : {
 
 // parte 02 trabalho
 // Criado método com os tipos de acesso
-void accessOperation(RecoverySet g) throws ParseEOFException : {} {
+void accessOperation(RecoverySet g) throws ParseEOFException :
+{
+    Token t = null;
+}
+{
     // Os qualificadores de acesso devem ser opcionais
    [<PUBLIC> | <PRIVATE> | <PROTECTED>]
 }
+
 
 // parte 02 trabalho
 // Criado método com a tipagem
@@ -467,29 +472,37 @@ void typeOperation(RecoverySet g) throws ParseEOFException: {} {
 
 
 
-// parte 03
-VarDeclNode vardecl(RecoverySet g) throws ParseEOFException : {
+/* parte 03
+/ adicionado tokens de:
+ - tipagem de variável,
+
+VarDeclNode vardecl(RecoverySet g) throws ParseEOFException :
+{
     Token t1 = null, t2;
     int k = 0;
     ListNode l = null;
 }
-
 {
-    try {
-        ( t1 = <INT> |  t1 = <STRING> | t1 = <IDENT> )
-         t2 = <IDENT> ( <LBRACKET> <RBRACKET> { k++; } )*
-        {
-            l = new ListNode(new VarNode(t2, k));
-        }
-       (<COMMA> { k = 0; }  t2 = <IDENT> ( <LBRACKET> <RBRACKET> { k++; })*
-       { l.add(new VarNode(t2, k));
-       })*
-       { return new VarDeclNode(t1, l);
-       }
-    } catch (ParseException e) {
-        consumeUntil(g, e, "vardecl");
-        return new VarDeclNode(t1, l);
-    }
+try {
+        [<FINAL>]   // variavel pode ser ou não FINAL
+        [<PUBLIC> | <PRIVATE> | <PROTECTED>]
+        ( t1 = <INT>
+        | t1 = <STRING>
+        | t1 = <BYTE>
+        | t1 = <SHORT>
+        | t1 = <LONG>
+        | t1 = <FLOAT>
+        | t1 = <IDENT> )
+        t2 = <IDENT> ( [<ASSIGN> factor()] )
+        { l = new ListNode(new VarNode(t2, k)); }
+        (<COMMA> { k = 0; }  t2 = <IDENT> ( <LBRACKET> <RBRACKET> { k++; })*
+        { l.add(new VarNode(t2, k)); }
+   )*
+  { return new VarDeclNode(t1, l); }
+} catch (ParseException e) {
+   consumeUntil(g, e, "vardecl");
+   return new VarDeclNode(t1, l);
+}
 }
 
 
@@ -870,6 +883,9 @@ ExpreNode factor() throws ParseEOFException : {
         t = <int_constant> { e = new IntConstNode(t); }
         | t = <string_constant> { e = new StringConstNode(t); }
         | t = <null_constant> { e = new NullConstNode(t); }
+        | t = <long_constant> { e = new LongConstNode(t); }
+        | t = <short_constant> { e = new ShortConstNode(t); }
+        | t = <float_constant> { e = new FloatConstNode(t); }
         | e = lvalue(null)
         | <LPAREN> e = expression(null) <RPAREN>
     )

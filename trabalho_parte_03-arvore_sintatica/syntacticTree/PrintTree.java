@@ -745,6 +745,89 @@ public class PrintTree {
         System.out.print(x.number + ": NullConstNode ===> " + x.position.image);
     }
 
+    // PARTE 03
+    // ------------------------ Constante BYTE ----------------------------
+    public void numberByteConstNode(ByteConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        x.number = kk++;
+    }
+
+    public void printByteConstNode(ByteConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        System.out.println();
+        System.out.print(x.number + ": ByteConstNode ===> " +
+                x.position.image);
+    }
+
+    // PARTE 03
+    // ------------------------ Constante SHORT ----------------------------
+    public void numberShortConstNode(ShortConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        x.number = kk++;
+    }
+
+    public void printShortConstNode(ShortConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        System.out.println();
+        System.out.print(x.number + ": ShortConstNode ===> " +
+                x.position.image);
+    }
+
+    // PARTE 03
+    // ------------------------ Constante LONG ----------------------------
+    public void numberLongConstNode(LongConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        x.number = kk++;
+    }
+
+    public void printLongConstNode(LongConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        System.out.println();
+        System.out.print(x.number + ": LongConstNode ===> " +
+                x.position.image);
+    }
+
+    // PARTE 03
+    // ------------------------ Constante FLOAT ----------------------------
+    public void numberFloatConstNode(FloatConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        x.number = kk++;
+    }
+
+    public void printFloatConstNode(FloatConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        System.out.println();
+        System.out.print(x.number + ": FloatConstNode ===> " +
+                x.position.image);
+    }
+    // ######################################################################
+
+
+
     // -------------------------------- Nome de variável ------------------
     public void numberVarNode(VarNode x) {
         if (x == null) {
@@ -788,7 +871,7 @@ public class PrintTree {
         printExpreListNode(x.args);
     }
 
-    // --------------------------- Indexaao de variável ---------------
+    // --------------------------- Indexação de variável ---------------
     public void numberIndexNode(IndexNode x) {
         if (x == null) {
             return;
@@ -854,6 +937,16 @@ public class PrintTree {
             printStringConstNode((StringConstNode) x);
         } else if (x instanceof NullConstNode) {
             printNullConstNode((NullConstNode) x);
+        // PARTE 03
+        } else if (x instanceof ByteConstNode) {
+            printByteConstNode((ByteConstNode) x);
+        } else if (x instanceof ShortConstNode) {
+            printShortConstNode((ShortConstNode) x);
+        } else if (x instanceof LongConstNode) {
+            printLongConstNode((LongConstNode) x);
+        } else if (x instanceof FloatConstNode) {
+            printFloatConstNode((FloatConstNode) x);
+        // #########################################
         } else if (x instanceof IndexNode) {
             printIndexNode((IndexNode) x);
         } else if (x instanceof DotNode) {
@@ -884,6 +977,16 @@ public class PrintTree {
             numberStringConstNode((StringConstNode) x);
         } else if (x instanceof NullConstNode) {
             numberNullConstNode((NullConstNode) x);
+        // PARTE 03
+        } else if (x instanceof ByteConstNode) {
+            numberByteConstNode((ByteConstNode) x);
+        } else if (x instanceof ShortConstNode) {
+            numberShortConstNode((ShortConstNode) x);
+        } else if (x instanceof LongConstNode) {
+            numberLongConstNode((LongConstNode) x);
+        } else if (x instanceof FloatConstNode) {
+            numberFloatConstNode((FloatConstNode) x);
+        // #########################################
         } else if (x instanceof IndexNode) {
             numberIndexNode((IndexNode) x);
         } else if (x instanceof DotNode) {

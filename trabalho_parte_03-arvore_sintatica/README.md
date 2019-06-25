@@ -1,4 +1,4 @@
-# Relatório Analisador Sintático X+++
+# Relatório Árvore Sintático X+++
 
 ## Equipe
 14104255 - Bruno Aurélio Rôzza de Moura Campos<br/>
@@ -7,133 +7,195 @@
 14101398 - Thary Correia<br/>
 
 ## Papeis no Desenvolvimento
-Houve 3 encontros com **todos** os membros participando do desenvolvimento da segunda parte do trabalho.
+Houve 1 encontro com **todos** os membros participando do desenvolvimento da terceira parte do trabalho.
 
 
-## Alterações que foram realizadas sobre o projeto sugerido nos capítulos 4 e 5 de Delamaro (2004)
+## Alterações que foram realizadas sobre o projeto sugerido nos capítulos 6 e 7 de Delamaro (2004)
 
-- Adicionado configuração de saída na geração dos arquivos
+- construção da árvore sintática
+- impressão da árvore sintática
 
+#### syntacticTree/FloatConstNode.java
+- Arquivo criado
 ```java
-OUTPUT_DIRECTORY = "parser";
-```
+package syntacticTree;
 
-- Criação do método `accessOperation()` com os tipos de acesso
+import parser.*;
 
-```java
-void accessOperation(): {} {
-    // Os qualificadores de acesso devem ser opcionais
-   [<PUBLIC> | <PRIVATE> | <PROTECTED>]
-}
-```
 
-- Criação do método `typeOperation()` que define a tipagem primitíva
-
-```java
-void typeOperation(): {} {
-    // Tipos de variáveis e literais
-   <INT> | <STRING> | <BYTE> | <SHORT> | <LONG> | <FLOAT>
-}
-```
-
-- Alterado método `vardecl()`
-    - Adicionado token opcional `[<FINAL>]`
-    - adicionado `typeOperation()` e `accessOperation()`
-    - Adicionado atribuição de valor à uma variável `[<ASSIGN> factor()]`
-
-```java
-void vardecl(RecoverySet g) throws ParseEOFException : {} {
-    try{
-        [<FINAL>]   // variavel pode ser ou não FINAL
-        accessOperation() (typeOperation() | <IDENT> )
-        <IDENT>
-        (<LBRACKET> <RBRACKET>)*
-        (<COMMA> <IDENT> ( <LBRACKET> <RBRACKET>)* )*
-        [<ASSIGN> factor()]     // Atribuição de valor à uma variável
-    } catch (ParseException e) {
-        consumeUntil(g, e, "vardecl");
+public class FloatConstNode extends ExpreNode {
+    public FloatConstNode(Token t) {
+        super(t);
     }
 }
 ```
 
-- Alterado método `methoddecl()`
-    - Adicionado `typeOperation()` e `accessOperation()`
-
+#### syntacticTree/ByteConstNode.java
+- Arquivo criado
 ```java
-void methoddecl(RecoverySet g) throws ParseEOFException : {} {
-    try {
-        (typeOperation() | accessOperation() | <IDENT>)
-        (<LBRACKET> <RBRACKET>)*
-        <IDENT> methodbody(g)
-    } catch (ParseException e) {
-       consumeUntil(g, e, "methoddecl");
+package syntacticTree;
+
+import parser.*;
+
+
+public class ByteConstNode extends ExpreNode {
+    public ByteConstNode(Token t) {
+        super(t);
     }
 }
 ```
 
-- Alterado método `paramlist()`
-    - Adicionado `typeOperation()` e `accessOperation()`
-
+#### syntacticTree/LongConstNode.java
+- Arquivo criado
 ```java
-void paramlist(RecoverySet g) throws ParseEOFException : {} {
-    try {
-        [
-            (typeOperation() | accessOperation() | <IDENT> )
-            <IDENT>
-            (<LBRACKET> <RBRACKET>)*
-            (<COMMA> (typeOperation() | <IDENT>) <IDENT> (<LBRACKET> <RBRACKET>)* )*
-        ]
-    } catch (ParseException e) {
-       consumeUntil(g, e, "paramlist");
+package syntacticTree;
+
+import parser.*;
+
+
+public class LongConstNode extends ExpreNode {
+    public LongConstNode(Token t) {
+        super(t);
     }
 }
 ```
 
-- Alterado método `numexpr()`
-    - Adicionado tokens  `<STAR> | <SLASH> | <REM>` 
-
+#### syntacticTree/ShortConstNode.java
+- Arquivo criado
 ```java
-void numexpr() throws ParseEOFException : {} {
-    logicalOp() ((<PLUS> | <MINUS> | <STAR> | <SLASH> | <REM> ) logicalOp())*
+package syntacticTree;
+
+import parser.*;
+
+
+public class ShortConstNode extends ExpreNode {
+    public ShortConstNode(Token t) {
+        super(t);
+    }
 }
 ```
 
-- Criado método `logicalOp()`
 
+#### syntacticTree/PrintTree.java
+- Alterado o arquivo
 ```java
-void logicalOp() throws ParseEOFException : {} {
-    unaryexpr() (( <OR> | <AND> | <XOR> ) unaryexpr())*
-}
+    // PARTE 03
+    // ------------------------ Constante BYTE ----------------------------
+    public void numberByteConstNode(ByteConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        x.number = kk++;
+    }
+
+    public void printByteConstNode(ByteConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        System.out.println();
+        System.out.print(x.number + ": ByteConstNode ===> " +
+                x.position.image);
+    }
+
+    // PARTE 03
+    // ------------------------ Constante SHORT ----------------------------
+    public void numberShortConstNode(ShortConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        x.number = kk++;
+    }
+
+    public void printShortConstNode(ShortConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        System.out.println();
+        System.out.print(x.number + ": ShortConstNode ===> " +
+                x.position.image);
+    }
+
+    // PARTE 03
+    // ------------------------ Constante LONG ----------------------------
+    public void numberLongConstNode(LongConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        x.number = kk++;
+    }
+
+    public void printLongConstNode(LongConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        System.out.println();
+        System.out.print(x.number + ": LongConstNode ===> " +
+                x.position.image);
+    }
+
+    // PARTE 03
+    // ------------------------ Constante FLOAT ----------------------------
+    public void numberFloatConstNode(FloatConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        x.number = kk++;
+    }
+
+    public void printFloatConstNode(FloatConstNode x) {
+        if (x == null) {
+            return;
+        }
+
+        System.out.println();
+        System.out.print(x.number + ": FloatConstNode ===> " +
+                x.position.image);
+    }
 ```
 
-- Alterado método `unaryexpr()`
-    - Adicionado token `NOT`
-
+- Na parte `expressão em geral`
 ```java
-void unaryexpr() throws ParseEOFException : {} {
-   [(<PLUS> | <MINUS> | <NOT>)] factor()
-}
+    public void printExpreNode(ExpreNode x) {
+    ...
+        // PARTE 03
+        } else if (x instanceof ByteConstNode) {
+            printByteConstNode((ByteConstNode) x);
+        } else if (x instanceof ShortConstNode) {
+            printShortConstNode((ShortConstNode) x);
+        } else if (x instanceof LongConstNode) {
+            printLongConstNode((LongConstNode) x);
+        } else if (x instanceof FloatConstNode) {
+            printFloatConstNode((FloatConstNode) x);
 ```
 
-- Alterado método `vardecl()`
-    - Adicionado `<long_constant>`, `<short_constant>` e `<float_constant>`
-
 ```java
-void factor() throws ParseEOFException : {} {
-    (
-        <int_constant>
-        | <string_constant>
-        | <long_constant>
-        | <short_constant>
-        | <float_constant>
-        | <null_constant>
-        | lvalue(null)
-        | <LPAREN> expression(null) <RPAREN>
-    )
-}
+    public void numberExpreNode(ExpreNode x) {
+    ...
+        // PARTE 03
+        } else if (x instanceof ByteConstNode) {
+            numberByteConstNode((ByteConstNode) x);
+        } else if (x instanceof ShortConstNode) {
+            numberShortConstNode((ShortConstNode) x);
+        } else if (x instanceof LongConstNode) {
+            numberLongConstNode((LongConstNode) x);
+        } else if (x instanceof FloatConstNode) {
+            numberFloatConstNode((FloatConstNode) x);
 ```
 
-#### Comandos utilizados
+
+#### langX+++.jj
+- Alterado o arquivo
+```java
+```
+
+### Comandos utilizados
 ```bash
 sudo apt install javacc
 ```
@@ -157,6 +219,12 @@ java parser.langX testes_e_logs/teste_expressoes_logicas.x
 - Debug Analisador Sintático
 ```bash
 java parser.langX -debug_AS testes_e_logs/debugAS.x
+```
+
+- Árvore Sintática
+```bash
+java parser.langX -print_tree testes_e_logs/teste_expressoes_logicas.x
+java parser.langX -print_tree testes_e_logs/teste_com_erro_classbody.x
 ```
 
 #### Notas
