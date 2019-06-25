@@ -598,7 +598,7 @@ void alocexpression(RecoverySet g) throws ParseEOFException :
     {
         <NEW> (
                  LOOKAHEAD(2) <IDENT> <LPAREN> arglist(f1) <RPAREN> |
-                 ( <INT> | <STRING> | <IDENT> )
+                 ( typeOperation() | <IDENT> )
                  (<LBRACKET> expression(f2) <RBRACKET>)+
               )
     }

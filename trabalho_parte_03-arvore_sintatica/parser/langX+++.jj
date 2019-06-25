@@ -446,36 +446,8 @@ ClassBodyNode classbody(RecoverySet g) throws ParseEOFException : {
 }
 
 
-// parte 02 trabalho
-// Criado método com os tipos de acesso
-void accessOperation(RecoverySet g) throws ParseEOFException :
-{
-    Token t = null;
-}
-{
-    // Os qualificadores de acesso devem ser opcionais
-   [<PUBLIC> | <PRIVATE> | <PROTECTED>]
-}
-
-
-// parte 02 trabalho
-// Criado método com a tipagem
-void typeOperation(RecoverySet g) throws ParseEOFException: {} {
-    // Tipos de variáveis e literais
-   <INT> | <STRING> | <BYTE> | <SHORT> | <LONG> | <FLOAT>
-}
-
-
-
-
-
-
-
-
-/* parte 03
-/ adicionado tokens de:
- - tipagem de variável,
-
+// parte 03
+// adicionado tokens de: tipagem de variável, tipo de acesso, atribuição e o token final
 VarDeclNode vardecl(RecoverySet g) throws ParseEOFException :
 {
     Token t1 = null, t2;
@@ -483,26 +455,26 @@ VarDeclNode vardecl(RecoverySet g) throws ParseEOFException :
     ListNode l = null;
 }
 {
-try {
-        [<FINAL>]   // variavel pode ser ou não FINAL
-        [<PUBLIC> | <PRIVATE> | <PROTECTED>]
-        ( t1 = <INT>
-        | t1 = <STRING>
-        | t1 = <BYTE>
-        | t1 = <SHORT>
-        | t1 = <LONG>
-        | t1 = <FLOAT>
-        | t1 = <IDENT> )
-        t2 = <IDENT> ( [<ASSIGN> factor()] )
-        { l = new ListNode(new VarNode(t2, k)); }
-        (<COMMA> { k = 0; }  t2 = <IDENT> ( <LBRACKET> <RBRACKET> { k++; })*
-        { l.add(new VarNode(t2, k)); }
-   )*
-  { return new VarDeclNode(t1, l); }
-} catch (ParseException e) {
-   consumeUntil(g, e, "vardecl");
-   return new VarDeclNode(t1, l);
-}
+    try {
+            [<FINAL>]   // variavel pode ser ou não FINAL
+            [<PUBLIC> | <PRIVATE> | <PROTECTED>]
+            ( t1 = <INT>
+            | t1 = <STRING>
+            | t1 = <BYTE>
+            | t1 = <SHORT>
+            | t1 = <LONG>
+            | t1 = <FLOAT>
+            | t1 = <IDENT> )
+            t2 = <IDENT> ( [<ASSIGN> factor()] )
+            { l = new ListNode(new VarNode(t2, k)); }
+            (<COMMA> { k = 0; }  t2 = <IDENT> ( <LBRACKET> <RBRACKET> { k++; })*
+            { l.add(new VarNode(t2, k)); }
+    )*
+    { return new VarDeclNode(t1, l); }
+    } catch (ParseException e) {
+    consumeUntil(g, e, "vardecl");
+    return new VarDeclNode(t1, l);
+    }
 }
 
 
@@ -510,7 +482,6 @@ ConstructDeclNode constructdecl(RecoverySet g) throws ParseEOFException : {
     Token t = null;
     MethodBodyNode m = null;
 }
-
 {
     try {
         t = <CONSTRUCTOR> m = methodbody(g)
@@ -524,6 +495,8 @@ ConstructDeclNode constructdecl(RecoverySet g) throws ParseEOFException : {
 }
 
 
+// Trabalho - parte 02
+// Add tokens de acesso e tipagem
 MethodDeclNode methoddecl(RecoverySet g) throws ParseEOFException : {
     Token t1 = null,
           t2 = null;
@@ -532,7 +505,14 @@ MethodDeclNode methoddecl(RecoverySet g) throws ParseEOFException : {
 }
 {
     try {
-        ( t1 = <INT> |  t1 = <STRING> | t1 = <IDENT> )
+        [<PUBLIC> | <PRIVATE> | <PROTECTED>]
+        ( t1 = <INT>
+        | t1 = <STRING>
+        | t1 = <BYTE>
+        | t1 = <SHORT>
+        | t1 = <LONG>
+        | t1 = <FLOAT>
+        | t1 = <IDENT> )
         (<LBRACKET> <RBRACKET> { k++; } )*
         t2 = <IDENT> m = methodbody(g)
         { return new MethodDeclNode(t1, k, t2, m);
@@ -562,7 +542,8 @@ MethodBodyNode methodbody(RecoverySet g) throws ParseEOFException : {
     }
 }
 
-
+// Trabalho - parte 02
+// Add métodos de acesso e tipagem
 ListNode paramlist(RecoverySet g) throws ParseEOFException : {
     ListNode p = null, q = null;
     int k = 0;
@@ -571,13 +552,27 @@ ListNode paramlist(RecoverySet g) throws ParseEOFException : {
 }
 {
     try {
-        [ (t1 = <INT> |  t1 = <STRING> | t1 = <IDENT>) t2 = <IDENT>
-        (<LBRACKET> <RBRACKET> { k++; } )*
+        [ 
+            [<PUBLIC> | <PRIVATE> | <PROTECTED>]
+            ( t1 = <INT>
+            | t1 = <STRING>
+            | t1 = <BYTE>
+            | t1 = <SHORT>
+            | t1 = <LONG>
+            | t1 = <FLOAT>
+            | t1 = <IDENT> ) t2 = <IDENT>
+            (<LBRACKET> <RBRACKET> { k++; } )*
             {
                 q = new ListNode(new VarNode(t2, k));
                 p = new ListNode(new VarDeclNode(t1, q));
             }
-        (<COMMA> {k = 0;}  ( t1 = <INT> |  t1 = <STRING> | t1 = <IDENT>)
+            (<COMMA> {k = 0;}  ( t1 = <INT>
+                                | t1 = <STRING>
+                                | t1 = <BYTE>
+                                | t1 = <SHORT>
+                                | t1 = <LONG>
+                                | t1 = <FLOAT>
+                                | t1 = <IDENT> ) 
             t2= <IDENT> (<LBRACKET> <RBRACKET> {k ++;} )* {
                 q = new ListNode(new VarNode(t2, k));
                 p.add(new VarDeclNode(t1, q));
@@ -799,7 +794,15 @@ ExpreNode alocexpression(RecoverySet g) throws ParseEOFException : {
     t1 = <NEW>
     (LOOKAHEAD(2) t2 = <IDENT> <LPAREN> l = arglist(f1) <RPAREN>
          { e1 = new NewObjectNode(t1, t2, l); }
-    | ( t2 = <INT> | t2 = <STRING> | t2 = <IDENT> )
+        |  [<PUBLIC> | <PRIVATE> | <PROTECTED>]
+            ( t2 = <INT>
+            | t2 = <STRING>
+            | t2 = <BYTE>
+            | t2 = <SHORT>
+            | t2 = <LONG>
+            | t2 = <FLOAT>
+            | t1 = <IDENT> )
+
       (<LBRACKET> e2 = expression(f2) <RBRACKET>
       {
         if ( l == null )
@@ -833,47 +836,59 @@ ExpreNode expression(RecoverySet g) throws ParseEOFException : {
     }
 }
 
-
+// Trabalho - parte 02
+// Add token STAR, SLASH, REM
 ExpreNode numexpr() throws ParseEOFException : {
     ExpreNode e1 = null, e2;
     Token t;
 }
 {
-    e1 = term()
+    e1 = logicalOp()
     (
-        (t = <PLUS> | t = <MINUS>)
-        e2 = term()
+        (t = <PLUS> 
+        | t = <MINUS>
+        | t = <STAR> 
+        | t = <SLASH> 
+        | t = <REM>)
+        e2 = logicalOp()
         { e1 = new AddNode(t, e1, e2); }
     )*
     {return e1; }
 }
 
-
-ExpreNode term() throws ParseEOFException : {
+// Trabalho - parte 02
+// Criado novo método
+ExpreNode logicalOp() throws ParseEOFException : {
     ExpreNode e1 = null, e2;
     Token t;
 }
 {
     e1 = unaryexpr()
     (
-       ( t = <STAR> | t = <SLASH>| t = <REM>)
+       ( t = <OR> 
+       | t = <AND>
+       | t = <XOR>)
        e2 = unaryexpr()
          { e1 = new MultNode(t, e1, e2); }
     )*
     { return e1; }
 }
 
-
+// Trabalho - parte 02
+// Add token NOT
 ExpreNode unaryexpr() throws ParseEOFException : {
     ExpreNode e;
     Token t = null;
 }
 {
-   [( t = <PLUS> | t = <MINUS>)] e = factor()
+   [( t = <PLUS> 
+   | t = <MINUS> 
+   | t = <NOT>)] e = factor()
    { return ( (t == null) ? e : new UnaryNode(t, e));}
 }
 
-
+// Trabalho - parte 02
+// Adicionados novos tipos, criados em syntacticTree
 ExpreNode factor() throws ParseEOFException : {
     ExpreNode e = null;
     Token t;

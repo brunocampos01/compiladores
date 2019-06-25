@@ -26,7 +26,7 @@ class TesteExpressoesLogicas {
     final private float variablePrivateAndFinal ;
 
     // OR
-    public imprimeIteracao(byte i) {
+    public imprimeIteracao (string i) {
         if((i > 10) || (i < 50)) {
             print i ;
         }

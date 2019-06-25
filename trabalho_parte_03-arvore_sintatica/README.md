@@ -193,6 +193,36 @@ public class ShortConstNode extends ExpreNode {
 #### langX+++.jj
 - Alterado o arquivo
 ```java
+// parte 03
+// adicionado tokens de: tipagem de variável, tipo de acesso, atribuição e o token final
+VarDeclNode vardecl(RecoverySet g) throws ParseEOFException :
+{
+    Token t1 = null, t2;
+    int k = 0;
+    ListNode l = null;
+}
+{
+    try {
+            [<FINAL>]   // variavel pode ser ou não FINAL
+            [<PUBLIC> | <PRIVATE> | <PROTECTED>]
+            ( t1 = <INT>
+            | t1 = <STRING>
+            | t1 = <BYTE>
+            | t1 = <SHORT>
+            | t1 = <LONG>
+            | t1 = <FLOAT>
+            | t1 = <IDENT> )
+            t2 = <IDENT> ( [<ASSIGN> factor()] )
+            { l = new ListNode(new VarNode(t2, k)); }
+            (<COMMA> { k = 0; }  t2 = <IDENT> ( <LBRACKET> <RBRACKET> { k++; })*
+            { l.add(new VarNode(t2, k)); }
+    )*
+    { return new VarDeclNode(t1, l); }
+    } catch (ParseException e) {
+    consumeUntil(g, e, "vardecl");
+    return new VarDeclNode(t1, l);
+    }
+}
 ```
 
 ### Comandos utilizados
