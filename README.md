@@ -2,11 +2,11 @@
 
 ## Trabalho
 Desenvolvimento de um compilador
-- [Analisador Léxico](https://github.com/brunocampos01/compiladores/tree/master/trabalho_parte_01-analisador_lexico)
-- [Analisador Sinático](https://github.com/brunocampos01/compiladores/tree/master/trabalho_parte_02-analisador_sintatico)
-- [Analisador Semântico]()
+- [Analisador Léxico](trabalho_parte_01-analisador_lexico/)
+- [Analisador Sinático](trabalho_parte_02-analisador_sintatico/)
+- [Árvore Sintática](trabalho_parte_03-arvore_sintatica/)
 
-### Requirements
+### Requisitos
 - Java 1.8
 - Javacc
 
@@ -14,23 +14,33 @@ Desenvolvimento de um compilador
 sudo apt install javacc
 ```
 
-### Generate Parser 
+### Gerar Parser 
 ```
 javacc parser/langX++.jj
 ```
 
-###  Generate Class File 
+### Compilar
 ```
 javac parser/langX.java
 ```
 
-### Tests
+### Testes - Analisador Léxico
 ```
  java parser.langX -short testes_e_logs/teste-lexico.x
  java parser.langX -short testes_e_logs/teste-com-erro-lexico.x
 ```
 
-### Debug - Syntactic Analyzer
+### Debug - Analisador Sintático
 ```bash
 java parser.langX -debug_AS testes_e_logs/debugAS.x
 ```
+
+### Árvore Sintática
+```bash
+java parser.langX -print_tree testes_e_logs/teste_expressoes_logicas.x
+java parser.langX -print_tree testes_e_logs/teste_com_erro_classbody.x
+```
+
+#### Notas
+- O arquivo `langX+++.jj` foi identado com 4 espaços,
+- Encoding dos arquivos: US-ASCII
