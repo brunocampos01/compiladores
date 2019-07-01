@@ -353,8 +353,7 @@ ListNode program() throws ParseEOFException : {
 }
 
 {
-    <EOF> {
-        return null;}
+    <EOF> { return null; }
     | (l = classlist(g)
         try {
             <EOF> {return l;}
@@ -362,8 +361,7 @@ ListNode program() throws ParseEOFException : {
             consumeUntil(g, e, "program");
         }
         [d = program()]
-    ) { return l;
-      }
+    ) { return l; }
 }
 
 
@@ -388,8 +386,7 @@ ClassDeclNode classdecl(RecoverySet g) throws ParseEOFException : {
 {
     try {
         t = <CLASS>  n = <IDENT> [ <EXTENDS> e1 = <IDENT> ] c = classbody(g)
-        { return new ClassDeclNode(t, n, e1, c);
-        }
+        { return new ClassDeclNode(t, n, e1, c); }
     } catch (ParseException e) {
         consumeUntil(g, e, "classdecl");
         return new ClassDeclNode(t, n, e1, c);
@@ -472,8 +469,8 @@ VarDeclNode vardecl(RecoverySet g) throws ParseEOFException :
     )*
     { return new VarDeclNode(t1, l); }
     } catch (ParseException e) {
-    consumeUntil(g, e, "vardecl");
-    return new VarDeclNode(t1, l);
+        consumeUntil(g, e, "vardecl");
+        return new VarDeclNode(t1, l);
     }
 }
 
@@ -485,8 +482,7 @@ ConstructDeclNode constructdecl(RecoverySet g) throws ParseEOFException : {
 {
     try {
         t = <CONSTRUCTOR> m = methodbody(g)
-           { return new ConstructDeclNode(t, m);
-           }
+           { return new ConstructDeclNode(t, m); }
     }
     catch (ParseException e) {
         consumeUntil(g, e, "constructdecl");
@@ -515,8 +511,7 @@ MethodDeclNode methoddecl(RecoverySet g) throws ParseEOFException : {
         | t1 = <IDENT> )
         (<LBRACKET> <RBRACKET> { k++; } )*
         t2 = <IDENT> m = methodbody(g)
-        { return new MethodDeclNode(t1, k, t2, m);
-        }
+        { return new MethodDeclNode(t1, k, t2, m); }
     }
     catch (ParseException e) {
         consumeUntil(g, e, "methoddecl");
@@ -542,6 +537,7 @@ MethodBodyNode methodbody(RecoverySet g) throws ParseEOFException : {
     }
 }
 
+
 // Trabalho - parte 02
 // Add métodos de acesso e tipagem
 ListNode paramlist(RecoverySet g) throws ParseEOFException : {
@@ -552,7 +548,7 @@ ListNode paramlist(RecoverySet g) throws ParseEOFException : {
 }
 {
     try {
-        [ 
+        [
             [<PUBLIC> | <PRIVATE> | <PROTECTED>]
             ( t1 = <INT>
             | t1 = <STRING>
@@ -566,13 +562,13 @@ ListNode paramlist(RecoverySet g) throws ParseEOFException : {
                 q = new ListNode(new VarNode(t2, k));
                 p = new ListNode(new VarDeclNode(t1, q));
             }
-            (<COMMA> {k = 0;}  ( t1 = <INT>
+            (<COMMA> {k = 0;}   ( t1 = <INT>
                                 | t1 = <STRING>
                                 | t1 = <BYTE>
                                 | t1 = <SHORT>
                                 | t1 = <LONG>
                                 | t1 = <FLOAT>
-                                | t1 = <IDENT> ) 
+                                | t1 = <IDENT> )
             t2= <IDENT> (<LBRACKET> <RBRACKET> {k ++;} )* {
                 q = new ListNode(new VarNode(t2, k));
                 p.add(new VarDeclNode(t1, q));
@@ -628,14 +624,14 @@ AtribNode atribstat(RecoverySet g) throws ParseEOFException : {
 }
 
 {
-try {
-    e1 = lvalue(f1) t1 = <ASSIGN>
-    ( e2 = alocexpression(g) | e2 = expression(g))
-    { return new AtribNode(t1, e1, e2); }
-} catch (ParseException e) {
-   consumeUntil(g, e, "atribstat");
-   return new AtribNode(t1, e1, e2);
-}
+    try {
+        e1 = lvalue(f1) t1 = <ASSIGN>
+        ( e2 = alocexpression(g) | e2 = expression(g))
+        { return new AtribNode(t1, e1, e2); }
+    } catch (ParseException e) {
+       consumeUntil(g, e, "atribstat");
+       return new AtribNode(t1, e1, e2);
+    }
 }
 
 PrintNode printstat(RecoverySet g) throws ParseEOFException : {
@@ -801,21 +797,20 @@ ExpreNode alocexpression(RecoverySet g) throws ParseEOFException : {
             | t2 = <SHORT>
             | t2 = <LONG>
             | t2 = <FLOAT>
-            | t1 = <IDENT> )
+            | t2 = <IDENT> )
 
       (<LBRACKET> e2 = expression(f2) <RBRACKET>
       {
         if ( l == null )
             l = new ListNode(e2);
         else
-            l.add(e2);
+                   l.add(e2);
       }
-    )+
-    { e1 = new NewArrayNode(t1, t2, l); }
+      )+
+          { e1 = new NewArrayNode(t1, t2, l); }
     )
     { return e1; }
 }
-
 
 ExpreNode expression(RecoverySet g) throws ParseEOFException : {
     ExpreNode e1 = null, e2 = null;
@@ -845,10 +840,10 @@ ExpreNode numexpr() throws ParseEOFException : {
 {
     e1 = logicalOp()
     (
-        (t = <PLUS> 
+        (t = <PLUS>
         | t = <MINUS>
-        | t = <STAR> 
-        | t = <SLASH> 
+        | t = <STAR>
+        | t = <SLASH>
         | t = <REM>)
         e2 = logicalOp()
         { e1 = new AddNode(t, e1, e2); }
@@ -865,7 +860,7 @@ ExpreNode logicalOp() throws ParseEOFException : {
 {
     e1 = unaryexpr()
     (
-       ( t = <OR> 
+       ( t = <OR>
        | t = <AND>
        | t = <XOR>)
        e2 = unaryexpr()
@@ -881,8 +876,8 @@ ExpreNode unaryexpr() throws ParseEOFException : {
     Token t = null;
 }
 {
-   [( t = <PLUS> 
-   | t = <MINUS> 
+   [( t = <PLUS>
+   | t = <MINUS>
    | t = <NOT>)] e = factor()
    { return ( (t == null) ? e : new UnaryNode(t, e));}
 }

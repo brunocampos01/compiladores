@@ -388,14 +388,14 @@ void classbody(RecoverySet g) throws ParseEOFException :
 
 // parte 02 trabalho
 // Criado método com os tipos de acesso
-void accessOperation(RecoverySet g) throws ParseEOFException : {} {
+void accessOperation() throws ParseEOFException : {} {
     // Os qualificadores de acesso devem ser opcionais
    [<PUBLIC> | <PRIVATE> | <PROTECTED>]
 }
 
 // parte 02 trabalho
 // Criado método com a tipagem
-void typeOperation(RecoverySet g) throws ParseEOFException : {} {
+void typeOperation() throws ParseEOFException : {} {
     // Tipos de variáveis e literais
    <INT> | <STRING> | <BYTE> | <SHORT> | <LONG> | <FLOAT>
 }

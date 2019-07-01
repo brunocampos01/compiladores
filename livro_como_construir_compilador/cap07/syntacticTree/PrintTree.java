@@ -7,7 +7,7 @@ public class PrintTree {
     int kk;
 
     public PrintTree() {
-        kk = 1; // inicializa contador de nós
+        kk = 1; // inicializa contador de n?s
     }
 
     public void printRoot(ListNode x) {
@@ -46,7 +46,7 @@ public class PrintTree {
         printClassDeclListNode(x.next);
     }
 
-    // ------------- declaracão de classe -------------------------
+    // ------------- declarac?o de classe -------------------------
     public void numberClassDeclNode(ClassDeclNode x) {
         if (x == null) {
             return;
@@ -101,7 +101,7 @@ public class PrintTree {
         printMethodDeclListNode(x.mlist);
     }
 
-    // ---------------- Lista de declaracões de variáveis ---------------- 
+    // ---------------- Lista de declarac?es de vari?veis ---------------- 
     public void numberVarDeclListNode(ListNode x) {
         if (x == null) {
             return;
@@ -126,7 +126,7 @@ public class PrintTree {
         printVarDeclListNode(x.next);
     }
 
-    // -------------------- Declaracão de variável --------------------
+    // -------------------- Declarac?o de vari?vel --------------------
     public void numberVarDeclNode(VarDeclNode x) {
         if (x == null) {
             return;
@@ -147,7 +147,7 @@ public class PrintTree {
         printvarListNode(x.vars);
     }
 
-    // ------------------- Lista de variáveis --------------------
+    // ------------------- Lista de vari?veis --------------------
     public void numbervarListNode(ListNode x) {
         if (x == null) {
             return;
@@ -197,7 +197,7 @@ public class PrintTree {
         printConstructDeclListNode(x.next);
     }
 
-    // ------------------ Declaracão de construtor -----------------
+    // ------------------ Declarac?o de construtor -----------------
     public void numberConstructDeclNode(ConstructDeclNode x) {
         if (x == null) {
             return;
@@ -218,7 +218,7 @@ public class PrintTree {
         printMethodBodyNode(x.body);
     }
 
-    // -------------------------- Lista de métodos -----------------
+    // -------------------------- Lista de m?todos -----------------
     public void numberMethodDeclListNode(ListNode x) {
         if (x == null) {
             return;
@@ -242,7 +242,7 @@ public class PrintTree {
         printMethodDeclListNode(x.next);
     }
 
-    // --------------------- Declaracão de método ---------------
+    // --------------------- Declarac?o de m?todo ---------------
     public void numberMethodDeclNode(MethodDeclNode x) {
         if (x == null) {
             return;
@@ -264,7 +264,7 @@ public class PrintTree {
         printMethodBodyNode(x.body);
     }
 
-    //-------------------------- Corpo de método ----------------------
+    //-------------------------- Corpo de m?todo ----------------------
     public void numberMethodBodyNode(MethodBodyNode x) {
         if (x == null) {
             return;
@@ -415,7 +415,7 @@ public class PrintTree {
         printExpreListNode(x.args);
     }
 
-    // ------------------------- Comando de atribuição -------------------
+    // ------------------------- Comando de atribui??o -------------------
     public void numberAtribNode(AtribNode x) {
         if (x == null) {
             return;
@@ -532,7 +532,7 @@ public class PrintTree {
         System.out.print(x.number + ": NopNode");
     }
 
-    // -------------------------- Alocação de objeto ------------------------
+    // -------------------------- Aloca??o de objeto ------------------------
     public void numberNewObjectNode(NewObjectNode x) {
         if (x == null) {
             return;
@@ -554,7 +554,7 @@ public class PrintTree {
         printExpreListNode(x.args);
     }
 
-    // -------------------------- Alocação de array ------------------------
+    // -------------------------- Aloca??o de array ------------------------
     public void numberNewArrayNode(NewArrayNode x) {
         if (x == null) {
             return;
@@ -576,7 +576,7 @@ public class PrintTree {
         printExpreListNode(x.dims);
     }
 
-    // --------------------------- Lista de expressões ---------------
+    // --------------------------- Lista de express?es ---------------
     public void numberExpreListNode(ListNode x) {
         if (x == null) {
             return;
@@ -600,7 +600,7 @@ public class PrintTree {
         printExpreListNode(x.next);
     }
 
-    // --------------------- Expressão relacional -------------------
+    // --------------------- Express?o relacional -------------------
     public void numberRelationalNode(RelationalNode x) {
         if (x == null) {
             return;
@@ -623,7 +623,7 @@ public class PrintTree {
         printExpreNode(x.expr2);
     }
 
-    // ------------------------ Soma ou subtração  -------------------
+    // ------------------------ Soma ou subtra??o  -------------------
     public void numberAddNode(AddNode x) {
         if (x == null) {
             return;
@@ -646,7 +646,7 @@ public class PrintTree {
         printExpreNode(x.expr2);
     }
 
-    // ---------------------- Multiplicação ou divisão --------------------
+    // ---------------------- Multiplica??o ou divis?o --------------------
     public void numberMultNode(MultNode x) {
         if (x == null) {
             return;
@@ -669,7 +669,7 @@ public class PrintTree {
         printExpreNode(x.expr2);
     }
 
-    // ------------------------- Expressão unária ------------------------
+    // ------------------------- Express?o un?ria ------------------------
     public void numberUnaryNode(UnaryNode x) {
         if (x == null) {
             return;
@@ -745,7 +745,7 @@ public class PrintTree {
         System.out.print(x.number + ": NullConstNode ===> " + x.position.image);
     }
 
-    // -------------------------------- Nome de variável ------------------
+    // -------------------------------- Nome de vari?vel ------------------
     public void numberVarNode(VarNode x) {
         if (x == null) {
             return;
@@ -764,7 +764,7 @@ public class PrintTree {
             ((x.dim == 0) ? "" : ("[" + x.dim + "]")));
     }
 
-    // ---------------------------- Chamada de método ------------------------
+    // ---------------------------- Chamada de m?todo ------------------------
     public void numberCallNode(CallNode x) {
         if (x == null) {
             return;
@@ -788,7 +788,7 @@ public class PrintTree {
         printExpreListNode(x.args);
     }
 
-    // --------------------------- Indexação de variável ---------------
+    // --------------------------- Indexa??o de vari?vel ---------------
     public void numberIndexNode(IndexNode x) {
         if (x == null) {
             return;
@@ -811,7 +811,7 @@ public class PrintTree {
         printExpreNode(x.expr2);
     }
 
-    // -------------------------- Acesso a campo de variável ---------------
+    // -------------------------- Acesso a campo de vari?vel ---------------
     public void numberDotNode(DotNode x) {
         if (x == null) {
             return;
@@ -832,7 +832,7 @@ public class PrintTree {
         printExpreNode(x.expr);
     }
 
-    // --------------------------- Expressão em geral --------------------------
+    // --------------------------- Express?o em geral --------------------------
     public void printExpreNode(ExpreNode x) {
         if (x instanceof NewObjectNode) {
             printNewObjectNode((NewObjectNode) x);

@@ -25,7 +25,7 @@ public class RecoverySet extends HashSet {
     }
 
     public RecoverySet union(RecoverySet s)
-    // faz a união de dois conjuntos
+    // faz a uni?o de dois conjuntos
      {
         RecoverySet t = null;
 

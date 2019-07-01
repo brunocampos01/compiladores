@@ -63,9 +63,9 @@ class matriz extends base
 	int start()
 	{
 		int i, j, m, n;
-		print "Número de linhas: ";
+		print "N?mero de linhas: ";
 		read n;
-		print "Número de colunas: ";
+		print "N?mero de colunas: ";
 		read m;
 		base m1, m2;
 		matriz m3;
@@ -97,7 +97,7 @@ class base
 
 	int set(int i, int j, int k)
 	{
-		print "Isso não deve ser impresso nunca";
+		print "Isso n?o deve ser impresso nunca";
 	}
 
 	int get(int i, int j)

@@ -25,8 +25,19 @@ class TesteExpressoesLogicas {
     private long variablePrivate ;
     final private float variablePrivateAndFinal ;
 
+
+   constructor(int t) {
+      super(t);
+      k = t;
+   }
+
+   int start() {
+      SClass x;
+      x = new SClass(10);
+   }
+
     // OR
-    public imprimeIteracao (string i) {
+    public int imprimeIteracao (string i) {
         if((i > 10) || (i < 50)) {
             print i ;
         }
@@ -34,7 +45,7 @@ class TesteExpressoesLogicas {
       }
 
     // AND
-    public imprimeIteracao() {
+    public int imprimeIteracao() {
         if((a > 10) && (b < 50)) {
             print i ;
         }
@@ -42,7 +53,7 @@ class TesteExpressoesLogicas {
       }
 
     // NOT
-    protected compara(long a) {
+    protected int compara(long a) {
         if( !(a) ){
           return 1 ;
         }
@@ -50,7 +61,7 @@ class TesteExpressoesLogicas {
       }
 
     // XOR
-    private testaXor() {
+    private void testaXor() {
         a = a ^ b ;
         b = b ^ a ;
 
