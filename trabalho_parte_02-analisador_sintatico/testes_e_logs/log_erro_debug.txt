@@ -1,0 +1,2173 @@
+X+++ Compiler - Version 1.0
+Reading from file testes_e_logs/teste_com_erro_classbody.x . . .
+Call:   program
+  Call:   classlist
+    Call:   classdecl
+      Consumed token: <"class" at line 1 column 1>
+      Consumed token: <<IDENT>: "test" at line 1 column 7>
+      Call:   classbody
+        Consumed token: <"{" at line 1 column 12>
+        Call:   vardecl(LOOKING AHEAD...)
+          Visited token: <"(" at line 4 column 1>; Expected token: <"final">
+          Call:   accessOperation(LOOKING AHEAD...)
+            Visited token: <"(" at line 4 column 1>; Expected token: <"public">
+            Visited token: <"(" at line 4 column 1>; Expected token: <"private">
+            Visited token: <"(" at line 4 column 1>; Expected token: <"protected">
+          Return: accessOperation(LOOKAHEAD SUCCEEDED)
+          Call:   typeOperation(LOOKING AHEAD...)
+            Visited token: <"(" at line 4 column 1>; Expected token: <"int">
+            Visited token: <"(" at line 4 column 1>; Expected token: <"string">
+            Visited token: <"(" at line 4 column 1>; Expected token: <"byte">
+            Visited token: <"(" at line 4 column 1>; Expected token: <"short">
+            Visited token: <"(" at line 4 column 1>; Expected token: <"long">
+            Visited token: <"(" at line 4 column 1>; Expected token: <"float">
+          Return: typeOperation(LOOKAHEAD FAILED)
+          Visited token: <"(" at line 4 column 1>; Expected token: <<IDENT>>
+        Return: vardecl(LOOKAHEAD FAILED)
+        Consumed token: <"(" at line 4 column 1> (in getNextToken)
+        Consumed token: <"int" at line 4 column 2> (in getNextToken)
+        Consumed token: <<IDENT>: "a" at line 4 column 6> (in getNextToken)
+        Consumed token: <"," at line 4 column 7> (in getNextToken)
+        Consumed token: <<IDENT>: "b" at line 4 column 8> (in getNextToken)
+        Consumed token: <";" at line 4 column 9> (in getNextToken)
+        Consumed token: <"}" at line 6 column 1> (in getNextToken)
+Encountered " "(" "( "" at line 4, column 1.
+Was expecting one of:
+    "class" ...
+    "constructor" ...
+    "int" ...
+    "string" ...
+    "byte" ...
+    "short" ...
+    "long" ...
+    "float" ...
+    "public" ...
+    "private" ...
+    "protected" ...
+    <IDENT> ...
+    "}" ...
+    "final" ...
+    
+      Return: classbody
+    Return: classdecl
+    Call:   classlist
+      Call:   classdecl
+        Consumed token: <"class" at line 8 column 1>
+        Consumed token: <<IDENT>: "test2" at line 8 column 7>
+        Call:   classbody
+          Consumed token: <"{" at line 8 column 13>
+          Call:   vardecl(LOOKING AHEAD...)
+            Visited token: <"}" at line 10 column 1>; Expected token: <"final">
+            Call:   accessOperation(LOOKING AHEAD...)
+              Visited token: <"}" at line 10 column 1>; Expected token: <"public">
+              Visited token: <"}" at line 10 column 1>; Expected token: <"private">
+              Visited token: <"}" at line 10 column 1>; Expected token: <"protected">
+            Return: accessOperation(LOOKAHEAD SUCCEEDED)
+            Call:   typeOperation(LOOKING AHEAD...)
+              Visited token: <"}" at line 10 column 1>; Expected token: <"int">
+              Visited token: <"}" at line 10 column 1>; Expected token: <"string">
+              Visited token: <"}" at line 10 column 1>; Expected token: <"byte">
+              Visited token: <"}" at line 10 column 1>; Expected token: <"short">
+              Visited token: <"}" at line 10 column 1>; Expected token: <"long">
+              Visited token: <"}" at line 10 column 1>; Expected token: <"float">
+            Return: typeOperation(LOOKAHEAD FAILED)
+            Visited token: <"}" at line 10 column 1>; Expected token: <<IDENT>>
+          Return: vardecl(LOOKAHEAD FAILED)
+          Consumed token: <"}" at line 10 column 1>
+        Return: classbody
+      Return: classdecl
+    Return: classlist
+  Return: classlist
+  Consumed token: <<IDENT>: "outMethodByte" at line 13 column 1> (in getNextToken)
+  Consumed token: <";" at line 13 column 15> (in getNextToken)
+Encountered " <IDENT> "outMethodByte "" at line 13, column 1.
+Was expecting one of:
+    <EOF> 
+    "class" ...
+    
+  Call:   program
+    Call:   classlist
+      Call:   classdecl
+        Consumed token: <"class" at line 20 column 1>
+        Consumed token: <<IDENT>: "bintree" at line 20 column 7>
+        Call:   classbody
+          Consumed token: <"{" at line 20 column 15>
+          Call:   classlist
+            Call:   classdecl
+              Consumed token: <"class" at line 23 column 1>
+              Consumed token: <<IDENT>: "data" at line 23 column 7>
+              Call:   classbody
+                Consumed token: <"{" at line 23 column 12>
+                Call:   vardecl(LOOKING AHEAD...)
+                  Visited token: <"int" at line 24 column 1>; Expected token: <"final">
+                  Call:   accessOperation(LOOKING AHEAD...)
+                    Visited token: <"int" at line 24 column 1>; Expected token: <"public">
+                    Visited token: <"int" at line 24 column 1>; Expected token: <"private">
+                    Visited token: <"int" at line 24 column 1>; Expected token: <"protected">
+                  Return: accessOperation(LOOKAHEAD SUCCEEDED)
+                  Call:   typeOperation(LOOKING AHEAD...)
+                    Visited token: <"int" at line 24 column 1>; Expected token: <"int">
+                  Return: typeOperation(LOOKAHEAD SUCCEEDED)
+                  Visited token: <<IDENT>: "dia" at line 24 column 5>; Expected token: <<IDENT>>
+                  Visited token: <"," at line 24 column 8>; Expected token: <"[">
+                  Visited token: <"," at line 24 column 8>; Expected token: <",">
+                  Call:   vardecl
+                    Call:   accessOperation
+                    Return: accessOperation
+                    Call:   typeOperation
+                      Consumed token: <"int" at line 24 column 1>
+                    Return: typeOperation
+                    Consumed token: <<IDENT>: "dia" at line 24 column 5>
+                    Consumed token: <"," at line 24 column 8>
+                    Consumed token: <<IDENT>: "mes" at line 24 column 10>
+                    Consumed token: <"," at line 24 column 13>
+                    Consumed token: <<IDENT>: "ano" at line 24 column 15>
+                  Return: vardecl
+                  Consumed token: <";" at line 24 column 18>
+                  Call:   vardecl(LOOKING AHEAD...)
+                    Visited token: <"constructor" at line 26 column 1>; Expected token: <"final">
+                    Call:   accessOperation(LOOKING AHEAD...)
+                      Visited token: <"constructor" at line 26 column 1>; Expected token: <"public">
+                      Visited token: <"constructor" at line 26 column 1>; Expected token: <"private">
+                      Visited token: <"constructor" at line 26 column 1>; Expected token: <"protected">
+                    Return: accessOperation(LOOKAHEAD SUCCEEDED)
+                    Call:   typeOperation(LOOKING AHEAD...)
+                      Visited token: <"constructor" at line 26 column 1>; Expected token: <"int">
+                      Visited token: <"constructor" at line 26 column 1>; Expected token: <"string">
+                      Visited token: <"constructor" at line 26 column 1>; Expected token: <"byte">
+                      Visited token: <"constructor" at line 26 column 1>; Expected token: <"short">
+                      Visited token: <"constructor" at line 26 column 1>; Expected token: <"long">
+                      Visited token: <"constructor" at line 26 column 1>; Expected token: <"float">
+                    Return: typeOperation(LOOKAHEAD FAILED)
+                    Visited token: <"constructor" at line 26 column 1>; Expected token: <<IDENT>>
+                  Return: vardecl(LOOKAHEAD FAILED)
+                  Call:   constructdecl
+                    Consumed token: <"constructor" at line 26 column 1>
+                    Call:   methodbody
+                      Consumed token: <"(" at line 26 column 12>
+                      Call:   paramlist
+                      Return: paramlist
+                      Consumed token: <")" at line 26 column 13>
+                      Call:   statement
+                        Visited token: <"{" at line 27 column 1>; Expected token: <<IDENT>>
+                        Consumed token: <"{" at line 27 column 1>
+                        Call:   statlist
+                          Call:   statement
+                            Visited token: <<IDENT>: "ano" at line 28 column 4>; Expected token: <<IDENT>>
+                            Visited token: <"=" at line 28 column 8>; Expected token: <<IDENT>>
+                            Call:   atribstat
+                              Call:   lvalue
+                                Consumed token: <<IDENT>: "ano" at line 28 column 4>
+                              Return: lvalue
+                              Consumed token: <"=" at line 28 column 8>
+                              Call:   expression
+                                Call:   numexpr
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Consumed token: <<int_constant>: "1900" at line 28 column 10>
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                Return: numexpr
+                              Return: expression
+                            Return: atribstat
+                            Consumed token: <";" at line 28 column 14>
+                          Return: statement
+                          Call:   statlist
+                            Call:   statement
+                              Visited token: <<IDENT>: "mes" at line 29 column 4>; Expected token: <<IDENT>>
+                              Visited token: <"=" at line 29 column 8>; Expected token: <<IDENT>>
+                              Call:   atribstat
+                                Call:   lvalue
+                                  Consumed token: <<IDENT>: "mes" at line 29 column 4>
+                                Return: lvalue
+                                Consumed token: <"=" at line 29 column 8>
+                                Call:   expression
+                                  Call:   numexpr
+                                    Call:   logicalOp
+                                      Call:   unaryexpr
+                                        Call:   factor
+                                          Consumed token: <<int_constant>: "1" at line 29 column 10>
+                                        Return: factor
+                                      Return: unaryexpr
+                                    Return: logicalOp
+                                  Return: numexpr
+                                Return: expression
+                              Return: atribstat
+                              Consumed token: <";" at line 29 column 11>
+                            Return: statement
+                            Call:   statlist
+                              Call:   statement
+                                Visited token: <<IDENT>: "dia" at line 30 column 4>; Expected token: <<IDENT>>
+                                Visited token: <"=" at line 30 column 8>; Expected token: <<IDENT>>
+                                Call:   atribstat
+                                  Call:   lvalue
+                                    Consumed token: <<IDENT>: "dia" at line 30 column 4>
+                                  Return: lvalue
+                                  Consumed token: <"=" at line 30 column 8>
+                                  Call:   expression
+                                    Call:   numexpr
+                                      Call:   logicalOp
+                                        Call:   unaryexpr
+                                          Call:   factor
+                                            Consumed token: <<int_constant>: "1" at line 30 column 10>
+                                          Return: factor
+                                        Return: unaryexpr
+                                      Return: logicalOp
+                                    Return: numexpr
+                                  Return: expression
+                                Return: atribstat
+                                Consumed token: <";" at line 30 column 11>
+                              Return: statement
+                            Return: statlist
+                          Return: statlist
+                        Return: statlist
+                        Consumed token: <"}" at line 31 column 1>
+                      Return: statement
+                    Return: methodbody
+                  Return: constructdecl
+                  Call:   constructdecl
+                    Consumed token: <"constructor" at line 33 column 1>
+                    Call:   methodbody
+                      Consumed token: <"(" at line 33 column 12>
+                      Call:   paramlist
+                        Call:   accessOperation
+                        Return: accessOperation
+                        Call:   typeOperation
+                          Consumed token: <"int" at line 33 column 13>
+                        Return: typeOperation
+                        Consumed token: <<IDENT>: "d" at line 33 column 17>
+                        Consumed token: <"," at line 33 column 18>
+                        Call:   typeOperation
+                          Consumed token: <"int" at line 33 column 20>
+                        Return: typeOperation
+                        Consumed token: <<IDENT>: "m" at line 33 column 24>
+                        Consumed token: <"," at line 33 column 25>
+                        Call:   typeOperation
+                          Consumed token: <"int" at line 33 column 27>
+                        Return: typeOperation
+                        Consumed token: <<IDENT>: "a" at line 33 column 31>
+                      Return: paramlist
+                      Consumed token: <")" at line 33 column 32>
+                      Call:   statement
+                        Visited token: <"{" at line 34 column 1>; Expected token: <<IDENT>>
+                        Consumed token: <"{" at line 34 column 1>
+                        Call:   statlist
+                          Call:   statement
+                            Visited token: <<IDENT>: "dia" at line 35 column 4>; Expected token: <<IDENT>>
+                            Visited token: <"=" at line 35 column 8>; Expected token: <<IDENT>>
+                            Call:   atribstat
+                              Call:   lvalue
+                                Consumed token: <<IDENT>: "dia" at line 35 column 4>
+                              Return: lvalue
+                              Consumed token: <"=" at line 35 column 8>
+                              Call:   expression
+                                Call:   numexpr
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Call:   lvalue
+                                          Consumed token: <<IDENT>: "d" at line 35 column 10>
+                                        Return: lvalue
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                Return: numexpr
+                              Return: expression
+                            Return: atribstat
+                            Consumed token: <<IDENT>: "mes" at line 36 column 4> (in getNextToken)
+                            Consumed token: <"=" at line 36 column 8> (in getNextToken)
+                            Consumed token: <<IDENT>: "m" at line 36 column 10> (in getNextToken)
+Encountered " <IDENT> "mes "" at line 36, column 4.
+Was expecting one of:
+    "[" ...
+    ";" ...
+    "." ...
+    ">" ...
+    "<" ...
+    "==" ...
+    "<=" ...
+    ">=" ...
+    "!=" ...
+    "+" ...
+    "-" ...
+    "*" ...
+    "/" ...
+    "%" ...
+    "&&" ...
+    "||" ...
+    "^" ...
+    
+                          Return: statement
+                          Call:   statlist
+                            Call:   statement
+                              Visited token: <";" at line 36 column 11>; Expected token: <<IDENT>>
+                              Consumed token: <";" at line 36 column 11>
+                            Return: statement
+                            Call:   statlist
+                              Call:   statement
+                                Visited token: <<IDENT>: "ano" at line 37 column 4>; Expected token: <<IDENT>>
+                                Visited token: <"=" at line 37 column 8>; Expected token: <<IDENT>>
+                                Call:   atribstat
+                                  Call:   lvalue
+                                    Consumed token: <<IDENT>: "ano" at line 37 column 4>
+                                  Return: lvalue
+                                  Consumed token: <"=" at line 37 column 8>
+                                  Call:   expression
+                                    Call:   numexpr
+                                      Call:   logicalOp
+                                        Call:   unaryexpr
+                                          Call:   factor
+                                            Call:   lvalue
+                                              Consumed token: <<IDENT>: "a" at line 37 column 10>
+                                            Return: lvalue
+                                          Return: factor
+                                        Return: unaryexpr
+                                      Return: logicalOp
+                                    Return: numexpr
+                                  Return: expression
+                                Return: atribstat
+                                Consumed token: <";" at line 37 column 11>
+                              Return: statement
+                            Return: statlist
+                          Return: statlist
+                        Return: statlist
+                        Consumed token: <"}" at line 38 column 1>
+                      Return: statement
+                    Return: methodbody
+                  Return: constructdecl
+                  Call:   methoddecl
+                    Call:   accessOperation
+                    Return: accessOperation
+                    Call:   typeOperation
+                      Consumed token: <"int" at line 40 column 1>
+                    Return: typeOperation
+                    Consumed token: <<IDENT>: "compara" at line 40 column 5>
+                    Call:   methodbody
+                      Consumed token: <"(" at line 40 column 12>
+                      Call:   paramlist
+                        Call:   accessOperation
+                        Return: accessOperation
+                        Consumed token: <<IDENT>: "data" at line 40 column 13>
+                        Consumed token: <<IDENT>: "x" at line 40 column 18>
+                      Return: paramlist
+                      Consumed token: <")" at line 40 column 19>
+                      Call:   statement
+                        Visited token: <"{" at line 41 column 1>; Expected token: <<IDENT>>
+                        Consumed token: <"{" at line 41 column 1>
+                        Call:   statlist
+                          Call:   statement
+                            Visited token: <"if" at line 42 column 4>; Expected token: <<IDENT>>
+                            Call:   ifstat
+                              Consumed token: <"if" at line 42 column 4>
+                              Consumed token: <"(" at line 42 column 7>
+                              Call:   expression
+                                Call:   numexpr
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Call:   lvalue
+                                          Consumed token: <<IDENT>: "ano" at line 42 column 9>
+                                        Return: lvalue
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                Return: numexpr
+                                Consumed token: <"<" at line 42 column 13>
+                                Call:   numexpr
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                      Return: factor
+                                      Consumed token: <"<" at line 42 column 14> (in getNextToken)
+                                      Consumed token: <<IDENT>: "x" at line 42 column 16> (in getNextToken)
+                                      Consumed token: <"." at line 42 column 17> (in getNextToken)
+                                      Consumed token: <<IDENT>: "ano" at line 42 column 18> (in getNextToken)
+Encountered " "<" "< "" at line 42, column 14.
+Was expecting one of:
+    <int_constant> ...
+    <long_constant> ...
+    <short_constant> ...
+    <float_constant> ...
+    <string_constant> ...
+    "null" ...
+    <IDENT> ...
+    "(" ...
+    "+" ...
+    "-" ...
+    "!" ...
+    
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                Return: numexpr
+                              Return: expression
+                              Consumed token: <")" at line 42 column 21>
+                              Call:   statement
+                                Visited token: <"return" at line 42 column 23>; Expected token: <<IDENT>>
+                                Call:   returnstat
+                                  Consumed token: <"return" at line 42 column 23>
+                                  Call:   expression
+                                    Call:   numexpr
+                                      Call:   logicalOp
+                                        Call:   unaryexpr
+                                          Consumed token: <"-" at line 42 column 30>
+                                          Call:   factor
+                                            Consumed token: <<int_constant>: "1" at line 42 column 31>
+                                          Return: factor
+                                        Return: unaryexpr
+                                      Return: logicalOp
+                                    Return: numexpr
+                                  Return: expression
+                                Return: returnstat
+                                Consumed token: <";" at line 42 column 32>
+                              Return: statement
+                            Return: ifstat
+                          Return: statement
+                          Call:   statlist
+                            Call:   statement
+                              Visited token: <"if" at line 43 column 4>; Expected token: <<IDENT>>
+                              Call:   ifstat
+                                Consumed token: <"if" at line 43 column 4>
+                                Consumed token: <"(" at line 43 column 7>
+                                Call:   expression
+                                  Call:   numexpr
+                                    Call:   logicalOp
+                                      Call:   unaryexpr
+                                        Call:   factor
+                                          Call:   lvalue
+                                            Consumed token: <<IDENT>: "ano" at line 43 column 9>
+                                          Return: lvalue
+                                        Return: factor
+                                      Return: unaryexpr
+                                    Return: logicalOp
+                                  Return: numexpr
+                                  Consumed token: <">" at line 43 column 13>
+                                  Call:   numexpr
+                                    Call:   logicalOp
+                                      Call:   unaryexpr
+                                        Call:   factor
+                                          Call:   lvalue
+                                            Consumed token: <<IDENT>: "x" at line 43 column 15>
+                                            Consumed token: <"." at line 43 column 16>
+                                            Consumed token: <<IDENT>: "ano" at line 43 column 17>
+                                          Return: lvalue
+                                        Return: factor
+                                      Return: unaryexpr
+                                    Return: logicalOp
+                                  Return: numexpr
+                                Return: expression
+                                Consumed token: <")" at line 43 column 20>
+                                Call:   statement
+                                  Visited token: <"return" at line 43 column 22>; Expected token: <<IDENT>>
+                                  Call:   returnstat
+                                    Consumed token: <"return" at line 43 column 22>
+                                    Call:   expression
+                                      Call:   numexpr
+                                        Call:   logicalOp
+                                          Call:   unaryexpr
+                                            Call:   factor
+                                              Consumed token: <<int_constant>: "1" at line 43 column 29>
+                                            Return: factor
+                                          Return: unaryexpr
+                                        Return: logicalOp
+                                      Return: numexpr
+                                    Return: expression
+                                  Return: returnstat
+                                  Consumed token: <";" at line 43 column 30>
+                                Return: statement
+                              Return: ifstat
+                            Return: statement
+                            Call:   statlist
+                              Call:   statement
+                                Visited token: <"if" at line 44 column 4>; Expected token: <<IDENT>>
+                                Call:   ifstat
+                                  Consumed token: <"if" at line 44 column 4>
+                                  Consumed token: <"(" at line 44 column 7>
+                                  Call:   expression
+                                    Call:   numexpr
+                                      Call:   logicalOp
+                                        Call:   unaryexpr
+                                          Call:   factor
+                                            Call:   lvalue
+                                              Consumed token: <<IDENT>: "mes" at line 44 column 9>
+                                            Return: lvalue
+                                          Return: factor
+                                        Return: unaryexpr
+                                      Return: logicalOp
+                                    Return: numexpr
+                                    Consumed token: <"<" at line 44 column 13>
+                                    Call:   numexpr
+                                      Call:   logicalOp
+                                        Call:   unaryexpr
+                                          Call:   factor
+                                            Call:   lvalue
+                                              Consumed token: <<IDENT>: "x" at line 44 column 15>
+                                              Consumed token: <"." at line 44 column 16>
+                                              Consumed token: <<IDENT>: "mes" at line 44 column 17>
+                                            Return: lvalue
+                                          Return: factor
+                                        Return: unaryexpr
+                                      Return: logicalOp
+                                    Return: numexpr
+                                  Return: expression
+                                  Consumed token: <")" at line 44 column 20>
+                                  Call:   statement
+                                    Visited token: <"return" at line 44 column 22>; Expected token: <<IDENT>>
+                                    Call:   returnstat
+                                      Consumed token: <"return" at line 44 column 22>
+                                      Call:   expression
+                                        Call:   numexpr
+                                          Call:   logicalOp
+                                            Call:   unaryexpr
+                                              Consumed token: <"-" at line 44 column 29>
+                                              Call:   factor
+                                                Consumed token: <<int_constant>: "1" at line 44 column 30>
+                                              Return: factor
+                                            Return: unaryexpr
+                                          Return: logicalOp
+                                        Return: numexpr
+                                      Return: expression
+                                    Return: returnstat
+                                    Consumed token: <";" at line 44 column 31>
+                                  Return: statement
+                                Return: ifstat
+                              Return: statement
+                              Call:   statlist
+                                Call:   statement
+                                  Visited token: <"if" at line 45 column 4>; Expected token: <<IDENT>>
+                                  Call:   ifstat
+                                    Consumed token: <"if" at line 45 column 4>
+                                    Consumed token: <"(" at line 45 column 7>
+                                    Call:   expression
+                                      Call:   numexpr
+                                        Call:   logicalOp
+                                          Call:   unaryexpr
+                                            Call:   factor
+                                              Call:   lvalue
+                                                Consumed token: <<IDENT>: "mes" at line 45 column 9>
+                                              Return: lvalue
+                                            Return: factor
+                                          Return: unaryexpr
+                                        Return: logicalOp
+                                      Return: numexpr
+                                      Consumed token: <">" at line 45 column 13>
+                                      Call:   numexpr
+                                        Call:   logicalOp
+                                          Call:   unaryexpr
+                                            Call:   factor
+                                              Call:   lvalue
+                                                Consumed token: <<IDENT>: "x" at line 45 column 15>
+                                                Consumed token: <"." at line 45 column 16>
+                                                Consumed token: <<IDENT>: "mes" at line 45 column 17>
+                                              Return: lvalue
+                                            Return: factor
+                                          Return: unaryexpr
+                                        Return: logicalOp
+                                      Return: numexpr
+                                    Return: expression
+                                    Consumed token: <")" at line 45 column 20>
+                                    Call:   statement
+                                      Visited token: <"return" at line 45 column 22>; Expected token: <<IDENT>>
+                                      Call:   returnstat
+                                        Consumed token: <"return" at line 45 column 22>
+                                        Call:   expression
+                                          Call:   numexpr
+                                            Call:   logicalOp
+                                              Call:   unaryexpr
+                                                Call:   factor
+                                                  Consumed token: <<int_constant>: "1" at line 45 column 29>
+                                                Return: factor
+                                              Return: unaryexpr
+                                            Return: logicalOp
+                                          Return: numexpr
+                                        Return: expression
+                                      Return: returnstat
+                                      Consumed token: <";" at line 45 column 30>
+                                    Return: statement
+                                  Return: ifstat
+                                Return: statement
+                                Call:   statlist
+                                  Call:   statement
+                                    Visited token: <"if" at line 46 column 4>; Expected token: <<IDENT>>
+                                    Call:   ifstat
+                                      Consumed token: <"if" at line 46 column 4>
+                                      Consumed token: <"(" at line 46 column 7>
+                                      Call:   expression
+                                        Call:   numexpr
+                                          Call:   logicalOp
+                                            Call:   unaryexpr
+                                              Call:   factor
+                                                Call:   lvalue
+                                                  Consumed token: <<IDENT>: "dia" at line 46 column 9>
+                                                Return: lvalue
+                                              Return: factor
+                                            Return: unaryexpr
+                                          Return: logicalOp
+                                        Return: numexpr
+                                        Consumed token: <"<" at line 46 column 13>
+                                        Call:   numexpr
+                                          Call:   logicalOp
+                                            Call:   unaryexpr
+                                              Call:   factor
+                                                Call:   lvalue
+                                                  Consumed token: <<IDENT>: "x" at line 46 column 15>
+                                                  Consumed token: <"." at line 46 column 16>
+                                                  Consumed token: <<IDENT>: "dia" at line 46 column 17>
+                                                Return: lvalue
+                                              Return: factor
+                                            Return: unaryexpr
+                                          Return: logicalOp
+                                        Return: numexpr
+                                      Return: expression
+                                      Consumed token: <")" at line 46 column 20>
+                                      Call:   statement
+                                        Visited token: <"return" at line 46 column 22>; Expected token: <<IDENT>>
+                                        Call:   returnstat
+                                          Consumed token: <"return" at line 46 column 22>
+                                          Call:   expression
+                                            Call:   numexpr
+                                              Call:   logicalOp
+                                                Call:   unaryexpr
+                                                  Consumed token: <"-" at line 46 column 29>
+                                                  Call:   factor
+                                                    Consumed token: <<int_constant>: "1" at line 46 column 30>
+                                                  Return: factor
+                                                Return: unaryexpr
+                                              Return: logicalOp
+                                            Return: numexpr
+                                          Return: expression
+                                        Return: returnstat
+                                        Consumed token: <";" at line 46 column 31>
+                                      Return: statement
+                                    Return: ifstat
+                                  Return: statement
+                                  Call:   statlist
+                                    Call:   statement
+                                      Visited token: <"if" at line 47 column 4>; Expected token: <<IDENT>>
+                                      Call:   ifstat
+                                        Consumed token: <"if" at line 47 column 4>
+                                        Consumed token: <"(" at line 47 column 7>
+                                        Call:   expression
+                                          Call:   numexpr
+                                            Call:   logicalOp
+                                              Call:   unaryexpr
+                                                Call:   factor
+                                                  Call:   lvalue
+                                                    Consumed token: <<IDENT>: "dia" at line 47 column 9>
+                                                  Return: lvalue
+                                                Return: factor
+                                              Return: unaryexpr
+                                            Return: logicalOp
+                                          Return: numexpr
+                                          Consumed token: <">" at line 47 column 13>
+                                          Call:   numexpr
+                                            Call:   logicalOp
+                                              Call:   unaryexpr
+                                                Call:   factor
+                                                  Call:   lvalue
+                                                    Consumed token: <<IDENT>: "x" at line 47 column 15>
+                                                    Consumed token: <"." at line 47 column 16>
+                                                    Consumed token: <<IDENT>: "dia" at line 47 column 17>
+                                                  Return: lvalue
+                                                Return: factor
+                                              Return: unaryexpr
+                                            Return: logicalOp
+                                          Return: numexpr
+                                        Return: expression
+                                        Consumed token: <")" at line 47 column 20>
+                                        Call:   statement
+                                          Visited token: <"return" at line 47 column 22>; Expected token: <<IDENT>>
+                                          Call:   returnstat
+                                            Consumed token: <"return" at line 47 column 22>
+                                            Call:   expression
+                                              Call:   numexpr
+                                                Call:   logicalOp
+                                                  Call:   unaryexpr
+                                                    Call:   factor
+                                                      Consumed token: <<int_constant>: "1" at line 47 column 29>
+                                                    Return: factor
+                                                  Return: unaryexpr
+                                                Return: logicalOp
+                                              Return: numexpr
+                                            Return: expression
+                                          Return: returnstat
+                                          Consumed token: <";" at line 47 column 30>
+                                        Return: statement
+                                      Return: ifstat
+                                    Return: statement
+                                    Call:   statlist
+                                      Call:   statement
+                                        Visited token: <"return" at line 48 column 4>; Expected token: <<IDENT>>
+                                        Call:   returnstat
+                                          Consumed token: <"return" at line 48 column 4>
+                                          Call:   expression
+                                            Call:   numexpr
+                                              Call:   logicalOp
+                                                Call:   unaryexpr
+                                                  Call:   factor
+                                                    Consumed token: <<int_constant>: "0" at line 48 column 11>
+                                                  Return: factor
+                                                Return: unaryexpr
+                                              Return: logicalOp
+                                            Return: numexpr
+                                          Return: expression
+                                        Return: returnstat
+                                        Consumed token: <";" at line 48 column 12>
+                                      Return: statement
+                                    Return: statlist
+                                  Return: statlist
+                                Return: statlist
+                              Return: statlist
+                            Return: statlist
+                          Return: statlist
+                        Return: statlist
+                        Consumed token: <"}" at line 49 column 1>
+                      Return: statement
+                    Return: methodbody
+                  Return: methoddecl
+                  Consumed token: <"}" at line 52 column 1>
+                Return: classbody
+              Return: classdecl
+            Return: classlist
+            Call:   vardecl(LOOKING AHEAD...)
+              Visited token: <<IDENT>: "data" at line 57 column 1>; Expected token: <"final">
+              Call:   accessOperation(LOOKING AHEAD...)
+                Visited token: <<IDENT>: "data" at line 57 column 1>; Expected token: <"public">
+                Visited token: <<IDENT>: "data" at line 57 column 1>; Expected token: <"private">
+                Visited token: <<IDENT>: "data" at line 57 column 1>; Expected token: <"protected">
+              Return: accessOperation(LOOKAHEAD SUCCEEDED)
+              Call:   typeOperation(LOOKING AHEAD...)
+                Visited token: <<IDENT>: "data" at line 57 column 1>; Expected token: <"int">
+                Visited token: <<IDENT>: "data" at line 57 column 1>; Expected token: <"string">
+                Visited token: <<IDENT>: "data" at line 57 column 1>; Expected token: <"byte">
+                Visited token: <<IDENT>: "data" at line 57 column 1>; Expected token: <"short">
+                Visited token: <<IDENT>: "data" at line 57 column 1>; Expected token: <"long">
+                Visited token: <<IDENT>: "data" at line 57 column 1>; Expected token: <"float">
+              Return: typeOperation(LOOKAHEAD FAILED)
+              Visited token: <<IDENT>: "data" at line 57 column 1>; Expected token: <<IDENT>>
+              Visited token: <<IDENT>: "key" at line 57 column 6>; Expected token: <<IDENT>>
+              Visited token: <";" at line 57 column 9>; Expected token: <"[">
+              Visited token: <";" at line 57 column 9>; Expected token: <",">
+              Visited token: <";" at line 57 column 9>; Expected token: <"=">
+            Return: vardecl(LOOKAHEAD SUCCEEDED)
+            Visited token: <";" at line 57 column 9>; Expected token: <";">
+            Call:   vardecl
+              Call:   accessOperation
+              Return: accessOperation
+              Consumed token: <<IDENT>: "data" at line 57 column 1>
+              Consumed token: <<IDENT>: "key" at line 57 column 6>
+            Return: vardecl
+            Consumed token: <";" at line 57 column 9>
+            Call:   vardecl(LOOKING AHEAD...)
+              Visited token: <<IDENT>: "bintree" at line 58 column 1>; Expected token: <"final">
+              Call:   accessOperation(LOOKING AHEAD...)
+                Visited token: <<IDENT>: "bintree" at line 58 column 1>; Expected token: <"public">
+                Visited token: <<IDENT>: "bintree" at line 58 column 1>; Expected token: <"private">
+                Visited token: <<IDENT>: "bintree" at line 58 column 1>; Expected token: <"protected">
+              Return: accessOperation(LOOKAHEAD SUCCEEDED)
+              Call:   typeOperation(LOOKING AHEAD...)
+                Visited token: <<IDENT>: "bintree" at line 58 column 1>; Expected token: <"int">
+                Visited token: <<IDENT>: "bintree" at line 58 column 1>; Expected token: <"string">
+                Visited token: <<IDENT>: "bintree" at line 58 column 1>; Expected token: <"byte">
+                Visited token: <<IDENT>: "bintree" at line 58 column 1>; Expected token: <"short">
+                Visited token: <<IDENT>: "bintree" at line 58 column 1>; Expected token: <"long">
+                Visited token: <<IDENT>: "bintree" at line 58 column 1>; Expected token: <"float">
+              Return: typeOperation(LOOKAHEAD FAILED)
+              Visited token: <<IDENT>: "bintree" at line 58 column 1>; Expected token: <<IDENT>>
+              Visited token: <<IDENT>: "left" at line 58 column 9>; Expected token: <<IDENT>>
+              Visited token: <<IDENT>: "right" at line 58 column 14>; Expected token: <"[">
+              Visited token: <<IDENT>: "right" at line 58 column 14>; Expected token: <",">
+              Visited token: <<IDENT>: "right" at line 58 column 14>; Expected token: <"=">
+            Return: vardecl(LOOKAHEAD SUCCEEDED)
+            Visited token: <<IDENT>: "right" at line 58 column 14>; Expected token: <";">
+            Call:   methoddecl
+              Call:   accessOperation
+              Return: accessOperation
+              Consumed token: <<IDENT>: "bintree" at line 58 column 1>
+              Consumed token: <<IDENT>: "left" at line 58 column 9>
+              Call:   methodbody
+                Consumed token: <<IDENT>: "right" at line 58 column 14> (in getNextToken)
+                Consumed token: <";" at line 58 column 19> (in getNextToken)
+                Consumed token: <"constructor" at line 60 column 1> (in getNextToken)
+                Consumed token: <"(" at line 60 column 12> (in getNextToken)
+                Consumed token: <<IDENT>: "data" at line 60 column 13> (in getNextToken)
+                Consumed token: <<IDENT>: "x" at line 60 column 18> (in getNextToken)
+                Consumed token: <")" at line 60 column 19> (in getNextToken)
+                Consumed token: <"{" at line 61 column 1> (in getNextToken)
+                Consumed token: <<IDENT>: "key" at line 62 column 4> (in getNextToken)
+                Consumed token: <"=" at line 62 column 8> (in getNextToken)
+                Consumed token: <<IDENT>: "x" at line 62 column 10> (in getNextToken)
+                Consumed token: <";" at line 62 column 11> (in getNextToken)
+                Consumed token: <<IDENT>: "left" at line 63 column 4> (in getNextToken)
+                Consumed token: <"=" at line 63 column 9> (in getNextToken)
+                Consumed token: <"null" at line 63 column 11> (in getNextToken)
+                Consumed token: <";" at line 63 column 15> (in getNextToken)
+                Consumed token: <<IDENT>: "right" at line 64 column 4> (in getNextToken)
+                Consumed token: <"=" at line 64 column 10> (in getNextToken)
+                Consumed token: <"null" at line 64 column 12> (in getNextToken)
+                Consumed token: <";" at line 64 column 16> (in getNextToken)
+                Consumed token: <"}" at line 65 column 1> (in getNextToken)
+Encountered " <IDENT> "right "" at line 58, column 14.
+Was expecting one of:
+    "(" ...
+    "[" ...
+    "," ...
+    "=" ...
+    ";" ...
+    
+              Return: methodbody
+            Return: methoddecl
+            Call:   methoddecl
+              Call:   accessOperation
+              Return: accessOperation
+              Call:   typeOperation
+                Consumed token: <"int" at line 67 column 1>
+              Return: typeOperation
+              Consumed token: <<IDENT>: "insert" at line 67 column 5>
+              Call:   methodbody
+                Consumed token: <"(" at line 67 column 11>
+                Call:   paramlist
+                  Call:   accessOperation
+                  Return: accessOperation
+                  Consumed token: <<IDENT>: "data" at line 67 column 12>
+                  Consumed token: <<IDENT>: "k" at line 67 column 17>
+                Return: paramlist
+                Consumed token: <")" at line 67 column 18>
+                Call:   statement
+                  Visited token: <"{" at line 68 column 1>; Expected token: <<IDENT>>
+                  Consumed token: <"{" at line 68 column 1>
+                  Call:   statlist
+                    Call:   statement
+                      Visited token: <"int" at line 69 column 1>; Expected token: <<IDENT>>
+                      Call:   vardecl
+                        Call:   accessOperation
+                        Return: accessOperation
+                        Call:   typeOperation
+                          Consumed token: <"int" at line 69 column 1>
+                        Return: typeOperation
+                        Consumed token: <<IDENT>: "x" at line 69 column 5>
+                      Return: vardecl
+                      Consumed token: <";" at line 69 column 6>
+                    Return: statement
+                    Call:   statlist
+                      Call:   statement
+                        Visited token: <<IDENT>: "x" at line 71 column 4>; Expected token: <<IDENT>>
+                        Visited token: <"=" at line 71 column 6>; Expected token: <<IDENT>>
+                        Call:   atribstat
+                          Call:   lvalue
+                            Consumed token: <<IDENT>: "x" at line 71 column 4>
+                          Return: lvalue
+                          Consumed token: <"=" at line 71 column 6>
+                          Call:   expression
+                            Call:   numexpr
+                              Call:   logicalOp
+                                Call:   unaryexpr
+                                  Call:   factor
+                                    Call:   lvalue
+                                      Consumed token: <<IDENT>: "k" at line 71 column 8>
+                                      Consumed token: <"." at line 71 column 9>
+                                      Consumed token: <<IDENT>: "compara" at line 71 column 10>
+                                      Consumed token: <"(" at line 71 column 17>
+                                      Call:   arglist
+                                        Call:   expression
+                                          Call:   numexpr
+                                            Call:   logicalOp
+                                              Call:   unaryexpr
+                                                Call:   factor
+                                                  Call:   lvalue
+                                                    Consumed token: <<IDENT>: "key" at line 71 column 18>
+                                                  Return: lvalue
+                                                Return: factor
+                                              Return: unaryexpr
+                                            Return: logicalOp
+                                          Return: numexpr
+                                        Return: expression
+                                      Return: arglist
+                                      Consumed token: <")" at line 71 column 21>
+                                    Return: lvalue
+                                  Return: factor
+                                Return: unaryexpr
+                              Return: logicalOp
+                            Return: numexpr
+                          Return: expression
+                        Return: atribstat
+                        Consumed token: <";" at line 71 column 22>
+                      Return: statement
+                      Call:   statlist
+                        Call:   statement
+                          Visited token: <"if" at line 72 column 4>; Expected token: <<IDENT>>
+                          Call:   ifstat
+                            Consumed token: <"if" at line 72 column 4>
+                            Consumed token: <"(" at line 72 column 7>
+                            Call:   expression
+                              Call:   numexpr
+                                Call:   logicalOp
+                                  Call:   unaryexpr
+                                    Call:   factor
+                                      Call:   lvalue
+                                        Consumed token: <<IDENT>: "x" at line 72 column 8>
+                                      Return: lvalue
+                                    Return: factor
+                                  Return: unaryexpr
+                                Return: logicalOp
+                              Return: numexpr
+                              Consumed token: <"<" at line 72 column 10>
+                              Call:   numexpr
+                                Call:   logicalOp
+                                  Call:   unaryexpr
+                                    Call:   factor
+                                      Consumed token: <<int_constant>: "0" at line 72 column 12>
+                                    Return: factor
+                                  Return: unaryexpr
+                                Return: logicalOp
+                              Return: numexpr
+                            Return: expression
+                            Consumed token: <")" at line 72 column 13>
+                            Call:   statement
+                              Visited token: <"{" at line 73 column 4>; Expected token: <<IDENT>>
+                              Consumed token: <"{" at line 73 column 4>
+                              Call:   statlist
+                                Call:   statement
+                                  Visited token: <"if" at line 74 column 7>; Expected token: <<IDENT>>
+                                  Call:   ifstat
+                                    Consumed token: <"if" at line 74 column 7>
+                                    Consumed token: <"(" at line 74 column 10>
+                                    Call:   expression
+                                      Call:   numexpr
+                                        Call:   logicalOp
+                                          Call:   unaryexpr
+                                            Call:   factor
+                                              Call:   lvalue
+                                                Consumed token: <<IDENT>: "left" at line 74 column 11>
+                                              Return: lvalue
+                                            Return: factor
+                                          Return: unaryexpr
+                                        Return: logicalOp
+                                      Return: numexpr
+                                      Consumed token: <"!=" at line 74 column 16>
+                                      Call:   numexpr
+                                        Call:   logicalOp
+                                          Call:   unaryexpr
+                                            Call:   factor
+                                              Consumed token: <"null" at line 74 column 19>
+                                            Return: factor
+                                          Return: unaryexpr
+                                        Return: logicalOp
+                                      Return: numexpr
+                                    Return: expression
+                                    Consumed token: <")" at line 74 column 23>
+                                    Call:   statement
+                                      Visited token: <"return" at line 75 column 10>; Expected token: <<IDENT>>
+                                      Call:   returnstat
+                                        Consumed token: <"return" at line 75 column 10>
+                                        Call:   expression
+                                          Call:   numexpr
+                                            Call:   logicalOp
+                                              Call:   unaryexpr
+                                                Call:   factor
+                                                  Call:   lvalue
+                                                    Consumed token: <<IDENT>: "left" at line 75 column 17>
+                                                    Consumed token: <"." at line 75 column 21>
+                                                    Consumed token: <<IDENT>: "insert" at line 75 column 22>
+                                                    Consumed token: <"(" at line 75 column 28>
+                                                    Call:   arglist
+                                                      Call:   expression
+                                                        Call:   numexpr
+                                                          Call:   logicalOp
+                                                            Call:   unaryexpr
+                                                              Call:   factor
+                                                                Call:   lvalue
+                                                                  Consumed token: <<IDENT>: "k" at line 75 column 29>
+                                                                Return: lvalue
+                                                              Return: factor
+                                                            Return: unaryexpr
+                                                          Return: logicalOp
+                                                        Return: numexpr
+                                                      Return: expression
+                                                    Return: arglist
+                                                    Consumed token: <")" at line 75 column 30>
+                                                  Return: lvalue
+                                                Return: factor
+                                              Return: unaryexpr
+                                            Return: logicalOp
+                                          Return: numexpr
+                                        Return: expression
+                                      Return: returnstat
+                                      Consumed token: <";" at line 75 column 31>
+                                    Return: statement
+                                  Return: ifstat
+                                Return: statement
+                                Call:   statlist
+                                  Call:   statement
+                                    Visited token: <<IDENT>: "left" at line 76 column 7>; Expected token: <<IDENT>>
+                                    Visited token: <"=" at line 76 column 12>; Expected token: <<IDENT>>
+                                    Call:   atribstat
+                                      Call:   lvalue
+                                        Consumed token: <<IDENT>: "left" at line 76 column 7>
+                                      Return: lvalue
+                                      Consumed token: <"=" at line 76 column 12>
+                                      Call:   alocexpression
+                                        Consumed token: <"new" at line 76 column 14>
+                                        Visited token: <<IDENT>: "bintree" at line 76 column 18>; Expected token: <<IDENT>>
+                                        Visited token: <"(" at line 76 column 25>; Expected token: <"(">
+                                        Consumed token: <<IDENT>: "bintree" at line 76 column 18>
+                                        Consumed token: <"(" at line 76 column 25>
+                                        Call:   arglist
+                                          Call:   expression
+                                            Call:   numexpr
+                                              Call:   logicalOp
+                                                Call:   unaryexpr
+                                                  Call:   factor
+                                                    Call:   lvalue
+                                                      Consumed token: <<IDENT>: "k" at line 76 column 26>
+                                                    Return: lvalue
+                                                  Return: factor
+                                                Return: unaryexpr
+                                              Return: logicalOp
+                                            Return: numexpr
+                                          Return: expression
+                                        Return: arglist
+                                        Consumed token: <")" at line 76 column 27>
+                                      Return: alocexpression
+                                    Return: atribstat
+                                    Consumed token: <";" at line 76 column 28>
+                                  Return: statement
+                                  Call:   statlist
+                                    Call:   statement
+                                      Visited token: <"return" at line 77 column 7>; Expected token: <<IDENT>>
+                                      Call:   returnstat
+                                        Consumed token: <"return" at line 77 column 7>
+                                        Call:   expression
+                                          Call:   numexpr
+                                            Call:   logicalOp
+                                              Call:   unaryexpr
+                                                Call:   factor
+                                                  Consumed token: <<int_constant>: "1" at line 77 column 14>
+                                                Return: factor
+                                              Return: unaryexpr
+                                            Return: logicalOp
+                                          Return: numexpr
+                                        Return: expression
+                                      Return: returnstat
+                                      Consumed token: <";" at line 77 column 15>
+                                    Return: statement
+                                  Return: statlist
+                                Return: statlist
+                              Return: statlist
+                              Consumed token: <"}" at line 78 column 4>
+                            Return: statement
+                          Return: ifstat
+                        Return: statement
+                        Call:   statlist
+                          Call:   statement
+                            Visited token: <"if" at line 79 column 4>; Expected token: <<IDENT>>
+                            Call:   ifstat
+                              Consumed token: <"if" at line 79 column 4>
+                              Consumed token: <"(" at line 79 column 7>
+                              Call:   expression
+                                Call:   numexpr
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Call:   lvalue
+                                          Consumed token: <<IDENT>: "x" at line 79 column 8>
+                                        Return: lvalue
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                Return: numexpr
+                                Consumed token: <">" at line 79 column 10>
+                                Call:   numexpr
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Consumed token: <<int_constant>: "0" at line 79 column 12>
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                Return: numexpr
+                              Return: expression
+                              Consumed token: <")" at line 79 column 13>
+                              Call:   statement
+                                Visited token: <"{" at line 80 column 4>; Expected token: <<IDENT>>
+                                Consumed token: <"{" at line 80 column 4>
+                                Call:   statlist
+                                  Call:   statement
+                                    Visited token: <"if" at line 81 column 7>; Expected token: <<IDENT>>
+                                    Call:   ifstat
+                                      Consumed token: <"if" at line 81 column 7>
+                                      Consumed token: <"(" at line 81 column 10>
+                                      Call:   expression
+                                        Call:   numexpr
+                                          Call:   logicalOp
+                                            Call:   unaryexpr
+                                              Call:   factor
+                                                Call:   lvalue
+                                                  Consumed token: <<IDENT>: "right" at line 81 column 11>
+                                                Return: lvalue
+                                              Return: factor
+                                            Return: unaryexpr
+                                          Return: logicalOp
+                                        Return: numexpr
+                                        Consumed token: <"!=" at line 81 column 17>
+                                        Call:   numexpr
+                                          Call:   logicalOp
+                                            Call:   unaryexpr
+                                              Call:   factor
+                                                Consumed token: <"null" at line 81 column 20>
+                                              Return: factor
+                                            Return: unaryexpr
+                                          Return: logicalOp
+                                        Return: numexpr
+                                      Return: expression
+                                      Consumed token: <")" at line 81 column 24>
+                                      Call:   statement
+                                        Visited token: <"return" at line 82 column 10>; Expected token: <<IDENT>>
+                                        Call:   returnstat
+                                          Consumed token: <"return" at line 82 column 10>
+                                          Call:   expression
+                                            Call:   numexpr
+                                              Call:   logicalOp
+                                                Call:   unaryexpr
+                                                  Call:   factor
+                                                    Call:   lvalue
+                                                      Consumed token: <<IDENT>: "right" at line 82 column 17>
+                                                    Return: lvalue
+                                                  Return: factor
+                                                Return: unaryexpr
+                                              Return: logicalOp
+                                            Return: numexpr
+                                          Return: expression
+                                        Return: returnstat
+                                        Consumed token: <"," at line 82 column 22> (in getNextToken)
+                                        Consumed token: <<IDENT>: "insert" at line 82 column 23> (in getNextToken)
+                                        Consumed token: <"(" at line 82 column 29> (in getNextToken)
+                                        Consumed token: <<IDENT>: "k" at line 82 column 30> (in getNextToken)
+                                        Consumed token: <")" at line 82 column 31> (in getNextToken)
+Encountered " "," ", "" at line 82, column 22.
+Was expecting one of:
+    "[" ...
+    ";" ...
+    "." ...
+    ">" ...
+    "<" ...
+    "==" ...
+    "<=" ...
+    ">=" ...
+    "!=" ...
+    "+" ...
+    "-" ...
+    "*" ...
+    "/" ...
+    "%" ...
+    "&&" ...
+    "||" ...
+    "^" ...
+    
+                                      Return: statement
+                                    Return: ifstat
+                                  Return: statement
+                                  Call:   statlist
+                                    Call:   statement
+                                      Visited token: <";" at line 82 column 32>; Expected token: <<IDENT>>
+                                      Consumed token: <";" at line 82 column 32>
+                                    Return: statement
+                                    Call:   statlist
+                                      Call:   statement
+                                        Visited token: <<IDENT>: "right" at line 83 column 7>; Expected token: <<IDENT>>
+                                        Visited token: <"=" at line 83 column 13>; Expected token: <<IDENT>>
+                                        Call:   atribstat
+                                          Call:   lvalue
+                                            Consumed token: <<IDENT>: "right" at line 83 column 7>
+                                          Return: lvalue
+                                          Consumed token: <"=" at line 83 column 13>
+                                          Call:   alocexpression
+                                            Consumed token: <"new" at line 83 column 15>
+                                            Visited token: <<IDENT>: "bintree" at line 83 column 19>; Expected token: <<IDENT>>
+                                            Visited token: <"(" at line 83 column 26>; Expected token: <"(">
+                                            Consumed token: <<IDENT>: "bintree" at line 83 column 19>
+                                            Consumed token: <"(" at line 83 column 26>
+                                            Call:   arglist
+                                              Call:   expression
+                                                Call:   numexpr
+                                                  Call:   logicalOp
+                                                    Call:   unaryexpr
+                                                      Call:   factor
+                                                        Call:   lvalue
+                                                          Consumed token: <<IDENT>: "k" at line 83 column 27>
+                                                        Return: lvalue
+                                                      Return: factor
+                                                    Return: unaryexpr
+                                                  Return: logicalOp
+                                                Return: numexpr
+                                              Return: expression
+                                            Return: arglist
+                                            Consumed token: <")" at line 83 column 28>
+                                          Return: alocexpression
+                                        Return: atribstat
+                                        Consumed token: <";" at line 83 column 29>
+                                      Return: statement
+                                      Call:   statlist
+                                        Call:   statement
+                                          Visited token: <<IDENT>: "rerurn" at line 84 column 7>; Expected token: <<IDENT>>
+                                          Visited token: <<int_constant>: "1" at line 84 column 14>; Expected token: <<IDENT>>
+                                          Call:   atribstat
+                                            Call:   lvalue
+                                              Consumed token: <<IDENT>: "rerurn" at line 84 column 7>
+                                            Return: lvalue
+                                            Consumed token: <<int_constant>: "1" at line 84 column 14> (in getNextToken)
+Encountered " <int_constant> "1 "" at line 84, column 14.
+Was expecting one of:
+    "[" ...
+    "." ...
+    "=" ...
+    <IDENT> ...
+    
+                                          Return: atribstat
+                                          Consumed token: <";" at line 84 column 15>
+                                        Return: statement
+                                      Return: statlist
+                                    Return: statlist
+                                  Return: statlist
+                                Return: statlist
+                                Consumed token: <"}" at line 85 column 4>
+                              Return: statement
+                            Return: ifstat
+                          Return: statement
+                          Call:   statlist
+                            Call:   statement
+                              Visited token: <"return" at line 86 column 4>; Expected token: <<IDENT>>
+                              Call:   returnstat
+                                Consumed token: <"return" at line 86 column 4>
+                                Call:   expression
+                                  Call:   numexpr
+                                    Call:   logicalOp
+                                      Call:   unaryexpr
+                                        Call:   factor
+                                          Consumed token: <<int_constant>: "0" at line 86 column 11>
+                                        Return: factor
+                                      Return: unaryexpr
+                                    Return: logicalOp
+                                  Return: numexpr
+                                Return: expression
+                              Return: returnstat
+                              Consumed token: <";" at line 86 column 12>
+                            Return: statement
+                          Return: statlist
+                        Return: statlist
+                      Return: statlist
+                    Return: statlist
+                  Return: statlist
+                  Consumed token: <"}" at line 87 column 1>
+                Return: statement
+              Return: methodbody
+            Return: methoddecl
+            Call:   methoddecl
+              Call:   accessOperation
+              Return: accessOperation
+              Call:   typeOperation
+                Consumed token: <"int" at line 90 column 1>
+              Return: typeOperation
+              Consumed token: <<IDENT>: "treeprint" at line 90 column 5>
+              Call:   methodbody
+                Consumed token: <"(" at line 90 column 14>
+                Call:   paramlist
+                  Call:   accessOperation
+                  Return: accessOperation
+                  Call:   typeOperation
+                    Consumed token: <"int" at line 90 column 15>
+                  Return: typeOperation
+                  Consumed token: <<IDENT>: "x" at line 90 column 19>
+                Return: paramlist
+                Consumed token: <")" at line 90 column 20>
+                Call:   statement
+                  Visited token: <"{" at line 91 column 1>; Expected token: <<IDENT>>
+                  Consumed token: <"{" at line 91 column 1>
+                  Call:   statlist
+                    Call:   statement
+                      Visited token: <"int" at line 92 column 1>; Expected token: <<IDENT>>
+                      Call:   vardecl
+                        Call:   accessOperation
+                        Return: accessOperation
+                        Call:   typeOperation
+                          Consumed token: <"int" at line 92 column 1>
+                        Return: typeOperation
+                        Consumed token: <<IDENT>: "i" at line 92 column 5>
+                      Return: vardecl
+                      Consumed token: <";" at line 92 column 6>
+                    Return: statement
+                    Call:   statlist
+                      Call:   statement
+                        Visited token: <"if" at line 94 column 4>; Expected token: <<IDENT>>
+                        Call:   ifstat
+                          Consumed token: <"if" at line 94 column 4>
+                          Consumed token: <"(" at line 94 column 7>
+                          Call:   expression
+                            Call:   numexpr
+                              Call:   logicalOp
+                                Call:   unaryexpr
+                                  Call:   factor
+                                    Call:   lvalue
+                                      Consumed token: <<IDENT>: "left" at line 94 column 8>
+                                    Return: lvalue
+                                  Return: factor
+                                Return: unaryexpr
+                              Return: logicalOp
+                            Return: numexpr
+                            Consumed token: <"!=" at line 94 column 13>
+                            Call:   numexpr
+                              Call:   logicalOp
+                                Call:   unaryexpr
+                                  Call:   factor
+                                    Consumed token: <"null" at line 94 column 16>
+                                  Return: factor
+                                Return: unaryexpr
+                              Return: logicalOp
+                            Return: numexpr
+                          Return: expression
+                          Consumed token: <")" at line 94 column 20>
+                          Call:   statement
+                            Visited token: <<IDENT>: "i" at line 95 column 7>; Expected token: <<IDENT>>
+                            Visited token: <"=" at line 95 column 9>; Expected token: <<IDENT>>
+                            Call:   atribstat
+                              Call:   lvalue
+                                Consumed token: <<IDENT>: "i" at line 95 column 7>
+                              Return: lvalue
+                              Consumed token: <"=" at line 95 column 9>
+                              Call:   expression
+                                Call:   numexpr
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Call:   lvalue
+                                          Consumed token: <<IDENT>: "left" at line 95 column 11>
+                                          Consumed token: <"." at line 95 column 15>
+                                          Consumed token: <<IDENT>: "treeprint" at line 95 column 16>
+                                          Consumed token: <"(" at line 95 column 25>
+                                          Call:   arglist
+                                            Call:   expression
+                                              Call:   numexpr
+                                                Call:   logicalOp
+                                                  Call:   unaryexpr
+                                                    Call:   factor
+                                                      Call:   lvalue
+                                                        Consumed token: <<IDENT>: "x" at line 95 column 26>
+                                                      Return: lvalue
+                                                    Return: factor
+                                                  Return: unaryexpr
+                                                Return: logicalOp
+                                                Consumed token: <"+" at line 95 column 27>
+                                                Call:   logicalOp
+                                                  Call:   unaryexpr
+                                                    Call:   factor
+                                                      Consumed token: <<int_constant>: "4" at line 95 column 28>
+                                                    Return: factor
+                                                  Return: unaryexpr
+                                                Return: logicalOp
+                                              Return: numexpr
+                                            Return: expression
+                                          Return: arglist
+                                          Consumed token: <")" at line 95 column 29>
+                                        Return: lvalue
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                Return: numexpr
+                              Return: expression
+                            Return: atribstat
+                            Consumed token: <";" at line 95 column 30>
+                          Return: statement
+                        Return: ifstat
+                      Return: statement
+                      Call:   statlist
+                        Call:   statement
+                          Visited token: <"for" at line 96 column 4>; Expected token: <<IDENT>>
+                          Call:   forstat
+                            Consumed token: <"for" at line 96 column 4>
+                            Consumed token: <"(" at line 96 column 8>
+                            Call:   atribstat
+                              Call:   lvalue
+                                Consumed token: <<IDENT>: "i" at line 96 column 9>
+                              Return: lvalue
+                              Consumed token: <"=" at line 96 column 11>
+                              Call:   expression
+                                Call:   numexpr
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Consumed token: <<int_constant>: "0" at line 96 column 13>
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                Return: numexpr
+                              Return: expression
+                            Return: atribstat
+                            Consumed token: <";" at line 96 column 14>
+                            Call:   expression
+                              Call:   numexpr
+                                Call:   logicalOp
+                                  Call:   unaryexpr
+                                    Call:   factor
+                                      Call:   lvalue
+                                        Consumed token: <<IDENT>: "i" at line 96 column 16>
+                                      Return: lvalue
+                                    Return: factor
+                                  Return: unaryexpr
+                                Return: logicalOp
+                              Return: numexpr
+                              Consumed token: <"<" at line 96 column 18>
+                              Call:   numexpr
+                                Call:   logicalOp
+                                  Call:   unaryexpr
+                                    Call:   factor
+                                      Call:   lvalue
+                                        Consumed token: <<IDENT>: "x" at line 96 column 20>
+                                      Return: lvalue
+                                    Return: factor
+                                  Return: unaryexpr
+                                Return: logicalOp
+                              Return: numexpr
+                            Return: expression
+                            Consumed token: <";" at line 96 column 21>
+                            Call:   atribstat
+                              Call:   lvalue
+                                Consumed token: <<IDENT>: "i" at line 96 column 23>
+                              Return: lvalue
+                              Consumed token: <"=" at line 96 column 25>
+                              Call:   expression
+                                Call:   numexpr
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Call:   lvalue
+                                          Consumed token: <<IDENT>: "i" at line 96 column 27>
+                                        Return: lvalue
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                  Consumed token: <"+" at line 96 column 29>
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Consumed token: <<int_constant>: "1" at line 96 column 31>
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                Return: numexpr
+                              Return: expression
+                            Return: atribstat
+                            Consumed token: <")" at line 96 column 32>
+                            Call:   statement
+                              Visited token: <"print" at line 97 column 7>; Expected token: <<IDENT>>
+                              Call:   printstat
+                                Consumed token: <"print" at line 97 column 7>
+                                Call:   expression
+                                  Call:   numexpr
+                                    Call:   logicalOp
+                                      Call:   unaryexpr
+                                        Call:   factor
+                                          Consumed token: <<string_constant>: "" "" at line 97 column 13>
+                                        Return: factor
+                                      Return: unaryexpr
+                                    Return: logicalOp
+                                  Return: numexpr
+                                Return: expression
+                              Return: printstat
+                              Consumed token: <";" at line 97 column 16>
+                            Return: statement
+                          Return: forstat
+                        Return: statement
+                        Call:   statlist
+                          Call:   statement
+                            Visited token: <"print" at line 98 column 4>; Expected token: <<IDENT>>
+                            Call:   printstat
+                              Consumed token: <"print" at line 98 column 4>
+                              Call:   expression
+                                Call:   numexpr
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Call:   lvalue
+                                          Consumed token: <<IDENT>: "key" at line 98 column 10>
+                                          Consumed token: <"." at line 98 column 13>
+                                          Consumed token: <<IDENT>: "dia" at line 98 column 14>
+                                        Return: lvalue
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                  Consumed token: <"+" at line 98 column 17>
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Consumed token: <<string_constant>: ""/"" at line 98 column 19>
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                  Consumed token: <"+" at line 98 column 23>
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Call:   lvalue
+                                          Consumed token: <<IDENT>: "key" at line 98 column 25>
+                                          Consumed token: <"." at line 98 column 28>
+                                          Consumed token: <<IDENT>: "mes" at line 98 column 29>
+                                        Return: lvalue
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                  Consumed token: <"+" at line 98 column 33>
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Consumed token: <<string_constant>: ""/"" at line 98 column 35>
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                  Consumed token: <"+" at line 98 column 39>
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Call:   lvalue
+                                          Consumed token: <<IDENT>: "key" at line 98 column 41>
+                                          Consumed token: <"." at line 98 column 44>
+                                          Consumed token: <<IDENT>: "ano" at line 98 column 45>
+                                        Return: lvalue
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                  Consumed token: <"+" at line 98 column 49>
+                                  Call:   logicalOp
+                                    Call:   unaryexpr
+                                      Call:   factor
+                                        Consumed token: <<string_constant>: ""\n"" at line 98 column 51>
+                                      Return: factor
+                                    Return: unaryexpr
+                                  Return: logicalOp
+                                Return: numexpr
+                              Return: expression
+                            Return: printstat
+                            Consumed token: <";" at line 98 column 55>
+                          Return: statement
+                          Call:   statlist
+                            Call:   statement
+                              Visited token: <"if" at line 99 column 4>; Expected token: <<IDENT>>
+                              Call:   ifstat
+                                Consumed token: <"if" at line 99 column 4>
+                                Consumed token: <"(" at line 99 column 7>
+                                Call:   expression
+                                  Call:   numexpr
+                                    Call:   logicalOp
+                                      Call:   unaryexpr
+                                        Call:   factor
+                                          Call:   lvalue
+                                            Consumed token: <<IDENT>: "right" at line 99 column 8>
+                                          Return: lvalue
+                                        Return: factor
+                                      Return: unaryexpr
+                                    Return: logicalOp
+                                  Return: numexpr
+                                  Consumed token: <"!=" at line 99 column 14>
+                                  Call:   numexpr
+                                    Call:   logicalOp
+                                      Call:   unaryexpr
+                                        Call:   factor
+                                          Consumed token: <"null" at line 99 column 17>
+                                        Return: factor
+                                      Return: unaryexpr
+                                    Return: logicalOp
+                                  Return: numexpr
+                                Return: expression
+                                Consumed token: <")" at line 99 column 21>
+                                Call:   statement
+                                  Visited token: <<IDENT>: "i" at line 100 column 7>; Expected token: <<IDENT>>
+                                  Visited token: <"=" at line 100 column 9>; Expected token: <<IDENT>>
+                                  Call:   atribstat
+                                    Call:   lvalue
+                                      Consumed token: <<IDENT>: "i" at line 100 column 7>
+                                    Return: lvalue
+                                    Consumed token: <"=" at line 100 column 9>
+                                    Call:   expression
+                                      Call:   numexpr
+                                        Call:   logicalOp
+                                          Call:   unaryexpr
+                                            Call:   factor
+                                              Call:   lvalue
+                                                Consumed token: <<IDENT>: "right" at line 100 column 11>
+                                                Consumed token: <"." at line 100 column 16>
+                                                Consumed token: <<IDENT>: "treeprint" at line 100 column 17>
+                                                Consumed token: <"(" at line 100 column 26>
+                                                Call:   arglist
+                                                  Call:   expression
+                                                    Call:   numexpr
+                                                      Call:   logicalOp
+                                                        Call:   unaryexpr
+                                                          Call:   factor
+                                                            Call:   lvalue
+                                                              Consumed token: <<IDENT>: "x" at line 100 column 27>
+                                                            Return: lvalue
+                                                          Return: factor
+                                                        Return: unaryexpr
+                                                      Return: logicalOp
+                                                      Consumed token: <"+" at line 100 column 28>
+                                                      Call:   logicalOp
+                                                        Call:   unaryexpr
+                                                          Call:   factor
+                                                            Consumed token: <<int_constant>: "4" at line 100 column 29>
+                                                          Return: factor
+                                                        Return: unaryexpr
+                                                      Return: logicalOp
+                                                    Return: numexpr
+                                                  Return: expression
+                                                Return: arglist
+                                                Consumed token: <")" at line 100 column 30>
+                                              Return: lvalue
+                                            Return: factor
+                                          Return: unaryexpr
+                                        Return: logicalOp
+                                      Return: numexpr
+                                    Return: expression
+                                  Return: atribstat
+                                  Consumed token: <";" at line 100 column 31>
+                                Return: statement
+                              Return: ifstat
+                            Return: statement
+                          Return: statlist
+                        Return: statlist
+                      Return: statlist
+                    Return: statlist
+                  Return: statlist
+                  Consumed token: <"}" at line 101 column 1>
+                Return: statement
+              Return: methodbody
+            Return: methoddecl
+            Call:   methoddecl
+              Call:   accessOperation
+              Return: accessOperation
+              Call:   typeOperation
+                Consumed token: <"int" at line 104 column 1>
+              Return: typeOperation
+              Consumed token: <<IDENT>: "start" at line 104 column 5>
+              Call:   methodbody
+                Consumed token: <"(" at line 104 column 10>
+                Call:   paramlist
+                Return: paramlist
+                Consumed token: <")" at line 104 column 11>
+                Call:   statement
+                  Visited token: <"{" at line 105 column 1>; Expected token: <<IDENT>>
+                  Consumed token: <"{" at line 105 column 1>
+                  Call:   statlist
+                    Call:   statement
+                      Visited token: <<IDENT>: "bintree" at line 106 column 1>; Expected token: <<IDENT>>
+                      Visited token: <<IDENT>: "t" at line 106 column 9>; Expected token: <<IDENT>>
+                      Call:   vardecl
+                        Call:   accessOperation
+                        Return: accessOperation
+                        Consumed token: <<IDENT>: "bintree" at line 106 column 1>
+                        Consumed token: <<IDENT>: "t" at line 106 column 9>
+                      Return: vardecl
+                      Consumed token: <";" at line 106 column 10>
+                    Return: statement
+                    Call:   statlist
+                      Call:   statement
+                        Visited token: <"int" at line 107 column 1>; Expected token: <<IDENT>>
+                        Call:   vardecl
+                          Call:   accessOperation
+                          Return: accessOperation
+                          Call:   typeOperation
+                            Consumed token: <"int" at line 107 column 1>
+                          Return: typeOperation
+                          Consumed token: <<IDENT>: "i" at line 107 column 5>
+                          Consumed token: <"," at line 107 column 6>
+                          Consumed token: <<IDENT>: "d" at line 107 column 8>
+                          Consumed token: <"," at line 107 column 9>
+                          Consumed token: <<IDENT>: "m" at line 107 column 11>
+                          Consumed token: <"," at line 107 column 12>
+                          Consumed token: <<IDENT>: "a" at line 107 column 14>
+                        Return: vardecl
+                        Consumed token: <";" at line 107 column 15>
+                      Return: statement
+                      Call:   statlist
+                        Call:   statement
+                          Visited token: <<IDENT>: "data" at line 108 column 1>; Expected token: <<IDENT>>
+                          Visited token: <<IDENT>: "w" at line 108 column 6>; Expected token: <<IDENT>>
+                          Call:   vardecl
+                            Call:   accessOperation
+                            Return: accessOperation
+                            Consumed token: <<IDENT>: "data" at line 108 column 1>
+                            Consumed token: <<IDENT>: "w" at line 108 column 6>
+                          Return: vardecl
+                          Consumed token: <";" at line 108 column 7>
+                        Return: statement
+                        Call:   statlist
+                          Call:   statement
+                            Visited token: <"read" at line 110 column 4>; Expected token: <<IDENT>>
+                            Call:   readstat
+                              Consumed token: <"read" at line 110 column 4>
+                              Call:   lvalue
+                                Consumed token: <<IDENT>: "d" at line 110 column 9>
+                              Return: lvalue
+                            Return: readstat
+                            Consumed token: <";" at line 110 column 10>
+                          Return: statement
+                          Call:   statlist
+                            Call:   statement
+                              Visited token: <"read" at line 110 column 12>; Expected token: <<IDENT>>
+                              Call:   readstat
+                                Consumed token: <"read" at line 110 column 12>
+                                Call:   lvalue
+                                  Consumed token: <<IDENT>: "m" at line 110 column 17>
+                                Return: lvalue
+                              Return: readstat
+                              Consumed token: <";" at line 110 column 18>
+                            Return: statement
+                            Call:   statlist
+                              Call:   statement
+                                Visited token: <"read" at line 110 column 20>; Expected token: <<IDENT>>
+                                Call:   readstat
+                                  Consumed token: <"read" at line 110 column 20>
+                                  Call:   lvalue
+                                    Consumed token: <<IDENT>: "a" at line 110 column 25>
+                                  Return: lvalue
+                                Return: readstat
+                                Consumed token: <";" at line 110 column 26>
+                              Return: statement
+                              Call:   statlist
+                                Call:   statement
+                                  Visited token: <<IDENT>: "w" at line 111 column 4>; Expected token: <<IDENT>>
+                                  Visited token: <"=" at line 111 column 6>; Expected token: <<IDENT>>
+                                  Call:   atribstat
+                                    Call:   lvalue
+                                      Consumed token: <<IDENT>: "w" at line 111 column 4>
+                                    Return: lvalue
+                                    Consumed token: <"=" at line 111 column 6>
+                                    Call:   alocexpression
+                                      Consumed token: <"new" at line 111 column 8>
+                                      Visited token: <<IDENT>: "data" at line 111 column 12>; Expected token: <<IDENT>>
+                                      Visited token: <"(" at line 111 column 16>; Expected token: <"(">
+                                      Consumed token: <<IDENT>: "data" at line 111 column 12>
+                                      Consumed token: <"(" at line 111 column 16>
+                                      Call:   arglist
+                                        Call:   expression
+                                          Call:   numexpr
+                                            Call:   logicalOp
+                                              Call:   unaryexpr
+                                                Call:   factor
+                                                  Call:   lvalue
+                                                    Consumed token: <<IDENT>: "d" at line 111 column 17>
+                                                  Return: lvalue
+                                                Return: factor
+                                              Return: unaryexpr
+                                            Return: logicalOp
+                                          Return: numexpr
+                                        Return: expression
+                                        Consumed token: <"," at line 111 column 18>
+                                        Call:   expression
+                                          Call:   numexpr
+                                            Call:   logicalOp
+                                              Call:   unaryexpr
+                                                Call:   factor
+                                                  Call:   lvalue
+                                                    Consumed token: <<IDENT>: "m" at line 111 column 20>
+                                                  Return: lvalue
+                                                Return: factor
+                                              Return: unaryexpr
+                                            Return: logicalOp
+                                          Return: numexpr
+                                        Return: expression
+                                        Consumed token: <"," at line 111 column 21>
+                                        Call:   expression
+                                          Call:   numexpr
+                                            Call:   logicalOp
+                                              Call:   unaryexpr
+                                                Call:   factor
+                                                  Call:   lvalue
+                                                    Consumed token: <<IDENT>: "a" at line 111 column 23>
+                                                  Return: lvalue
+                                                Return: factor
+                                              Return: unaryexpr
+                                            Return: logicalOp
+                                          Return: numexpr
+                                        Return: expression
+                                      Return: arglist
+                                      Consumed token: <")" at line 111 column 24>
+                                    Return: alocexpression
+                                  Return: atribstat
+                                  Consumed token: <";" at line 111 column 25>
+                                Return: statement
+                                Call:   statlist
+                                  Call:   statement
+                                    Visited token: <<IDENT>: "t" at line 112 column 4>; Expected token: <<IDENT>>
+                                    Visited token: <"=" at line 112 column 6>; Expected token: <<IDENT>>
+                                    Call:   atribstat
+                                      Call:   lvalue
+                                        Consumed token: <<IDENT>: "t" at line 112 column 4>
+                                      Return: lvalue
+                                      Consumed token: <"=" at line 112 column 6>
+                                      Call:   alocexpression
+                                        Consumed token: <"new" at line 112 column 8>
+                                        Visited token: <<IDENT>: "bintree" at line 112 column 12>; Expected token: <<IDENT>>
+                                        Visited token: <"(" at line 112 column 19>; Expected token: <"(">
+                                        Consumed token: <<IDENT>: "bintree" at line 112 column 12>
+                                        Consumed token: <"(" at line 112 column 19>
+                                        Call:   arglist
+                                          Call:   expression
+                                            Call:   numexpr
+                                              Call:   logicalOp
+                                                Call:   unaryexpr
+                                                  Call:   factor
+                                                    Call:   lvalue
+                                                      Consumed token: <<IDENT>: "w" at line 112 column 20>
+                                                    Return: lvalue
+                                                  Return: factor
+                                                Return: unaryexpr
+                                              Return: logicalOp
+                                            Return: numexpr
+                                          Return: expression
+                                        Return: arglist
+                                        Consumed token: <")" at line 112 column 21>
+                                      Return: alocexpression
+                                    Return: atribstat
+                                    Consumed token: <";" at line 112 column 22>
+                                  Return: statement
+                                  Call:   statlist
+                                    Call:   statement
+                                      Visited token: <"for" at line 113 column 4>; Expected token: <<IDENT>>
+                                      Call:   forstat
+                                        Consumed token: <"for" at line 113 column 4>
+                                        Consumed token: <"(" at line 113 column 8>
+                                        Call:   atribstat
+                                          Call:   lvalue
+                                            Consumed token: <<IDENT>: "i" at line 113 column 9>
+                                          Return: lvalue
+                                          Consumed token: <"=" at line 113 column 11>
+                                          Call:   expression
+                                            Call:   numexpr
+                                              Call:   logicalOp
+                                                Call:   unaryexpr
+                                                  Call:   factor
+                                                    Consumed token: <<int_constant>: "0" at line 113 column 13>
+                                                  Return: factor
+                                                Return: unaryexpr
+                                              Return: logicalOp
+                                            Return: numexpr
+                                          Return: expression
+                                        Return: atribstat
+                                        Consumed token: <";" at line 113 column 14>
+                                        Call:   expression
+                                          Call:   numexpr
+                                            Call:   logicalOp
+                                              Call:   unaryexpr
+                                                Call:   factor
+                                                  Call:   lvalue
+                                                    Consumed token: <<IDENT>: "i" at line 113 column 16>
+                                                  Return: lvalue
+                                                Return: factor
+                                              Return: unaryexpr
+                                            Return: logicalOp
+                                          Return: numexpr
+                                          Consumed token: <"<" at line 113 column 18>
+                                          Call:   numexpr
+                                            Call:   logicalOp
+                                              Call:   unaryexpr
+                                                Call:   factor
+                                                  Consumed token: <<int_constant>: "10" at line 113 column 20>
+                                                Return: factor
+                                              Return: unaryexpr
+                                            Return: logicalOp
+                                          Return: numexpr
+                                        Return: expression
+                                        Consumed token: <";" at line 113 column 22>
+                                        Call:   atribstat
+                                          Call:   lvalue
+                                            Consumed token: <<IDENT>: "i" at line 113 column 24>
+                                          Return: lvalue
+                                          Consumed token: <"=" at line 113 column 26>
+                                          Call:   expression
+                                            Call:   numexpr
+                                              Call:   logicalOp
+                                                Call:   unaryexpr
+                                                  Call:   factor
+                                                    Call:   lvalue
+                                                      Consumed token: <<IDENT>: "i" at line 113 column 28>
+                                                    Return: lvalue
+                                                  Return: factor
+                                                Return: unaryexpr
+                                              Return: logicalOp
+                                              Consumed token: <"+" at line 113 column 30>
+                                              Call:   logicalOp
+                                                Call:   unaryexpr
+                                                  Call:   factor
+                                                    Consumed token: <<int_constant>: "1" at line 113 column 32>
+                                                  Return: factor
+                                                Return: unaryexpr
+                                              Return: logicalOp
+                                            Return: numexpr
+                                          Return: expression
+                                        Return: atribstat
+                                        Consumed token: <")" at line 113 column 33>
+                                        Call:   statement
+                                          Visited token: <"{" at line 114 column 4>; Expected token: <<IDENT>>
+                                          Consumed token: <"{" at line 114 column 4>
+                                          Call:   statlist
+                                            Call:   statement
+                                              Visited token: <"read" at line 115 column 7>; Expected token: <<IDENT>>
+                                              Call:   readstat
+                                                Consumed token: <"read" at line 115 column 7>
+                                                Call:   lvalue
+                                                  Consumed token: <<IDENT>: "d" at line 115 column 12>
+                                                Return: lvalue
+                                              Return: readstat
+                                              Consumed token: <";" at line 115 column 13>
+                                            Return: statement
+                                            Call:   statlist
+                                              Call:   statement
+                                                Visited token: <"read" at line 115 column 15>; Expected token: <<IDENT>>
+                                                Call:   readstat
+                                                  Consumed token: <"read" at line 115 column 15>
+                                                  Call:   lvalue
+                                                    Consumed token: <<IDENT>: "m" at line 115 column 20>
+                                                  Return: lvalue
+                                                Return: readstat
+                                                Consumed token: <";" at line 115 column 21>
+                                              Return: statement
+                                              Call:   statlist
+                                                Call:   statement
+                                                  Visited token: <"read" at line 115 column 23>; Expected token: <<IDENT>>
+                                                  Call:   readstat
+                                                    Consumed token: <"read" at line 115 column 23>
+                                                    Call:   lvalue
+                                                      Consumed token: <<IDENT>: "a" at line 115 column 28>
+                                                    Return: lvalue
+                                                  Return: readstat
+                                                  Consumed token: <";" at line 115 column 29>
+                                                Return: statement
+                                                Call:   statlist
+                                                  Call:   statement
+                                                    Visited token: <<IDENT>: "w" at line 116 column 7>; Expected token: <<IDENT>>
+                                                    Visited token: <"=" at line 116 column 9>; Expected token: <<IDENT>>
+                                                    Call:   atribstat
+                                                      Call:   lvalue
+                                                        Consumed token: <<IDENT>: "w" at line 116 column 7>
+                                                      Return: lvalue
+                                                      Consumed token: <"=" at line 116 column 9>
+                                                      Call:   alocexpression
+                                                        Consumed token: <"new" at line 116 column 11>
+                                                        Visited token: <<IDENT>: "data" at line 116 column 15>; Expected token: <<IDENT>>
+                                                        Visited token: <"(" at line 116 column 19>; Expected token: <"(">
+                                                        Consumed token: <<IDENT>: "data" at line 116 column 15>
+                                                        Consumed token: <"(" at line 116 column 19>
+                                                        Call:   arglist
+                                                          Call:   expression
+                                                            Call:   numexpr
+                                                              Call:   logicalOp
+                                                                Call:   unaryexpr
+                                                                  Call:   factor
+                                                                    Call:   lvalue
+                                                                      Consumed token: <<IDENT>: "d" at line 116 column 20>
+                                                                    Return: lvalue
+                                                                  Return: factor
+                                                                Return: unaryexpr
+                                                              Return: logicalOp
+                                                            Return: numexpr
+                                                          Return: expression
+                                                          Consumed token: <"," at line 116 column 21>
+                                                          Call:   expression
+                                                            Call:   numexpr
+                                                              Call:   logicalOp
+                                                                Call:   unaryexpr
+                                                                  Call:   factor
+                                                                    Call:   lvalue
+                                                                      Consumed token: <<IDENT>: "m" at line 116 column 23>
+                                                                    Return: lvalue
+                                                                  Return: factor
+                                                                Return: unaryexpr
+                                                              Return: logicalOp
+                                                            Return: numexpr
+                                                          Return: expression
+                                                          Consumed token: <"," at line 116 column 24>
+                                                          Call:   expression
+                                                            Call:   numexpr
+                                                              Call:   logicalOp
+                                                                Call:   unaryexpr
+                                                                  Call:   factor
+                                                                    Call:   lvalue
+                                                                      Consumed token: <<IDENT>: "a" at line 116 column 26>
+                                                                    Return: lvalue
+                                                                  Return: factor
+                                                                Return: unaryexpr
+                                                              Return: logicalOp
+                                                            Return: numexpr
+                                                          Return: expression
+                                                        Return: arglist
+                                                        Consumed token: <")" at line 116 column 27>
+                                                      Return: alocexpression
+                                                    Return: atribstat
+                                                    Consumed token: <";" at line 116 column 28>
+                                                  Return: statement
+                                                  Call:   statlist
+                                                    Call:   statement
+                                                      Visited token: <"if" at line 117 column 7>; Expected token: <<IDENT>>
+                                                      Call:   ifstat
+                                                        Consumed token: <"if" at line 117 column 7>
+                                                        Consumed token: <"(" at line 117 column 10>
+                                                        Call:   expression
+                                                          Call:   numexpr
+                                                            Call:   logicalOp
+                                                              Call:   unaryexpr
+                                                                Call:   factor
+                                                                  Call:   lvalue
+                                                                    Consumed token: <<IDENT>: "t" at line 117 column 11>
+                                                                    Consumed token: <"." at line 117 column 12>
+                                                                    Consumed token: <<IDENT>: "insert" at line 117 column 13>
+                                                                    Consumed token: <"(" at line 117 column 19>
+                                                                    Call:   arglist
+                                                                      Call:   expression
+                                                                        Call:   numexpr
+                                                                          Call:   logicalOp
+                                                                            Call:   unaryexpr
+                                                                              Call:   factor
+                                                                                Call:   lvalue
+                                                                                  Consumed token: <<IDENT>: "w" at line 117 column 20>
+                                                                                Return: lvalue
+                                                                              Return: factor
+                                                                            Return: unaryexpr
+                                                                          Return: logicalOp
+                                                                        Return: numexpr
+                                                                      Return: expression
+                                                                    Return: arglist
+                                                                    Consumed token: <")" at line 117 column 21>
+                                                                  Return: lvalue
+                                                                Return: factor
+                                                              Return: unaryexpr
+                                                            Return: logicalOp
+                                                          Return: numexpr
+                                                          Consumed token: <"==" at line 117 column 23>
+                                                          Call:   numexpr
+                                                            Call:   logicalOp
+                                                              Call:   unaryexpr
+                                                                Call:   factor
+                                                                  Consumed token: <<int_constant>: "0" at line 117 column 26>
+                                                                Return: factor
+                                                              Return: unaryexpr
+                                                            Return: logicalOp
+                                                          Return: numexpr
+                                                        Return: expression
+                                                        Consumed token: <")" at line 117 column 27>
+                                                        Call:   statement
+                                                          Visited token: <"print" at line 118 column 10>; Expected token: <<IDENT>>
+                                                          Call:   printstat
+                                                            Consumed token: <"print" at line 118 column 10>
+                                                            Call:   expression
+                                                              Call:   numexpr
+                                                                Call:   logicalOp
+                                                                  Call:   unaryexpr
+                                                                    Call:   factor
+                                                                      Consumed token: <<string_constant>: ""Elemento ja existe\n"" at line 118 column 16>
+                                                                    Return: factor
+                                                                  Return: unaryexpr
+                                                                Return: logicalOp
+                                                              Return: numexpr
+                                                            Return: expression
+                                                          Return: printstat
+                                                          Consumed token: <";" at line 118 column 38>
+                                                        Return: statement
+                                                      Return: ifstat
+                                                    Return: statement
+                                                  Return: statlist
+                                                Return: statlist
+                                              Return: statlist
+                                            Return: statlist
+                                          Return: statlist
+                                          Consumed token: <"}" at line 119 column 4>
+                                        Return: statement
+                                      Return: forstat
+                                    Return: statement
+                                    Call:   statlist
+                                      Call:   statement
+                                        Visited token: <<IDENT>: "i" at line 120 column 4>; Expected token: <<IDENT>>
+                                        Visited token: <"=" at line 120 column 6>; Expected token: <<IDENT>>
+                                        Call:   atribstat
+                                          Call:   lvalue
+                                            Consumed token: <<IDENT>: "i" at line 120 column 4>
+                                          Return: lvalue
+                                          Consumed token: <"=" at line 120 column 6>
+                                          Call:   expression
+                                            Call:   numexpr
+                                              Call:   logicalOp
+                                                Call:   unaryexpr
+                                                  Call:   factor
+                                                    Call:   lvalue
+                                                      Consumed token: <<IDENT>: "t" at line 120 column 8>
+                                                      Consumed token: <"." at line 120 column 9>
+                                                      Consumed token: <<IDENT>: "treeprint" at line 120 column 10>
+                                                      Consumed token: <"(" at line 120 column 19>
+                                                      Call:   arglist
+                                                        Call:   expression
+                                                          Call:   numexpr
+                                                            Call:   logicalOp
+                                                              Call:   unaryexpr
+                                                                Call:   factor
+                                                                  Consumed token: <<int_constant>: "0" at line 120 column 20>
+                                                                Return: factor
+                                                              Return: unaryexpr
+                                                            Return: logicalOp
+                                                          Return: numexpr
+                                                        Return: expression
+                                                      Return: arglist
+                                                      Consumed token: <")" at line 120 column 21>
+                                                    Return: lvalue
+                                                  Return: factor
+                                                Return: unaryexpr
+                                              Return: logicalOp
+                                            Return: numexpr
+                                          Return: expression
+                                        Return: atribstat
+                                        Consumed token: <";" at line 120 column 22>
+                                      Return: statement
+                                      Call:   statlist
+                                        Call:   statement
+                                          Visited token: <"return" at line 121 column 4>; Expected token: <<IDENT>>
+                                          Call:   returnstat
+                                            Consumed token: <"return" at line 121 column 4>
+                                            Call:   expression
+                                              Call:   numexpr
+                                                Call:   logicalOp
+                                                  Call:   unaryexpr
+                                                    Call:   factor
+                                                      Consumed token: <<int_constant>: "0" at line 121 column 11>
+                                                    Return: factor
+                                                  Return: unaryexpr
+                                                Return: logicalOp
+                                              Return: numexpr
+                                            Return: expression
+                                          Return: returnstat
+                                          Consumed token: <";" at line 121 column 12>
+                                        Return: statement
+                                      Return: statlist
+                                    Return: statlist
+                                  Return: statlist
+                                Return: statlist
+                              Return: statlist
+                            Return: statlist
+                          Return: statlist
+                        Return: statlist
+                      Return: statlist
+                    Return: statlist
+                  Return: statlist
+                  Consumed token: <"}" at line 122 column 1>
+                Return: statement
+              Return: methodbody
+            Return: methoddecl
+            Consumed token: <"}" at line 124 column 1>
+          Return: classbody
+        Return: classdecl
+      Return: classlist
+      Consumed token: <<EOF> at line 124 column 3>
+      Call:   program
+        Consumed token: <<EOF> at line 124 column 3>
+      Return: program
+    Return: program
+  Return: program
+0 Lexical Errors found
+7 Syntactic Errors found

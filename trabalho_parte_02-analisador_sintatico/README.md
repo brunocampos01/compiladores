@@ -21,18 +21,26 @@ OUTPUT_DIRECTORY = "parser";
 - Criação do método `accessOperation()` com os tipos de acesso
 
 ```java
-void accessOperation(): {} {
+void accessOperation(RecoverySet g) throws ParseEOFException : {} {
     // Os qualificadores de acesso devem ser opcionais
-   [<PUBLIC> | <PRIVATE> | <PROTECTED>]
+   try{
+        [<PUBLIC> | <PRIVATE> | <PROTECTED>]
+   } catch (ParseException e) {
+        consumeUntil(g, e, "typeOperation");
+   }
 }
 ```
 
 - Criação do método `typeOperation()` que define a tipagem primitíva
 
 ```java
-void typeOperation(): {} {
+void typeOperation(RecoverySet g) throws ParseEOFException : {} {
     // Tipos de variáveis e literais
-   <INT> | <STRING> | <BYTE> | <SHORT> | <LONG> | <FLOAT>
+   try{
+        <INT> | <STRING> | <BYTE> | <SHORT> | <LONG> | <FLOAT>
+   } catch (ParseException e) {
+        consumeUntil(g, e, "typeOperation");
+   }
 }
 ```
 
@@ -45,7 +53,7 @@ void typeOperation(): {} {
 void vardecl(RecoverySet g) throws ParseEOFException : {} {
     try{
         [<FINAL>]   // variavel pode ser ou não FINAL
-        accessOperation() (typeOperation() | <IDENT> )
+        (accessOperation(g) (typeOperation(g) | <IDENT>))
         <IDENT>
         (<LBRACKET> <RBRACKET>)*
         (<COMMA> <IDENT> ( <LBRACKET> <RBRACKET>)* )*
@@ -62,7 +70,7 @@ void vardecl(RecoverySet g) throws ParseEOFException : {} {
 ```java
 void methoddecl(RecoverySet g) throws ParseEOFException : {} {
     try {
-        (typeOperation() | accessOperation() | <IDENT>)
+        (accessOperation(g) (typeOperation(g) | <IDENT>))
         (<LBRACKET> <RBRACKET>)*
         <IDENT> methodbody(g)
     } catch (ParseException e) {
@@ -78,10 +86,10 @@ void methoddecl(RecoverySet g) throws ParseEOFException : {} {
 void paramlist(RecoverySet g) throws ParseEOFException : {} {
     try {
         [
-            (typeOperation() | accessOperation() | <IDENT> )
+            (accessOperation(g) (typeOperation(g) | <IDENT>))
             <IDENT>
             (<LBRACKET> <RBRACKET>)*
-            (<COMMA> (typeOperation() | <IDENT>) <IDENT> (<LBRACKET> <RBRACKET>)* )*
+            (<COMMA> (typeOperation(g) | <IDENT>) <IDENT> (<LBRACKET> <RBRACKET>)* )*
         ]
     } catch (ParseException e) {
        consumeUntil(g, e, "paramlist");
@@ -93,16 +101,24 @@ void paramlist(RecoverySet g) throws ParseEOFException : {} {
     - Adicionado tokens  `<STAR> | <SLASH> | <REM>` 
 
 ```java
-void numexpr() throws ParseEOFException : {} {
-    logicalOp() ((<PLUS> | <MINUS> | <STAR> | <SLASH> | <REM> ) logicalOp())*
+void numexpr(RecoverySet g) throws ParseEOFException : {} {
+    try {
+        logicalOp(g) ((<PLUS> | <MINUS> | <STAR> | <SLASH> | <REM> ) logicalOp(g))*
+    } catch (ParseException e) {
+        consumeUntil(g, e, "numexpr");
+    }
 }
 ```
 
 - Criado método `logicalOp()`
 
 ```java
-void logicalOp() throws ParseEOFException : {} {
-    unaryexpr() (( <OR> | <AND> | <XOR> ) unaryexpr())*
+void logicalOp(RecoverySet g) throws ParseEOFException : {} {
+    try {
+        unaryexpr(g) (( <OR> | <AND> | <XOR> ) unaryexpr(g))*
+    } catch (ParseException e) {
+        consumeUntil(g, e, "logicalOp");
+    }
 }
 ```
 
@@ -110,8 +126,12 @@ void logicalOp() throws ParseEOFException : {} {
     - Adicionado token `NOT`
 
 ```java
-void unaryexpr() throws ParseEOFException : {} {
-   [(<PLUS> | <MINUS> | <NOT>)] factor()
+void unaryexpr(RecoverySet g) throws ParseEOFException : {} {
+    try {
+        [(<PLUS> | <MINUS> | <NOT>)] factor()
+    } catch (ParseException e) {
+        consumeUntil(g, e, "unaryexpr");
+    }
 }
 ```
 

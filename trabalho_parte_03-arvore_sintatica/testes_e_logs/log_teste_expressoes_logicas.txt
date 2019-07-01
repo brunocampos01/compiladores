@@ -1,0 +1,185 @@
+X+++ Compiler - Version 1.0
+Reading from file testes_e_logs/teste_expressoes_logicas.x . . .
+0 Lexical Errors found
+0 Syntactic Errors found
+
+1: ListNode (ClassDeclNode)  ===> 2 null
+2: ClassDeclNode ===> TesteExpressoesLogicas null 3
+3: ClassBodyNode ===> null 4 58 74
+4: ListNode (VarDeclNode) ===> 5 8
+5: VarDeclNode ===> byte 6
+6: ListNode (VarNode) ===> 7 null
+7: VarNode ===> outMethodByte 
+8: ListNode (VarDeclNode) ===> 9 12
+9: VarDeclNode ===> short 10
+10: ListNode (VarNode) ===> 11 null
+11: VarNode ===> outMethodShort 
+12: ListNode (VarDeclNode) ===> 13 16
+13: VarDeclNode ===> long 14
+14: ListNode (VarNode) ===> 15 null
+15: VarNode ===> outMethodLong 
+16: ListNode (VarDeclNode) ===> 17 20
+17: VarDeclNode ===> float 18
+18: ListNode (VarNode) ===> 19 null
+19: VarNode ===> outMethodFloat 
+20: ListNode (VarDeclNode) ===> 21 24
+21: VarDeclNode ===> float 22
+22: ListNode (VarNode) ===> 23 null
+23: VarNode ===> withoutFinal 
+24: ListNode (VarDeclNode) ===> 25 28
+25: VarDeclNode ===> float 26
+26: ListNode (VarNode) ===> 27 null
+27: VarNode ===> withFinal 
+28: ListNode (VarDeclNode) ===> 29 34
+29: VarDeclNode ===> int 30
+30: ListNode (VarNode) ===> 31 32
+31: VarNode ===> a 
+32: ListNode (VarNode) ===> 33 null
+33: VarNode ===> b 
+34: ListNode (VarDeclNode) ===> 35 38
+35: VarDeclNode ===> float 36
+36: ListNode (VarNode) ===> 37 null
+37: VarNode ===> startedVariable 
+38: ListNode (VarDeclNode) ===> 39 42
+39: VarDeclNode ===> string 40
+40: ListNode (VarNode) ===> 41 null
+41: VarNode ===> literal 
+42: ListNode (VarDeclNode) ===> 43 46
+43: VarDeclNode ===> byte 44
+44: ListNode (VarNode) ===> 45 null
+45: VarNode ===> variablePublic 
+46: ListNode (VarDeclNode) ===> 47 50
+47: VarDeclNode ===> short 48
+48: ListNode (VarNode) ===> 49 null
+49: VarNode ===> variableProtected 
+50: ListNode (VarDeclNode) ===> 51 54
+51: VarDeclNode ===> long 52
+52: ListNode (VarNode) ===> 53 null
+53: VarNode ===> variablePrivate 
+54: ListNode (VarDeclNode) ===> 55 null
+55: VarDeclNode ===> float 56
+56: ListNode (VarNode) ===> 57 null
+57: VarNode ===> variablePrivateAndFinal 
+58: ListNode (ConstructDeclNode) ===> 59 null
+59: ConstructDeclNode ===> 60
+60: MethodBodyNode ===> 61 65
+61: ListNode (VarDeclNode) ===> 62 null
+62: VarDeclNode ===> int 63
+63: ListNode (VarNode) ===> 64 null
+64: VarNode ===> t 
+65: BlockNode ===> 66
+66: ListNode (StatementNode) ===> 67 70
+67: SuperNode ===> 68
+68: ListNode (ExpreNode) ===> 69 null
+69: VarNode ===> t 
+70: ListNode (StatementNode) ===> 71 null
+71: AtribNode ===> 72 73
+72: VarNode ===> k 
+73: VarNode ===> t 
+74: ListNode (MethodDeclNode) ===> 75 88
+75: MethodDeclNode ===> void start 76
+76: MethodBodyNode ===> null 77
+77: BlockNode ===> 78
+78: ListNode (StatementNode) ===> 79 82
+79: VarDeclNode ===> SClass 80
+80: ListNode (VarNode) ===> 81 null
+81: VarNode ===> x 
+82: ListNode (StatementNode) ===> 83 null
+83: AtribNode ===> 84 85
+84: VarNode ===> x 
+85: NewObjectNode ===> SClass 86
+86: ListNode (ExpreNode) ===> 87 null
+87: IntConstNode ===> 10
+88: ListNode (MethodDeclNode) ===> 89 112
+89: MethodDeclNode ===> int imprimeIteracao 90
+90: MethodBodyNode ===> 91 95
+91: ListNode (VarDeclNode) ===> 92 null
+92: VarDeclNode ===> string 93
+93: ListNode (VarNode) ===> 94 null
+94: VarNode ===> i 
+95: BlockNode ===> 96
+96: ListNode (StatementNode) ===> 97 109
+97: IfNode ===> 98 105 null
+98: MultNode ===> 99 || 102
+99: RelationalNode ===> 100 > 101
+100: VarNode ===> i 
+101: IntConstNode ===> 10
+102: RelationalNode ===> 103 < 104
+103: VarNode ===> i 
+104: IntConstNode ===> 50
+105: BlockNode ===> 106
+106: ListNode (StatementNode) ===> 107 null
+107: PrintNode ===> 108
+108: VarNode ===> i 
+109: ListNode (StatementNode) ===> 110 null
+110: ReturnNode ===> 111
+111: VarNode ===> i 
+112: ListNode (MethodDeclNode) ===> 113 136
+113: MethodDeclNode ===> int imprimeIteracao 114
+114: MethodBodyNode ===> 115 119
+115: ListNode (VarDeclNode) ===> 116 null
+116: VarDeclNode ===> int 117
+117: ListNode (VarNode) ===> 118 null
+118: VarNode ===> i 
+119: BlockNode ===> 120
+120: ListNode (StatementNode) ===> 121 133
+121: IfNode ===> 122 129 null
+122: MultNode ===> 123 && 126
+123: RelationalNode ===> 124 > 125
+124: VarNode ===> a 
+125: IntConstNode ===> 10
+126: RelationalNode ===> 127 < 128
+127: VarNode ===> b 
+128: IntConstNode ===> 50
+129: BlockNode ===> 130
+130: ListNode (StatementNode) ===> 131 null
+131: PrintNode ===> 132
+132: VarNode ===> i 
+133: ListNode (StatementNode) ===> 134 null
+134: ReturnNode ===> 135
+135: VarNode ===> i 
+136: ListNode (MethodDeclNode) ===> 137 155
+137: MethodDeclNode ===> int compara 138
+138: MethodBodyNode ===> 139 143
+139: ListNode (VarDeclNode) ===> 140 null
+140: VarDeclNode ===> long 141
+141: ListNode (VarNode) ===> 142 null
+142: VarNode ===> a 
+143: BlockNode ===> 144
+144: ListNode (StatementNode) ===> 145 152
+145: IfNode ===> 146 148 null
+146: UnaryNode ===> ! 147
+147: VarNode ===> a 
+148: BlockNode ===> 149
+149: ListNode (StatementNode) ===> 150 null
+150: ReturnNode ===> 151
+151: IntConstNode ===> 1
+152: ListNode (StatementNode) ===> 153 null
+153: ReturnNode ===> 154
+154: IntConstNode ===> 0
+155: ListNode (MethodDeclNode) ===> 156 null
+156: MethodDeclNode ===> void testaXor 157
+157: MethodBodyNode ===> null 158
+158: BlockNode ===> 159
+159: ListNode (StatementNode) ===> 160 165
+160: AtribNode ===> 161 162
+161: VarNode ===> a 
+162: MultNode ===> 163 ^ 164
+163: VarNode ===> a 
+164: VarNode ===> b 
+165: ListNode (StatementNode) ===> 166 171
+166: AtribNode ===> 167 168
+167: VarNode ===> b 
+168: MultNode ===> 169 ^ 170
+169: VarNode ===> b 
+170: VarNode ===> a 
+171: ListNode (StatementNode) ===> 172 176
+172: PrintNode ===> 173
+173: AddNode ===> 174 + 175
+174: StringConstNode ===> "a = "
+175: VarNode ===> a 
+176: ListNode (StatementNode) ===> 177 null
+177: PrintNode ===> 178
+178: AddNode ===> 179 + 180
+179: StringConstNode ===> "b = "
+180: VarNode ===> b 

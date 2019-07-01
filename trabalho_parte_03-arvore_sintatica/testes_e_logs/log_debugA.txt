@@ -1,0 +1,18 @@
+X+++ Compiler - Version 1.0debugA
+Reading from file testes_e_logs/debugAS.x . . .
+0 Lexical Errors found
+0 Syntactic Errors found
+
+1: ListNode (ClassDeclNode)  ===> 2 null
+2: ClassDeclNode ===> A null 3
+3: ClassBodyNode ===> null 4 null 10
+4: ListNode (VarDeclNode) ===> 5 null
+5: VarDeclNode ===> int 6
+6: ListNode (VarNode) ===> 7 8
+7: VarNode ===> a 
+8: ListNode (VarNode) ===> 9 null
+9: VarNode ===> b 
+10: ListNode (MethodDeclNode) ===> 11 null
+11: MethodDeclNode ===> int m 12
+12: MethodBodyNode ===> null 13
+13: NopNode

@@ -255,7 +255,6 @@ SECTION 4 -  Rules of Parser
           case PRIVATE:
           case PROTECTED:
           case IDENT:
-          case LBRACKET:
             ;
             break;
           default:
@@ -275,32 +274,36 @@ SECTION 4 -  Rules of Parser
 
 // parte 02 trabalho
 // Criado método com os tipos de acesso
-  final public void accessOperation() throws ParseException, ParseEOFException {
+  final public void accessOperation(RecoverySet g) throws ParseException, ParseEOFException {
     trace_call("accessOperation");
     try {
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case PUBLIC:
-      case PRIVATE:
-      case PROTECTED:
+      try {
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
         case PUBLIC:
-          jj_consume_token(PUBLIC);
-          break;
         case PRIVATE:
-          jj_consume_token(PRIVATE);
-          break;
         case PROTECTED:
-          jj_consume_token(PROTECTED);
+          switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+          case PUBLIC:
+            jj_consume_token(PUBLIC);
+            break;
+          case PRIVATE:
+            jj_consume_token(PRIVATE);
+            break;
+          case PROTECTED:
+            jj_consume_token(PROTECTED);
+            break;
+          default:
+            jj_la1[7] = jj_gen;
+            jj_consume_token(-1);
+            throw new ParseException();
+          }
           break;
         default:
-          jj_la1[7] = jj_gen;
-          jj_consume_token(-1);
-          throw new ParseException();
+          jj_la1[8] = jj_gen;
+          ;
         }
-        break;
-      default:
-        jj_la1[8] = jj_gen;
-        ;
+      } catch (ParseException e) {
+        consumeUntil(g, e, "typeOperation");
       }
     } finally {
       trace_return("accessOperation");
@@ -309,32 +312,36 @@ SECTION 4 -  Rules of Parser
 
 // parte 02 trabalho
 // Criado método com a tipagem
-  final public void typeOperation() throws ParseException, ParseEOFException {
+  final public void typeOperation(RecoverySet g) throws ParseException, ParseEOFException {
     trace_call("typeOperation");
     try {
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case INT:
-        jj_consume_token(INT);
-        break;
-      case STRING:
-        jj_consume_token(STRING);
-        break;
-      case BYTE:
-        jj_consume_token(BYTE);
-        break;
-      case SHORT:
-        jj_consume_token(SHORT);
-        break;
-      case LONG:
-        jj_consume_token(LONG);
-        break;
-      case FLOAT:
-        jj_consume_token(FLOAT);
-        break;
-      default:
-        jj_la1[9] = jj_gen;
-        jj_consume_token(-1);
-        throw new ParseException();
+      try {
+        switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+        case INT:
+          jj_consume_token(INT);
+          break;
+        case STRING:
+          jj_consume_token(STRING);
+          break;
+        case BYTE:
+          jj_consume_token(BYTE);
+          break;
+        case SHORT:
+          jj_consume_token(SHORT);
+          break;
+        case LONG:
+          jj_consume_token(LONG);
+          break;
+        case FLOAT:
+          jj_consume_token(FLOAT);
+          break;
+        default:
+          jj_la1[9] = jj_gen;
+          jj_consume_token(-1);
+          throw new ParseException();
+        }
+      } catch (ParseException e) {
+        consumeUntil(g, e, "typeOperation");
       }
     } finally {
       trace_return("typeOperation");
@@ -357,7 +364,7 @@ SECTION 4 -  Rules of Parser
           jj_la1[10] = jj_gen;
           ;
         }
-        accessOperation();
+        accessOperation(g);
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
         case INT:
         case STRING:
@@ -365,7 +372,7 @@ SECTION 4 -  Rules of Parser
         case SHORT:
         case LONG:
         case FLOAT:
-          typeOperation();
+          typeOperation(g);
           break;
         case IDENT:
           jj_consume_token(IDENT);
@@ -452,6 +459,7 @@ SECTION 4 -  Rules of Parser
     trace_call("methoddecl");
     try {
       try {
+        accessOperation(g);
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
         case INT:
         case STRING:
@@ -459,11 +467,15 @@ SECTION 4 -  Rules of Parser
         case SHORT:
         case LONG:
         case FLOAT:
-          typeOperation();
+          typeOperation(g);
+          break;
+        case IDENT:
+          jj_consume_token(IDENT);
           break;
         default:
           jj_la1[16] = jj_gen;
-          accessOperation();
+          jj_consume_token(-1);
+          throw new ParseException();
         }
         label_7:
         while (true) {
@@ -522,6 +534,7 @@ SECTION 4 -  Rules of Parser
         case PRIVATE:
         case PROTECTED:
         case IDENT:
+          accessOperation(g);
           switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
           case INT:
           case STRING:
@@ -529,11 +542,15 @@ SECTION 4 -  Rules of Parser
           case SHORT:
           case LONG:
           case FLOAT:
-            typeOperation();
+            typeOperation(g);
+            break;
+          case IDENT:
+            jj_consume_token(IDENT);
             break;
           default:
             jj_la1[18] = jj_gen;
-            accessOperation();
+            jj_consume_token(-1);
+            throw new ParseException();
           }
           jj_consume_token(IDENT);
           label_8:
@@ -567,7 +584,7 @@ SECTION 4 -  Rules of Parser
             case SHORT:
             case LONG:
             case FLOAT:
-              typeOperation();
+              typeOperation(g);
               break;
             case IDENT:
               jj_consume_token(IDENT);
@@ -990,7 +1007,7 @@ SECTION 4 -  Rules of Parser
           case SHORT:
           case LONG:
           case FLOAT:
-            typeOperation();
+            typeOperation(g);
             break;
           case IDENT:
             jj_consume_token(IDENT);
@@ -1030,7 +1047,7 @@ SECTION 4 -  Rules of Parser
     trace_call("expression");
     try {
       try {
-        numexpr();
+        numexpr(g);
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
         case GT:
         case LT:
@@ -1062,7 +1079,7 @@ SECTION 4 -  Rules of Parser
             jj_consume_token(-1);
             throw new ParseException();
           }
-          numexpr();
+          numexpr(g);
           break;
         default:
           jj_la1[39] = jj_gen;
@@ -1078,46 +1095,50 @@ SECTION 4 -  Rules of Parser
 
 // Trabalho - parte 02
 // Add token STAR, SLASH, REM
-  final public void numexpr() throws ParseException, ParseEOFException {
+  final public void numexpr(RecoverySet g) throws ParseException, ParseEOFException {
     trace_call("numexpr");
     try {
-      logicalOp();
-      label_13:
-      while (true) {
-        switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-        case PLUS:
-        case MINUS:
-        case STAR:
-        case SLASH:
-        case REM:
-          ;
-          break;
-        default:
-          jj_la1[40] = jj_gen;
-          break label_13;
+      try {
+        logicalOp(g);
+        label_13:
+        while (true) {
+          switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+          case PLUS:
+          case MINUS:
+          case STAR:
+          case SLASH:
+          case REM:
+            ;
+            break;
+          default:
+            jj_la1[40] = jj_gen;
+            break label_13;
+          }
+          switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+          case PLUS:
+            jj_consume_token(PLUS);
+            break;
+          case MINUS:
+            jj_consume_token(MINUS);
+            break;
+          case STAR:
+            jj_consume_token(STAR);
+            break;
+          case SLASH:
+            jj_consume_token(SLASH);
+            break;
+          case REM:
+            jj_consume_token(REM);
+            break;
+          default:
+            jj_la1[41] = jj_gen;
+            jj_consume_token(-1);
+            throw new ParseException();
+          }
+          logicalOp(g);
         }
-        switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-        case PLUS:
-          jj_consume_token(PLUS);
-          break;
-        case MINUS:
-          jj_consume_token(MINUS);
-          break;
-        case STAR:
-          jj_consume_token(STAR);
-          break;
-        case SLASH:
-          jj_consume_token(SLASH);
-          break;
-        case REM:
-          jj_consume_token(REM);
-          break;
-        default:
-          jj_la1[41] = jj_gen;
-          jj_consume_token(-1);
-          throw new ParseException();
-        }
-        logicalOp();
+      } catch (ParseException e) {
+        consumeUntil(g, e, "numexpr");
       }
     } finally {
       trace_return("numexpr");
@@ -1126,38 +1147,42 @@ SECTION 4 -  Rules of Parser
 
 // Trabalho - parte 02
 // Criado novo método
-  final public void logicalOp() throws ParseException, ParseEOFException {
+  final public void logicalOp(RecoverySet g) throws ParseException, ParseEOFException {
     trace_call("logicalOp");
     try {
-      unaryexpr();
-      label_14:
-      while (true) {
-        switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-        case AND:
-        case OR:
-        case XOR:
-          ;
-          break;
-        default:
-          jj_la1[42] = jj_gen;
-          break label_14;
+      try {
+        unaryexpr(g);
+        label_14:
+        while (true) {
+          switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+          case AND:
+          case OR:
+          case XOR:
+            ;
+            break;
+          default:
+            jj_la1[42] = jj_gen;
+            break label_14;
+          }
+          switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+          case OR:
+            jj_consume_token(OR);
+            break;
+          case AND:
+            jj_consume_token(AND);
+            break;
+          case XOR:
+            jj_consume_token(XOR);
+            break;
+          default:
+            jj_la1[43] = jj_gen;
+            jj_consume_token(-1);
+            throw new ParseException();
+          }
+          unaryexpr(g);
         }
-        switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-        case OR:
-          jj_consume_token(OR);
-          break;
-        case AND:
-          jj_consume_token(AND);
-          break;
-        case XOR:
-          jj_consume_token(XOR);
-          break;
-        default:
-          jj_la1[43] = jj_gen;
-          jj_consume_token(-1);
-          throw new ParseException();
-        }
-        unaryexpr();
+      } catch (ParseException e) {
+        consumeUntil(g, e, "logicalOp");
       }
     } finally {
       trace_return("logicalOp");
@@ -1166,34 +1191,38 @@ SECTION 4 -  Rules of Parser
 
 // Trabalho - parte 02
 // Add token NOT
-  final public void unaryexpr() throws ParseException, ParseEOFException {
+  final public void unaryexpr(RecoverySet g) throws ParseException, ParseEOFException {
     trace_call("unaryexpr");
     try {
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case PLUS:
-      case MINUS:
-      case NOT:
+      try {
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
         case PLUS:
-          jj_consume_token(PLUS);
-          break;
         case MINUS:
-          jj_consume_token(MINUS);
-          break;
         case NOT:
-          jj_consume_token(NOT);
+          switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+          case PLUS:
+            jj_consume_token(PLUS);
+            break;
+          case MINUS:
+            jj_consume_token(MINUS);
+            break;
+          case NOT:
+            jj_consume_token(NOT);
+            break;
+          default:
+            jj_la1[44] = jj_gen;
+            jj_consume_token(-1);
+            throw new ParseException();
+          }
           break;
         default:
-          jj_la1[44] = jj_gen;
-          jj_consume_token(-1);
-          throw new ParseException();
+          jj_la1[45] = jj_gen;
+          ;
         }
-        break;
-      default:
-        jj_la1[45] = jj_gen;
-        ;
+        factor();
+      } catch (ParseException e) {
+        consumeUntil(g, e, "unaryexpr");
       }
-      factor();
     } finally {
       trace_return("unaryexpr");
     }
@@ -1301,40 +1330,8 @@ SECTION 4 -  Rules of Parser
     finally { jj_save(2, xla); }
   }
 
-  private boolean jj_3R_16() {
-    if (!jj_rescan) trace_call("vardecl(LOOKING AHEAD...)");
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_scan_token(30)) jj_scanpos = xsp;
-    if (jj_3R_17()) { if (!jj_rescan) trace_return("vardecl(LOOKAHEAD FAILED)"); return true; }
-    xsp = jj_scanpos;
-    if (jj_3R_18()) {
-    jj_scanpos = xsp;
-    if (jj_scan_token(40)) { if (!jj_rescan) trace_return("vardecl(LOOKAHEAD FAILED)"); return true; }
-    }
-    if (jj_scan_token(IDENT)) { if (!jj_rescan) trace_return("vardecl(LOOKAHEAD FAILED)"); return true; }
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_19()) { jj_scanpos = xsp; break; }
-    }
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_20()) { jj_scanpos = xsp; break; }
-    }
-    xsp = jj_scanpos;
-    if (jj_3R_21()) jj_scanpos = xsp;
-    { if (!jj_rescan) trace_return("vardecl(LOOKAHEAD SUCCEEDED)"); return false; }
-  }
-
-  private boolean jj_3_3() {
-    if (jj_scan_token(IDENT)) return true;
-    if (jj_scan_token(LPAREN)) return true;
-    return false;
-  }
-
-  private boolean jj_3_2() {
-    if (jj_scan_token(IDENT)) return true;
-    if (jj_scan_token(IDENT)) return true;
+  private boolean jj_3R_21() {
+    if (jj_scan_token(ASSIGN)) return true;
     return false;
   }
 
@@ -1361,11 +1358,6 @@ SECTION 4 -  Rules of Parser
     { if (!jj_rescan) trace_return("typeOperation(LOOKAHEAD SUCCEEDED)"); return false; }
   }
 
-  private boolean jj_3R_21() {
-    if (jj_scan_token(ASSIGN)) return true;
-    return false;
-  }
-
   private boolean jj_3R_20() {
     if (jj_scan_token(COMMA)) return true;
     return false;
@@ -1389,6 +1381,36 @@ SECTION 4 -  Rules of Parser
     return false;
   }
 
+  private boolean jj_3R_18() {
+    if (jj_3R_23()) return true;
+    return false;
+  }
+
+  private boolean jj_3R_16() {
+    if (!jj_rescan) trace_call("vardecl(LOOKING AHEAD...)");
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_scan_token(30)) jj_scanpos = xsp;
+    if (jj_3R_17()) { if (!jj_rescan) trace_return("vardecl(LOOKAHEAD FAILED)"); return true; }
+    xsp = jj_scanpos;
+    if (jj_3R_18()) {
+    jj_scanpos = xsp;
+    if (jj_scan_token(40)) { if (!jj_rescan) trace_return("vardecl(LOOKAHEAD FAILED)"); return true; }
+    }
+    if (jj_scan_token(IDENT)) { if (!jj_rescan) trace_return("vardecl(LOOKAHEAD FAILED)"); return true; }
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_19()) { jj_scanpos = xsp; break; }
+    }
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_20()) { jj_scanpos = xsp; break; }
+    }
+    xsp = jj_scanpos;
+    if (jj_3R_21()) jj_scanpos = xsp;
+    { if (!jj_rescan) trace_return("vardecl(LOOKAHEAD SUCCEEDED)"); return false; }
+  }
+
   private boolean jj_3_1() {
     if (jj_3R_16()) return true;
     if (jj_scan_token(SEMICOLON)) return true;
@@ -1403,8 +1425,15 @@ SECTION 4 -  Rules of Parser
     { if (!jj_rescan) trace_return("accessOperation(LOOKAHEAD SUCCEEDED)"); return false; }
   }
 
-  private boolean jj_3R_18() {
-    if (jj_3R_23()) return true;
+  private boolean jj_3_3() {
+    if (jj_scan_token(IDENT)) return true;
+    if (jj_scan_token(LPAREN)) return true;
+    return false;
+  }
+
+  private boolean jj_3_2() {
+    if (jj_scan_token(IDENT)) return true;
+    if (jj_scan_token(IDENT)) return true;
     return false;
   }
 
@@ -1432,7 +1461,7 @@ SECTION 4 -  Rules of Parser
       jj_la1_0 = new int[] {0x2001,0x2001,0x2000,0x10000,0x2000,0x4000,0xbd080000,0x80000000,0x80000000,0x3d080000,0x40000000,0x3d080000,0x0,0x0,0x0,0x0,0x3d080000,0x0,0x3d080000,0x0,0x0,0x3d080000,0x0,0xbd080000,0xffee1000,0x100000,0x0,0x8000,0x0,0x0,0x0,0xffee1000,0x0,0x0,0x0,0x3d080000,0x0,0x3d080000,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x0,0x0,0x0,0x0,0x0,0x0,0x8103,0x3,0x3,0x0,0x0,0x100,0x8000,0x40000,0x8000,0x100000,0x0,0x8000,0x0,0x8000,0x40000,0x100,0x8000,0x103,0x22103,0x180009fc,0x180009fc,0x0,0x100,0x180009fc,0x100,0x22103,0x88000,0x800,0x88000,0x100,0x8000,0x100,0x7e00000,0x7e00000,0xf8000000,0xf8000000,0x0,0x0,0x18000000,0x18000000,0x9fc,0x40000,0x180009fc,};
+      jj_la1_1 = new int[] {0x0,0x0,0x0,0x0,0x0,0x0,0x103,0x3,0x3,0x0,0x0,0x100,0x8000,0x40000,0x8000,0x100000,0x100,0x8000,0x100,0x8000,0x40000,0x100,0x8000,0x103,0x22103,0x180009fc,0x180009fc,0x0,0x100,0x180009fc,0x100,0x22103,0x88000,0x800,0x88000,0x100,0x8000,0x100,0x7e00000,0x7e00000,0xf8000000,0xf8000000,0x0,0x0,0x18000000,0x18000000,0x9fc,0x40000,0x180009fc,};
    }
    private static void jj_la1_init_2() {
       jj_la1_2 = new int[] {0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x8,0x8,0x0,0x0,0x8,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x7,0x7,0x8,0x8,0x0,0x0,0x8,};

@@ -388,16 +388,24 @@ void classbody(RecoverySet g) throws ParseEOFException :
 
 // parte 02 trabalho
 // Criado método com os tipos de acesso
-void accessOperation() throws ParseEOFException : {} {
+void accessOperation(RecoverySet g) throws ParseEOFException : {} {
     // Os qualificadores de acesso devem ser opcionais
-   [<PUBLIC> | <PRIVATE> | <PROTECTED>]
+   try{
+        [<PUBLIC> | <PRIVATE> | <PROTECTED>]
+   } catch (ParseException e) {
+        consumeUntil(g, e, "typeOperation");
+   }
 }
 
 // parte 02 trabalho
 // Criado método com a tipagem
-void typeOperation() throws ParseEOFException : {} {
+void typeOperation(RecoverySet g) throws ParseEOFException : {} {
     // Tipos de variáveis e literais
-   <INT> | <STRING> | <BYTE> | <SHORT> | <LONG> | <FLOAT>
+   try{
+        <INT> | <STRING> | <BYTE> | <SHORT> | <LONG> | <FLOAT>
+   } catch (ParseException e) {
+        consumeUntil(g, e, "typeOperation");
+   }
 }
 
 // parte 02 trabalho
@@ -407,7 +415,7 @@ void typeOperation() throws ParseEOFException : {} {
 void vardecl(RecoverySet g) throws ParseEOFException : {} {
     try{
         [<FINAL>]   // variavel pode ser ou não FINAL
-        accessOperation() (typeOperation() | <IDENT> )
+        (accessOperation(g) (typeOperation(g) | <IDENT>))
         <IDENT>
         (<LBRACKET> <RBRACKET>)*
         (<COMMA> <IDENT> ( <LBRACKET> <RBRACKET>)* )*
@@ -430,7 +438,7 @@ void constructdecl(RecoverySet g) throws ParseEOFException : {} {
 // Add métodos de acesso e tipagem
 void methoddecl(RecoverySet g) throws ParseEOFException : {} {
     try {
-        (typeOperation() | accessOperation() | <IDENT>)
+        (accessOperation(g) (typeOperation(g) | <IDENT>))
         (<LBRACKET> <RBRACKET>)*
         <IDENT> methodbody(g)
     } catch (ParseException e) {
@@ -455,10 +463,10 @@ void methodbody(RecoverySet g) throws ParseEOFException :
 void paramlist(RecoverySet g) throws ParseEOFException : {} {
     try {
         [
-            (typeOperation() | accessOperation() | <IDENT> )
+            (accessOperation(g) (typeOperation(g) | <IDENT>))
             <IDENT>
             (<LBRACKET> <RBRACKET>)*
-            (<COMMA> (typeOperation() | <IDENT>) <IDENT> (<LBRACKET> <RBRACKET>)* )*
+            (<COMMA> (typeOperation(g) | <IDENT>) <IDENT> (<LBRACKET> <RBRACKET>)* )*
         ]
     } catch (ParseException e) {
        consumeUntil(g, e, "paramlist");
@@ -598,14 +606,14 @@ void alocexpression(RecoverySet g) throws ParseEOFException :
     {
         <NEW> (
                  LOOKAHEAD(2) <IDENT> <LPAREN> arglist(f1) <RPAREN> |
-                 ( typeOperation() | <IDENT> )
+                 ( typeOperation(g) | <IDENT> )
                  (<LBRACKET> expression(f2) <RBRACKET>)+
               )
     }
 
 void expression(RecoverySet g) throws ParseEOFException : {} {
     try {
-        numexpr() [( <LT> | <GT> | <LE> | <GE> | <EQ> | <NEQ>) numexpr()]
+        numexpr(g) [( <LT> | <GT> | <LE> | <GE> | <EQ> | <NEQ>) numexpr(g)]
     } catch (ParseException e) {
        consumeUntil(g, e, "expression");
     }
@@ -614,20 +622,32 @@ void expression(RecoverySet g) throws ParseEOFException : {} {
 
 // Trabalho - parte 02
 // Add token STAR, SLASH, REM
-void numexpr() throws ParseEOFException : {} {
-    logicalOp() ((<PLUS> | <MINUS> | <STAR> | <SLASH> | <REM> ) logicalOp())*
+void numexpr(RecoverySet g) throws ParseEOFException : {} {
+    try {
+        logicalOp(g) ((<PLUS> | <MINUS> | <STAR> | <SLASH> | <REM> ) logicalOp(g))*
+    } catch (ParseException e) {
+        consumeUntil(g, e, "numexpr");
+    }
 }
 
 // Trabalho - parte 02
 // Criado novo método
-void logicalOp() throws ParseEOFException : {} {
-    unaryexpr() (( <OR> | <AND> | <XOR> ) unaryexpr())*
+void logicalOp(RecoverySet g) throws ParseEOFException : {} {
+    try {
+        unaryexpr(g) (( <OR> | <AND> | <XOR> ) unaryexpr(g))*
+    } catch (ParseException e) {
+        consumeUntil(g, e, "logicalOp");
+    }
 }
 
 // Trabalho - parte 02
 // Add token NOT
-void unaryexpr() throws ParseEOFException : {} {
-   [(<PLUS> | <MINUS> | <NOT>)] factor()
+void unaryexpr(RecoverySet g) throws ParseEOFException : {} {
+    try {
+        [(<PLUS> | <MINUS> | <NOT>)] factor()
+    } catch (ParseException e) {
+        consumeUntil(g, e, "unaryexpr");
+    }
 }
 
 
