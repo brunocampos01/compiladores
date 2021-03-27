@@ -1,7 +1,6 @@
 # Compiladores
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6f4c4d114f684374a142090ce8bc799f)](https://www.codacy.com/gh/brunocampos01/introducao-a-programacao-orientada-a-objetos/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=brunocampos01/introducao-a-programacao-orientada-a-objetos&amp;utm_campaign=Badge_Grade)
-![License](https://img.shields.io/badge/Code%20License-MIT-green.svg)
-![java](https://img.shields.io/badge/UFSC-Compiladores-green.svg)
+![License](https://img.shields.io/badge/Code%20License-MIT-blue.svg)
+![java](https://img.shields.io/badge/UFSC-Compiladores-blue.svg)
 
 ## Trabalho
 Desenvolvimento de um compilador
