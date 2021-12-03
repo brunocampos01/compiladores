@@ -8,14 +8,14 @@ Desenvolvimento de um compilador
 - [Analisador Sinático](trabalho_parte_02-analisador_sintatico/)
 - [Árvore Sintática](trabalho_parte_03-arvore_sintatica/)
 
-### Requisitos
-- Java 1.8
-- Javacc
+## Requisitos
+| Requisite                               | Version  |
+|-----------------------------------------|----------|
+| Java                                    | 1.8.0_282|
+| Javac                                   | 1.8.0_282|
+| Java Compiler Compiler (JavaCC)         | 7.0.10   |
 
-```bash
-sudo apt install javacc
-```
-
+## Utilização
 ### Gerar Parser 
 ```
 javacc parser/langX++.jj
